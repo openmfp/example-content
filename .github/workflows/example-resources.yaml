@@ -5,11 +5,12 @@ on:
       - 'charts/example-resources/**'
       - '.github/workflows/example-resources.yaml'
 
+concurrency:
+  group: example-resources-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pipeline:
-    concurrency:
-      group: ${{ github.ref }}
-      cancel-in-progress: true
     uses: openmfp/gha/.github/workflows/pipeline-chart.yml@main
     with:
       chartFolder: charts/example-resources
