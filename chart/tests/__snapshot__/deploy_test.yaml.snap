@@ -23,34 +23,9 @@ matches the snapshot:
         spec:
           containers:
             - env:
-                - name: HTTP_PROTOCOL
-                  value: https
-                - name: OIDC_CLIENT_ID_PORTAL
-                  value: 12345
-                - name: OIDC_CLIENT_SECRET_PORTAL
-                  valueFrom:
-                    secretKeyRef:
-                      key: secret
-                      name: portal-client-secret-portal
-                - name: AUTH_SERVER_URL_PORTAL
-                  value: https://auth.example.com
-                - name: TOKEN_URL_PORTAL
-                  value: https://auth.example.com/oauth2/token
-                - name: BASE_DOMAINS_PORTAL
-                  value: portal.example.com,portal2.example.com
-                - name: IDP_NAMES
-                  value: portal
                 - name: PORT
                   value: "8080"
-                - name: REGION
-                  value: null
-                - name: IMAGE_TAG
-                  value: "12345"
-                - name: IMAGE_NAME
-                  value: ghcr.io/openmfp/portal
-                - name: COOKIE_DOMAIN
-                  value: null
-              image: ghcr.io/openmfp/portal:12345
+              image: ghcr.io/openmfp/example-content:12345
               imagePullPolicy: IfNotPresent
               name: RELEASE-NAME
               ports:
@@ -95,36 +70,9 @@ matches the snapshot with FRONTEND_PORT:
         spec:
           containers:
             - env:
-                - name: HTTP_PROTOCOL
-                  value: https
-                - name: OIDC_CLIENT_ID_PORTAL
-                  value: 12345
-                - name: OIDC_CLIENT_SECRET_PORTAL
-                  valueFrom:
-                    secretKeyRef:
-                      key: secret
-                      name: portal-client-secret-portal
-                - name: AUTH_SERVER_URL_PORTAL
-                  value: https://auth.example.com
-                - name: TOKEN_URL_PORTAL
-                  value: https://auth.example.com/oauth2/token
-                - name: BASE_DOMAINS_PORTAL
-                  value: portal.example.com,portal2.example.com
-                - name: IDP_NAMES
-                  value: portal
                 - name: PORT
                   value: "8080"
-                - name: REGION
-                  value: null
-                - name: IMAGE_TAG
-                  value: "12345"
-                - name: IMAGE_NAME
-                  value: ghcr.io/openmfp/portal
-                - name: COOKIE_DOMAIN
-                  value: null
-                - name: FRONTEND_PORT
-                  value: "8080"
-              image: ghcr.io/openmfp/portal:12345
+              image: ghcr.io/openmfp/example-content:12345
               imagePullPolicy: IfNotPresent
               name: RELEASE-NAME
               ports:

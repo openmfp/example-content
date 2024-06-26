@@ -5,8 +5,10 @@
     "npm:install:ui": "cd frontend && npm install",
     "test": "concurrently 'npm:test:*(!cov)'",
     "test:ui": "cd frontend && npm run test",
+    "test:backend": "cd backend && npm run test",
     "build": "concurrently 'npm:build:*'",
     "build:ui": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
     "prepare": "husky && npm run npm:install:ui"
   },
   "private": true,

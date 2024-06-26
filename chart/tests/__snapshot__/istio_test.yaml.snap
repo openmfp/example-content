@@ -32,10 +32,7 @@ matches the snapshot:
       gateways:
         - NAMESPACE/gateway
       hosts:
-        - portal.example.com
-        - portal.portal.example.com
-        - portal2.example.com
-        - portal.portal2.example.com
+        - content.d1.openmfp.dxp.k8s.ondemand.com
       http:
         - corsPolicy:
             allowHeaders:
