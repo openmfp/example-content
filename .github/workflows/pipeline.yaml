@@ -1,0 +1,15 @@
+name: pipe
+on: [push]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pipe:
+    uses: openmfp/gha/.github/workflows/pipeline-node-app.yml@main
+    secrets: inherit
+    with:
+      imageTagName: ghcr.io/openmfp/demo-content
+      componentVersionKey: demo-content
+      release_branch: main
