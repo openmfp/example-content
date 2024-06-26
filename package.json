@@ -2,10 +2,14 @@
   "name": "example-content",
   "version": "0.0.0",
   "scripts": {
+    "test": "concurrently 'npm:test:*(!cov)'",
+    "test:ui": "cd frontend && npm run test",
+    "build": "concurrently 'npm:build:*'"
   },
   "private": true,
   "dependencies": {
   },
   "devDependencies": {
+    "concurrently": "8.2.2"
   }
 }
