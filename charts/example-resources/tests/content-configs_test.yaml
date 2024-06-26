@@ -1,0 +1,7 @@
+suite: content-configurations
+templates:
+  - content-configurations/*.yaml
+tests:
+  - it: matches the snapshot
+    asserts:
+      - matchSnapshot: {}

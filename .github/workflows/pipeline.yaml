@@ -11,7 +11,7 @@ jobs:
     secrets: inherit
     with:
       imageTagName: ghcr.io/openmfp/example-content
-      componentVersionKey: example-content
+      componentVersionKey: example-ui
       release_branch: wip
       chartFolder: charts/example-ui
       additionalTestFilesCommand: -f charts/example-ui/test-values.yaml

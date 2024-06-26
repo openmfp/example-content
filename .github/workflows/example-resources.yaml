@@ -1,0 +1,28 @@
+name: Build Keycloak Workflow
+on:
+  push:
+    paths:
+      - 'charts/example-resources/**'
+      - '.github/workflows/example-resources.yaml'
+
+jobs:
+  pipeline:
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
+    uses: openmfp/gha/.github/workflows/pipeline-chart.yml@main
+    with:
+      chartFolder: charts/example-resources
+      additionalTestFilesCommand: ''
+      imageTagName: ghcr.io/openmfp/example-content
+      release_branch: feat/wip
+    secrets: inherit
+
+  updateVersionFile:
+    if: ${{ github.ref == 'refs/heads/feat/wip' }}
+    needs: [pipeline]
+    uses: openmfp/gha/.github/workflows/job-update-version-file.yml@main
+    secrets: inherit
+    with:
+      componentVersionKey: "example-resources"
+      version: ${{ needs.pipeline.outputs.version }}

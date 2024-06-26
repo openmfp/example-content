@@ -1,0 +1,11 @@
+matches the snapshot:
+  1: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: home
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: "\n{\n  \"name\": \"overview\",\n  \"luigiConfigFragment\": [\n    {\n      \"data\": {\n        \"nodes\": [\n          {\n            \"entityType\": \"global\",\n            \"pathSegment\": \"home\",\n            \"label\": \"Overview\",\n            \"icon\": \"home\",\n            \"hideFromNav\": true,            \n            \"defineEntity\": {\n              \"id\": \"example\"\n            },\n            \"children\": [\n              {\n                \"pathSegment\": \"overview\",\n                \"label\": \"Overview\",\n                \"icon\": \"home\",\n                \"url\": \"https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html\",\n                \"context\": {\n                  \"title\": \"Welcome to OpenMFP Portal\",\n                  \"content\": \" \"\n                }\n              }\n            ]\n          }\n        ]\n      }\n    }\n  ]\n}"
+        contentType: json
