@@ -12,4 +12,4 @@ jobs:
     with:
       imageTagName: ghcr.io/openmfp/demo-content
       componentVersionKey: demo-content
-      release_branch: main
+      release_branch: wip
