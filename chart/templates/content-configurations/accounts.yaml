@@ -1,9 +1,0 @@
-apiVersion: core.openmfp.io/v1alpha1
-kind: ContentConfiguration
-metadata:
-  name: gardener
-  namespace: {{ .Release.Namespace }}
-spec:
-  remoteConfiguration:
-    url: {{.Values.http.protocol}}://{{.Values.http.host}}/assets/accounts.json
-    contentType: json

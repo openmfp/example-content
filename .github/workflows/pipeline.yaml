@@ -13,3 +13,4 @@ jobs:
       imageTagName: ghcr.io/openmfp/example-content
       componentVersionKey: example-content
       release_branch: wip
+      chartFolder: charts/example-ui
