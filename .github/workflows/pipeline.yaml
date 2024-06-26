@@ -14,3 +14,4 @@ jobs:
       componentVersionKey: example-content
       release_branch: wip
       chartFolder: charts/example-ui
+      additionalTestFilesCommand: -f charts/example-ui/test-values.yaml
