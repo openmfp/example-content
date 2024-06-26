@@ -1,4 +1,4 @@
-name: Build Keycloak Workflow
+name: Build Example Resources
 on:
   push:
     paths:
