@@ -1,0 +1,9 @@
+suite: accounts
+templates:
+  - accounts/*.yaml
+tests:
+  - it: matches the snapshot
+    set:
+      accounts.enabled: true
+    asserts:
+      - matchSnapshot: {}

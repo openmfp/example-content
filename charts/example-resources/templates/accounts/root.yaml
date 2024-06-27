@@ -1,0 +1,15 @@
+{{- if .Values.accounts.enabled }}
+apiVersion: core.openmfp.io/v1alpha1
+kind: Account
+metadata:
+  name: demo-root
+  namespace: {{ .Values.accounts.rootNamespace }}
+spec:
+  type: folder
+  displayName: OpenMFP Root Account
+  namespace: demo-root
+  extensions:
+    - apiVersion: v1
+      kind: ConfigMap
+      specGoTemplate: {}
+{{- end }}

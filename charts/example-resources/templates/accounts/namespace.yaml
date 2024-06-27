@@ -1,0 +1,6 @@
+{{- if .Values.accounts.enabled }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.accounts.rootNamespace }}
+{{- end }}

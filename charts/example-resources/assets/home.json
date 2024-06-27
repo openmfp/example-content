@@ -9,7 +9,7 @@
             "pathSegment": "home",
             "label": "Overview",
             "icon": "home",
-            "hideFromNav": true,            
+            "hideFromNav": true,
             "defineEntity": {
               "id": "example"
             },
