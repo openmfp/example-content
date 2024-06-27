@@ -1,5 +1,5 @@
 image:
-  name: ghcr.io/openmfp/example-content
+  name: ghcr.io/openmfp/example-ui
   pullPolicy: IfNotPresent
   pullSecret: github
 
