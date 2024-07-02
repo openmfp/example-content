@@ -60,39 +60,6 @@ matches the snapshot:
     apiVersion: core.openmfp.io/v1alpha1
     kind: ContentConfiguration
     metadata:
-      name: gardener
-      namespace: NAMESPACE
-    spec:
-      inlineConfiguration:
-        content: |2-
-          {
-            "name": "gardener",
-            "luigiConfigFragment": [
-              {
-                "data": {
-                  "nodes": [
-                    {
-                      "entityType": "main.account",
-                      "pathSegment": "gardener",
-                      "label": "Gardener Dashboard",
-                      "virtualTree": true,
-                      "initialRoute": "projects",
-                      "url": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com?account=:accountId",
-                      "icon": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com/static/assets/logo.svg",
-                      "loadingIndicator": {
-                        "enabled": false
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        contentType: json
-  3: |
-    apiVersion: core.openmfp.io/v1alpha1
-    kind: ContentConfiguration
-    metadata:
       name: home
       namespace: NAMESPACE
     spec:
