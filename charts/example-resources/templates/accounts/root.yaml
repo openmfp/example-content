@@ -7,7 +7,7 @@ metadata:
 spec:
   type: folder
   displayName: OpenMFP Root Account
-  namespace: demo-root
+  namespace: {{ .Values.accounts.demoRootNamespace }}
   extensions:
     - apiVersion: v1
       kind: ConfigMap
