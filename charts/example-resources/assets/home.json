@@ -7,16 +7,14 @@
           {
             "entityType": "global",
             "pathSegment": "home",
-            "label": "Overview",
-            "icon": "home",
             "hideFromNav": true,
             "defineEntity": {
-              "id": "example"
+              "id": "main"
             },
             "children": [
               {
                 "pathSegment": "overview",
-                "label": "Overview",
+                "label": "Overview Home",
                 "icon": "home",
                 "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
                 "context": {
