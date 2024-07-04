@@ -8,8 +8,13 @@ export interface coreOpenmfpIo {
 
 export interface Account {
   metadata: ObjectMetadata;
+  spec: AccountSpec
 }
 
 export interface ObjectMetadata {
   name: String
+}
+export interface AccountSpec {
+  displayName: String
+  // type: String
 }

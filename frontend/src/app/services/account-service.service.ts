@@ -9,9 +9,13 @@ export const POLLING_INTERVAL = 5000;
 const accountsQuery = gql `
 query {
   coreOpenmfpIo {
-    accounts(namespace: "openmfp-root") {
+    accounts(namespace: "demo-root") {
       metadata {
         name
+      }
+      spec {
+        displayName
+        # type
       }
     }
   }

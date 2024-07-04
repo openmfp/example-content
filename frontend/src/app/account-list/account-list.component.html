@@ -23,26 +23,21 @@
         <thead fd-table-header>
             <tr fd-table-row>
                 <th fd-table-cell>Name</th>
+                <th fd-table-cell>Display Name</th>
+                <!-- <th fd-table-cell>Type</th> -->
             </tr>
         </thead>
         <tbody fd-table-body  >
-            
                 <tr fd-table-row *ngFor="let row of accountList;">
                     <td fd-table-cell>
                         <a fd-link href="#">{{ row.metadata.name }}</a>
                     </td>
-                    <!-- <td fd-table-cell>
-                        <p fd-table-text maxWidth="250px" [noWrap]="true">
-                            {{ row.column2 }}
-                        </p>
-                    </td>
                     <td fd-table-cell>
-                        <p fd-table-text maxWidth="250px">
-                            {{ row.column3 }}
-                        </p>
-                    </td>
-                    <td fd-table-cell>{{ row.date }}</td>
-                    <td fd-table-cell><fd-icon [glyph]="row.type"></fd-icon></td> -->
+                      {{ row.spec.displayName }}
+                  </td>
+                  <!-- <td fd-table-cell>
+                    {{ row.spec.type }}
+                </td> -->
                 </tr>
         </tbody>
     </table>
