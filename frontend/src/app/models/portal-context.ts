@@ -1,0 +1,38 @@
+import { FrameContext } from "./frame-context";
+
+export interface PortalContext extends Record<string, any> {
+  token: string;
+  userid: string;
+  tenantid: string;
+  frameContext: FrameContext;
+  serviceProviderConfig: Record<string, string>;
+  projectId?: string;
+  teamId?: string;
+  componentId?: string;
+  profileUserId?: string;
+  entityContext: {
+    project?: {
+      policies: string[];
+      automaticdNamespace?: string;
+    };
+    team?: {
+      policies: string[];
+      automaticdNamespace?: string;
+    };
+    component?: {
+      extensions: {
+        dora?: {
+          identifier: string;
+        };
+        piper?: {
+          enabled: boolean;
+        };
+      };
+    };
+  };
+
+  goBackContext?: any;
+  parentNavigationContexts: string[];
+
+  extClassName?: string;
+}
