@@ -7,7 +7,7 @@
           {
             "entityType": "main",
             "pathSegment": "accounts",
-            "label": "Account List",
+            "label": "Accounts",
             "keepSelectedForChildren": true,
             "icon": "home",
             "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",

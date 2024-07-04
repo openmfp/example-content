@@ -14,7 +14,7 @@
             "children": [
               {
                 "pathSegment": "overview",
-                "label": "Overview Home",
+                "label": "Overview",
                 "icon": "home",
                 "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
                 "context": {
