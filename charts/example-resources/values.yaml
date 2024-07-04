@@ -1,4 +1,8 @@
 accounts:
-  enabled: false
+  enabled: true
   rootNamespace: openmfp-root
   demoRootNamespace: demo-root
+
+contentConfigurations:
+  home: true
+  accounts: false
