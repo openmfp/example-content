@@ -13,6 +13,7 @@ COPY /frontend ./
 RUN npm run build
 
 WORKDIR /app/backend
+COPY /backend ./
 RUN npm run build
 
 FROM node:20.11.0-alpine
