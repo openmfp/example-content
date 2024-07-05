@@ -23,4 +23,4 @@ COPY --from=build /app /app
 WORKDIR /app/backend
 EXPOSE 8080
 
-CMD ["node", "dist/index"]
+CMD ["node", "index"]
