@@ -1,0 +1,12 @@
+{{- if .Values.contentConfigurations.providers }}
+apiVersion: core.openmfp.io/v1alpha1
+kind: ContentConfiguration
+metadata:
+  name: providers
+  namespace: {{ .Release.Namespace }}
+spec:
+  inlineConfiguration:
+    content: |-
+      {{ .Files.Get "assets/providers.json" | nindent 6 }}
+    contentType: json
+{{- end }}

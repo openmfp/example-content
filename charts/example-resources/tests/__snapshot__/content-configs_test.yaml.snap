@@ -40,7 +40,7 @@ matches the snapshot:
             ]
           }
         contentType: json
-matches the snapshot (gardener:
+matches the snapshot (gardener):
   1: |
     apiVersion: core.openmfp.io/v1alpha1
     kind: ContentConfiguration
@@ -123,6 +123,84 @@ matches the snapshot (gardener:
                           }
                         }
                       ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        contentType: json
+matches the snapshot (providers):
+  1: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: home
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: |2-
+          {
+            "name": "overview",
+            "luigiConfigFragment": [
+              {
+                "data": {
+                  "nodes": [
+                    {
+                      "entityType": "global",
+                      "pathSegment": "home",
+                      "hideFromNav": true,
+                      "defineEntity": {
+                        "id": "main"
+                      },
+                      "children": [
+                        {
+                          "pathSegment": "overview",
+                          "label": "Overview",
+                          "icon": "home",
+                          "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                          "context": {
+                            "title": "Welcome to OpenMFP Portal",
+                            "content": " "
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        contentType: json
+  2: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: providers
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: |2-
+          {
+            "name": "overview",
+            "luigiConfigFragment": [
+              {
+                "data": {
+                  "nodes": [
+                    {
+                      "pathSegment": "providers",
+                      "label": "Providers",
+                      "entityType": "main",
+                      "loadingIndicator": {
+                        "enabled": false
+                      },
+                      "keepSelectedForChildren": true,
+                      "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                      "children": [ ],
+                      "context": {
+                        "title": "Catalog of Active Providers",
+                        "content": " "
+                      }
                     }
                   ]
                 }

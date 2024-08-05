@@ -1,0 +1,26 @@
+{
+  "name": "overview",
+  "luigiConfigFragment": [
+    {
+      "data": {
+        "nodes": [
+          {
+            "pathSegment": "providers",
+            "label": "Providers",
+            "entityType": "main",
+            "loadingIndicator": {
+              "enabled": false
+            },
+            "keepSelectedForChildren": true,
+            "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+            "children": [ ],
+            "context": {
+              "title": "Catalog of Active Providers",
+              "content": " "
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
