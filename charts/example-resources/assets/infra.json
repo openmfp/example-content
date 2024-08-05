@@ -9,7 +9,10 @@
             "pathSegment": "ironcore",
             "label": "Iron Core",
             "entityType": "main.account",
-            "category": {"id": "Infrastructure", "label": "Infrastructure", "collapsible": false },
+            "category": {
+              "label": "Infrastructure",
+              "collapsible": false
+            },
             "loadingIndicator": {
               "enabled": false
             },
