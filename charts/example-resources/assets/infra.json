@@ -1,0 +1,28 @@
+{
+  "name": "overview",
+  "creationTimestamp": "2022-05-17T11:37:17Z",
+  "luigiConfigFragment": [
+    {
+      "data": {
+        "nodes": [
+          {
+            "pathSegment": "ironcore",
+            "label": "Iron Core",
+            "entityType": "main.account",
+            "category": "Infrastructure",
+            "loadingIndicator": {
+              "enabled": false
+            },
+            "keepSelectedForChildren": true,
+            "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+            "children": [ ],
+            "context": {
+              "title": "Iron Core",
+              "content": " "
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

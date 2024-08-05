@@ -7,3 +7,4 @@ contentConfigurations:
   home: true
   gardener: false
   providers: false
+  infra: false
