@@ -62,7 +62,7 @@ matches the snapshot (gardener):
                       "entityType": "main.account",
                       "pathSegment": "gardener",
                       "label": "Gardener",
-                      "category": "Kubernetes",
+                      "category": {"id": "Kubernetes", "label": "Kubernetes", "icon": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com/static/assets/logo.svg","collapsible": false },
                       "virtualTree": true,
                       "initialRoute": "namespace",
                       "url": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com",
