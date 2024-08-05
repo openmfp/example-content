@@ -10,6 +10,7 @@ matches the snapshot:
         content: |2-
           {
             "name": "overview",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
             "luigiConfigFragment": [
               {
                 "data": {
@@ -100,6 +101,7 @@ matches the snapshot (gardener):
         content: |2-
           {
             "name": "overview",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
             "luigiConfigFragment": [
               {
                 "data": {
@@ -142,6 +144,7 @@ matches the snapshot (providers):
         content: |2-
           {
             "name": "overview",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
             "luigiConfigFragment": [
               {
                 "data": {
@@ -183,6 +186,7 @@ matches the snapshot (providers):
         content: |2-
           {
             "name": "overview",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
             "luigiConfigFragment": [
               {
                 "data": {
