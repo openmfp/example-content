@@ -9,7 +9,7 @@
             "pathSegment": "ironcore",
             "label": "Iron Core",
             "entityType": "main.account",
-            "category": "Infrastructure",
+            "category": {"id": "Infrastructure", "label": "Infrastructure", "collapsible": false },
             "loadingIndicator": {
               "enabled": false
             },
@@ -18,6 +18,22 @@
             "children": [ ],
             "context": {
               "title": "Iron Core",
+              "content": " "
+            }
+          },
+          {
+            "pathSegment": "openmcp",
+            "label": "OpenMCP",
+            "entityType": "main.account",
+            "category": "Infrastructure",
+            "loadingIndicator": {
+              "enabled": false
+            },
+            "keepSelectedForChildren": true,
+            "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+            "children": [ ],
+            "context": {
+              "title": "OpenMCP",
               "content": " "
             }
           }

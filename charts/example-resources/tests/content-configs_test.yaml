@@ -17,3 +17,9 @@ tests:
         providers: true
     asserts:
       - matchSnapshot: {}
+  - it: matches the snapshot (infra)
+    set:
+      contentConfigurations:
+        infra: true
+    asserts:
+      - matchSnapshot: {}

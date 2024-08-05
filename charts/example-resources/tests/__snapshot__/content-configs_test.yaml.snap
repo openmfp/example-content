@@ -133,6 +133,103 @@ matches the snapshot (gardener):
             ]
           }
         contentType: json
+matches the snapshot (infra):
+  1: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: home
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: |2-
+          {
+            "name": "overview",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
+            "luigiConfigFragment": [
+              {
+                "data": {
+                  "nodes": [
+                    {
+                      "entityType": "global",
+                      "pathSegment": "home",
+                      "hideFromNav": true,
+                      "defineEntity": {
+                        "id": "main"
+                      },
+                      "children": [
+                        {
+                          "pathSegment": "overview",
+                          "label": "Overview",
+                          "icon": "home",
+                          "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                          "context": {
+                            "title": "Welcome to OpenMFP Portal",
+                            "content": " "
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        contentType: json
+  2: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: infra
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: |2-
+          {
+            "name": "overview",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
+            "luigiConfigFragment": [
+              {
+                "data": {
+                  "nodes": [
+                    {
+                      "pathSegment": "ironcore",
+                      "label": "Iron Core",
+                      "entityType": "main.account",
+                      "category": {"id": "Infrastructure", "label": "Infrastructure", "collapsible": false },
+                      "loadingIndicator": {
+                        "enabled": false
+                      },
+                      "keepSelectedForChildren": true,
+                      "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                      "children": [ ],
+                      "context": {
+                        "title": "Iron Core",
+                        "content": " "
+                      }
+                    },
+                    {
+                      "pathSegment": "openmcp",
+                      "label": "OpenMCP",
+                      "entityType": "main.account",
+                      "category": "Infrastructure",
+                      "loadingIndicator": {
+                        "enabled": false
+                      },
+                      "keepSelectedForChildren": true,
+                      "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                      "children": [ ],
+                      "context": {
+                        "title": "OpenMCP",
+                        "content": " "
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        contentType: json
 matches the snapshot (providers):
   1: |
     apiVersion: core.openmfp.io/v1alpha1
