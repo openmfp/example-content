@@ -57,9 +57,5 @@ matches the snapshot:
       namespace: openmfp-root
     spec:
       displayName: OpenMFP Root Account
-      extensions:
-        - apiVersion: v1
-          kind: ConfigMap
-          specGoTemplate: {}
       namespace: demo-root
       type: folder

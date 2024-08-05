@@ -8,7 +8,7 @@
           {
             "entityType": "main.account",
             "pathSegment": "gardener",
-            "label": "Gardener Dashboard",
+            "label": "Gardener",
             "virtualTree": true,
             "initialRoute": "namespace",
             "url": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com",
