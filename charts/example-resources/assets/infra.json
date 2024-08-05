@@ -7,10 +7,10 @@
         "nodes": [
           {
             "pathSegment": "ironcore",
-            "label": "Iron Core",
+            "label": "Compute",
             "entityType": "main.account",
             "category": {
-              "label": "Infrastructure",
+              "label": "Iron Core",
               "icon": "https://avatars.githubusercontent.com/u/147836484?s=200&v=4",
               "collapsible": false
             },
@@ -26,10 +26,29 @@
             }
           },
           {
-            "pathSegment": "openmcp",
-            "label": "OpenMCP",
+            "pathSegment": "network",
+            "label": "Network",
             "entityType": "main.account",
-            "category": "Infrastructure",
+            "category": "Iron Core",
+            "loadingIndicator": {
+              "enabled": false
+            },
+            "keepSelectedForChildren": true,
+            "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+            "children": [ ],
+            "context": {
+              "title": "OpenMCP",
+              "content": " "
+            }
+          },
+          {
+            "pathSegment": "openmcp",
+            "label": "Control Planes",
+            "entityType": "main.account",
+            "category": {
+              "label": "OpenMCP",
+              "collapsible": false
+            },
             "loadingIndicator": {
               "enabled": false
             },

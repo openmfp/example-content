@@ -8,9 +8,9 @@
           {
             "entityType": "main.account",
             "pathSegment": "gardener",
-            "label": "Gardener",
+            "label": "Projects",
             "category": {
-              "label": "Kubernetes",
+              "label": "Gardener",
               "icon": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com/static/assets/logo.svg",
               "collapsible": false
             },
