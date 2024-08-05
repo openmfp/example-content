@@ -6,3 +6,4 @@ accounts:
 contentConfigurations:
   home: true
   accounts: false
+  gardener: false

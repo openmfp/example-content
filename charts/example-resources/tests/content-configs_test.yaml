@@ -5,3 +5,9 @@ tests:
   - it: matches the snapshot
     asserts:
       - matchSnapshot: {}
+  - it: matches the snapshot (gardener
+    set:
+      contentConfigurations:
+        gardener: true
+    asserts:
+      - matchSnapshot: {}

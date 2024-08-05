@@ -40,3 +40,93 @@ matches the snapshot:
             ]
           }
         contentType: json
+matches the snapshot (gardener:
+  1: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: gardener
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: |2-
+          {
+            "name": "gardener",
+            "creationTimestamp": "2022-05-17T11:37:17Z",
+            "luigiConfigFragment": [
+              {
+                "data": {
+                  "nodes": [
+                    {
+                      "entityType": "main.account",
+                      "pathSegment": "gardener",
+                      "label": "Gardener Dashboard",
+                      "virtualTree": true,
+                      "initialRoute": "namespace",
+                      "url": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com",
+                      "icon": "https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com/static/assets/logo.svg",
+                      "loadingIndicator": {
+                        "enabled": false
+                      },
+                      "requiredIFramePermissions": {
+                        "sandbox": [
+                          "allow-forms",
+                          "allow-modals",
+                          "allow-popups",
+                          "allow-popups-to-escape-sandbox",
+                          "allow-same-origin",
+                          "allow-scripts"
+                        ],
+                        "allow": [
+                          "clipboard-read",
+                          "clipboard-write"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        contentType: json
+  2: |
+    apiVersion: core.openmfp.io/v1alpha1
+    kind: ContentConfiguration
+    metadata:
+      name: home
+      namespace: NAMESPACE
+    spec:
+      inlineConfiguration:
+        content: |2-
+          {
+            "name": "overview",
+            "luigiConfigFragment": [
+              {
+                "data": {
+                  "nodes": [
+                    {
+                      "entityType": "global",
+                      "pathSegment": "home",
+                      "hideFromNav": true,
+                      "defineEntity": {
+                        "id": "main"
+                      },
+                      "children": [
+                        {
+                          "pathSegment": "overview",
+                          "label": "Overview",
+                          "icon": "home",
+                          "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                          "context": {
+                            "title": "Welcome to OpenMFP Portal",
+                            "content": " "
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        contentType: json
