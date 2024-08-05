@@ -202,6 +202,7 @@ matches the snapshot (infra):
                       "entityType": "main.account",
                       "category": {
                         "label": "Infrastructure",
+                        "icon": "https://avatars.githubusercontent.com/u/147836484?s=200&v=4",
                         "collapsible": false
                       },
                       "loadingIndicator": {
