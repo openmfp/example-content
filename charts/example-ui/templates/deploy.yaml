@@ -43,3 +43,15 @@ spec:
         ports:
           - name: http
             containerPort: {{ .Values.port }}
+        volumeMounts:
+          - name: tmp-volume
+            mountPath: /var/cache/nginx
+            readOnly: false
+          - name: run-volume
+            mountPath: /var/run
+            readOnly: false
+      volumes:
+        - name: tmp-volume
+          emptyDir: {}
+        - name: run-volume
+          emptyDir: {}

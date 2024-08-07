@@ -40,11 +40,23 @@ matches the snapshot:
                   memory: 50Mi
               securityContext:
                 readOnlyRootFilesystem: true
+              volumeMounts:
+                - mountPath: /var/cache/nginx
+                  name: tmp-volume
+                  readOnly: false
+                - mountPath: /var/run
+                  name: run-volume
+                  readOnly: false
           securityContext:
             fsGroup: 2000
             runAsGroup: 3000
             runAsUser: 1000
           serviceAccountName: RELEASE-NAME
+          volumes:
+            - emptyDir: {}
+              name: tmp-volume
+            - emptyDir: {}
+              name: run-volume
 matches the snapshot with FRONTEND_PORT:
   1: |
     apiVersion: apps/v1
@@ -87,8 +99,20 @@ matches the snapshot with FRONTEND_PORT:
                   memory: 50Mi
               securityContext:
                 readOnlyRootFilesystem: true
+              volumeMounts:
+                - mountPath: /var/cache/nginx
+                  name: tmp-volume
+                  readOnly: false
+                - mountPath: /var/run
+                  name: run-volume
+                  readOnly: false
           securityContext:
             fsGroup: 2000
             runAsGroup: 3000
             runAsUser: 1000
           serviceAccountName: RELEASE-NAME
+          volumes:
+            - emptyDir: {}
+              name: tmp-volume
+            - emptyDir: {}
+              name: run-volume
