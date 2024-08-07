@@ -10,7 +10,7 @@ jobs:
     uses: openmfp/gha/.github/workflows/pipeline-node-app.yml@main
     secrets: inherit
     with:
-      imageTagName: ghcr.io/openmfp/example-ui
+      imageTagName: ghcr.io/openmfp/example-content
       componentVersionKey: example-ui
       release_branch: wip
       chartFolder: charts/example-ui

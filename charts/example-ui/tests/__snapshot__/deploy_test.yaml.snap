@@ -25,7 +25,7 @@ matches the snapshot:
             - env:
                 - name: PORT
                   value: "8080"
-              image: ghcr.io/openmfp/example-ui:12345
+              image: ghcr.io/openmfp/example-content:12345
               imagePullPolicy: IfNotPresent
               name: RELEASE-NAME
               ports:
@@ -72,7 +72,7 @@ matches the snapshot with FRONTEND_PORT:
             - env:
                 - name: PORT
                   value: "8080"
-              image: ghcr.io/openmfp/example-ui:12345
+              image: ghcr.io/openmfp/example-content:12345
               imagePullPolicy: IfNotPresent
               name: RELEASE-NAME
               ports:
