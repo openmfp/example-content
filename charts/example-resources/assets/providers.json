@@ -13,12 +13,8 @@
               "enabled": false
             },
             "keepSelectedForChildren": true,
-            "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+            "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/static/catalog/index.html",
             "children": [ ],
-            "context": {
-              "title": "Catalog of Active Providers",
-              "content": " "
-            }
           }
         ]
       }
