@@ -325,7 +325,7 @@ matches the snapshot (providers):
                       },
                       "keepSelectedForChildren": true,
                       "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/static/catalog/index.html",
-                      "children": [ ],
+                      "children": [ ]
                     }
                   ]
                 }
