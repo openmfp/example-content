@@ -7,4 +7,5 @@
 !frontend/tsconfig.json
 !frontend/src/**
 
+!static/**
 !nginx.conf
