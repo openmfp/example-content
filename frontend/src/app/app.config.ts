@@ -7,12 +7,13 @@ import { provideTheming, themingInitializer } from '@fundamental-ngx/core/themin
 import { ContentDensityService, RtlService } from '@fundamental-ngx/core';
 import { HttpLink } from 'apollo-angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { withHashLocation } from '@angular/router';
 
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withHashLocation()),
     provideAnimations(),
     provideTheming({ defaultTheme: 'sap_horizon', changeThemeOnQueryParamChange: true }),
     themingInitializer(),
