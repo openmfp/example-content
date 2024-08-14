@@ -39,6 +39,7 @@
     "@angular/cli": "^17.3.8",
     "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
+    "@ui5/webcomponents-icons": "^2.1.1",
     "@ui5/webcomponents-ngx": "^0.3.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
