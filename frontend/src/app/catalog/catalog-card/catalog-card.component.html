@@ -4,19 +4,16 @@
   </ui5-card-header>
 
   <div class="content content-padding">
-    <!-- {{item | json}} -->
     <ui5-title level="H5" style="padding-bottom: 1rem;">
       {{item?.displayName}}
     </ui5-title>
-    <div class="content-group ">
-      <small>
-        {{item?.description | slice:0:100 }}
-      </small>
+    <div class="content-group item-description">
+        {{item?.description}}
     </div>
 
-    <div class="content-group">
-      <ui5-label>Website</ui5-label>
-      <ui5-link target="_blank">www.company_a.example.com</ui5-link>
+     <div class="content-group">
+      <ui5-label>Category:</ui5-label>
+      <ui5-label> {{item?.category}}</ui5-label>
     </div>
   </div>
 </ui5-card>
