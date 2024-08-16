@@ -1,0 +1,12 @@
+.catalog-card-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+
+  .catalog-card {
+    width: calc(24%);
+  }
+}
