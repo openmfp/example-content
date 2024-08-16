@@ -20,12 +20,14 @@ export class CatalogComponent implements OnInit {
   providers: Set<string> = new Set();
   selectedCategories: string[] = [];
   selectedProviders: string[] = [];
-  filteredItems!: ExtensionClass[];
+  filteredItems?: ExtensionClass[];
 
   constructor(private dataService: CatalogDataService, private luigiContextService: LuigiContextService) { }
 
   async ngOnInit() {
     this.luigiContextService.getContextAsync().then(async ctx => {
+      console.log(ctx);
+      
       const account: string = (ctx['accountId'] || '').trim();
       this.items = await this.dataService.getCatalogItems(account?.length > 0 ? account : undefined);
       
@@ -34,6 +36,8 @@ export class CatalogComponent implements OnInit {
         item.provider && this.providers.add(item.provider);
       });
     });
+    this.filterItems();
+
   }
 
   public onCategoriesChange(e: any) {
