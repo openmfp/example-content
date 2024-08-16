@@ -1,18 +1,18 @@
 @if (item) {
-<ui5-card class="small">
-  <ui5-card-header slot="header" interactive>
-    <img [src]="item.icon?.light?.data" slot="avatar" />
-  </ui5-card-header>
-  <div class="content content-padding">
-    <ui5-title level="H5"> {{item.displayName}}</ui5-title>
-    <ui5-label class="item-provider">provided by {{item.provider}}</ui5-label>
-    <div class="content-group item-description">
-      {{item.description}}
+  <ui5-card class="small" (click)="openExtensionClass()">
+    <ui5-card-header slot="header" interactive>
+      <img [src]="item.icon?.light?.data" slot="avatar" />
+    </ui5-card-header>
+    <div class="content content-padding">
+      <ui5-title level="H5"> {{item.displayName}}</ui5-title>
+      <ui5-label class="item-provider">provided by {{item.provider}}</ui5-label>
+      <div class="content-group item-description">
+        {{item.description}}
+      </div>
+      <div class="content-group">
+        <ui5-label>Category:</ui5-label>
+        <ui5-label> {{item.category}}</ui5-label>
+      </div>
     </div>
-    <div class="content-group">
-      <ui5-label>Category:</ui5-label>
-      <ui5-label> {{item.category}}</ui5-label>
-    </div>
-  </div>
-</ui5-card>
+  </ui5-card>
 }
