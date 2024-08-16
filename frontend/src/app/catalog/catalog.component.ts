@@ -5,6 +5,7 @@ import { CatalogCardListComponent } from './catalog-card-list/catalog-card-list.
 import { CommonModule } from '@angular/common';
 import { ExtensionClass } from '../services/extension.schema';
 import { CatalogDataService } from '../services/catalog-data.service';
+import { LuigiContextService } from '@luigi-project/client-support-angular';
 
 @Component({
   selector: 'app-catalog',
@@ -21,15 +22,18 @@ export class CatalogComponent implements OnInit {
   selectedProviders: string[] = [];
   filteredItems!: ExtensionClass[];
 
-  constructor(private dataService: CatalogDataService) { }
+  constructor(private dataService: CatalogDataService, private luigiContextService: LuigiContextService) { }
 
   async ngOnInit() {
-    this.items = await this.dataService.getCatalogItems();
-    this.items.forEach(item => {
-      item.category && this.categories.add(item.category);
-      item.provider && this.providers.add(item.provider);
+    this.luigiContextService.getContextAsync().then(async ctx => {
+      const account: string = (ctx['accountId'] || '').trim();
+      this.items = await this.dataService.getCatalogItems(account?.length > 0 ? account : undefined);
+      
+      this.items.forEach(item => {
+        item.category && this.categories.add(item.category);
+        item.provider && this.providers.add(item.provider);
+      });
     });
-    this.filteredItems = this.items;
   }
 
   public onCategoriesChange(e: any) {

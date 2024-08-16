@@ -8,6 +8,7 @@ import { ContentDensityService, RtlService } from '@fundamental-ngx/core';
 import { HttpLink } from 'apollo-angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { withHashLocation } from '@angular/router';
+import { LuigiContextService, LuigiContextServiceImpl } from '@luigi-project/client-support-angular';
 
 
 
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     RtlService,
     ContentDensityService,
     importProvidersFrom(HttpClientModule),
+    { provide: LuigiContextService, useClass: LuigiContextServiceImpl},
     ]
 };
 
