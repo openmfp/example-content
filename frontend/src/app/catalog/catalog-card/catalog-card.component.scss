@@ -20,3 +20,14 @@
 .ui5-card {
     min-width: 250px;
 }
+
+.item-description {
+    height: 60px;
+    line-height: 15px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+}
