@@ -337,7 +337,12 @@ matches the snapshot (providers):
                       },
                       "keepSelectedForChildren": true,
                       "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/global-catalog",
-                      "children": [ ],
+                      "children": [{
+                          "pathSegment": ":id",
+                          "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/catalog-item/:id",
+                          "hideFromNav": true,
+                          "label": "_"
+                      }],
                       "visibleForFeatureToggles": ["demo"]
                     }
                   ]
