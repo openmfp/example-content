@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 
 import { ENV, Environment } from '../models/env.token';
-import { ExtensionClass } from './extension.schema';
+import { ExtensionClass, Label } from './extension.schema';
 
 
 @Injectable({
@@ -14,10 +14,16 @@ export class CatalogDataService {
     this.env = injector.get(ENV, {});
   }
 
-  async getCatalogItems(): Promise<[ExtensionClass]> {
+  async getCatalogItems(account?: string): Promise<[ExtensionClass]> {
     const data = await (await fetch('./assets/catalog_gql_dump.json')).json();
 
     // console.log(data);
+    if(account) {
+      const enabled: [string] = JSON.parse(localStorage.getItem('enabled-catalog-items') || '[]');
+      return ((data.data.getExtensionClassesForScopes as [ExtensionClass]).filter(item => {
+        return enabled.indexOf(item.name) >= 0;
+      }) as [ExtensionClass]);
+    }
     return data.data.getExtensionClassesForScopes;
   }
 }
