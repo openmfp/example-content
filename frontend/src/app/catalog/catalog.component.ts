@@ -14,10 +14,11 @@ import { CatalogDataService } from '../services/catalog-data.service';
   styleUrl: './catalog.component.scss'
 })
 export class CatalogComponent implements OnInit {
-
-  items?: [ExtensionClass];
+  items?: ExtensionClass[];
   categories: Set<string> = new Set();
   providers: Set<string> = new Set(); 
+  selectedCategories: string[] = [];
+  filteredItems: ExtensionClass[] = [];
 
   constructor(private dataService: CatalogDataService) { }
 
@@ -27,5 +28,13 @@ export class CatalogComponent implements OnInit {
       item.category && this.categories.add(item.category);
       item.provider && this.providers.add(item.provider);
     });
+  }
+
+  public onCategoriesChange(e: any) {
+    let selectedCategories: string[] = [];
+    e.detail.items.forEach((item: any) => selectedCategories.push(item._state.text));
+    if (this.items) {
+     this.filteredItems = this.items.filter(item => item.category !== undefined && selectedCategories.includes(item.category));
+    }
   }
 }

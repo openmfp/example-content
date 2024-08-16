@@ -11,6 +11,6 @@ import { ExtensionClass } from '../../services/extension.schema';
   imports: [Ui5WebcomponentsModule, CatalogCardComponent]
 })
 export class CatalogCardListComponent {
-  @Input() items?: [ExtensionClass];
+  @Input() items?: ExtensionClass[];
 
 }
