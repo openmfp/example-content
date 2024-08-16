@@ -24,13 +24,14 @@ export class CatalogComponent implements OnInit {
   constructor(private dataService: CatalogDataService, private luigiContextService: LuigiContextService) { }
 
   async ngOnInit() {
-    this.luigiContextService.getContextAsync().then(ctx => {
-      console.log("TEST", ctx);
-    });
-    this.items = await this.dataService.getCatalogItems();
-    this.items.forEach(item => {
-      item.category && this.categories.add(item.category);
-      item.provider && this.providers.add(item.provider);
+    this.luigiContextService.getContextAsync().then(async ctx => {
+      const account: string = (ctx['accountId'] || '').trim();
+      this.items = await this.dataService.getCatalogItems(account?.length > 0 ? account : undefined);
+      
+      this.items.forEach(item => {
+        item.category && this.categories.add(item.category);
+        item.provider && this.providers.add(item.provider);
+      });
     });
   }
 
