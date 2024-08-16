@@ -16,10 +16,16 @@ import { CatalogDataService } from '../services/catalog-data.service';
 export class CatalogComponent implements OnInit {
 
   items?: [ExtensionClass];
+  categories: Set<string> = new Set();
+  providers: Set<string> = new Set(); 
 
   constructor(private dataService: CatalogDataService) { }
 
   async ngOnInit() {
     this.items = await this.dataService.getCatalogItems();
+    this.items.forEach(item => {
+      item.category && this.categories.add(item.category);
+      item.provider && this.providers.add(item.provider);
+    });
   }
 }
