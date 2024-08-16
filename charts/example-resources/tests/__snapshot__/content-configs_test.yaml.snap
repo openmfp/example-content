@@ -317,20 +317,8 @@ matches the snapshot (providers):
                 "data": {
                   "nodes": [
                     {
-                      "pathSegment": "providers",
-                      "label": "Providers",
-                      "entityType": "main",
-                      "loadingIndicator": {
-                        "enabled": false
-                      },
-                      "keepSelectedForChildren": true,
-                      "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/static/catalog/index.html",
-                      "children": [ ],
-                      "visibleForFeatureToggles": ["!demo"]
-                    },
-                    {
-                      "pathSegment": "providers",
-                      "label": "Providers",
+                      "pathSegment": "marketplace",
+                      "label": "Marketplace",
                       "entityType": "main",
                       "loadingIndicator": {
                         "enabled": false
@@ -342,8 +330,23 @@ matches the snapshot (providers):
                           "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/catalog-item/:id",
                           "hideFromNav": true,
                           "label": "_"
-                      }],
-                      "visibleForFeatureToggles": ["demo"]
+                      }]
+                    },
+                    {
+                      "pathSegment": "marketplace",
+                      "label": "Marketplace",
+                      "entityType": "main.account",
+                      "loadingIndicator": {
+                        "enabled": false
+                      },
+                      "keepSelectedForChildren": true,
+                      "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/global-catalog",
+                      "children": [{
+                          "pathSegment": ":id",
+                          "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/catalog-item/:id",
+                          "hideFromNav": true,
+                          "label": "_"
+                      }]
                     }
                   ]
                 }
