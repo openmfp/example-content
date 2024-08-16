@@ -15,3 +15,14 @@
           </div>
     </div>
 </ui5-card>
+
+<div>
+  <ui5-card class="medium" *ngFor="let item of items">
+    <div class="card-content">
+      {{item.displayName}}
+        <div class="flex-column samples-margin">
+            {{item.description}}
+        </div>
+    </div>
+</ui5-card>
+</div>
