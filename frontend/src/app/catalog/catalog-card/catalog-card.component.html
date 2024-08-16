@@ -1,28 +1,17 @@
 <ui5-card class="small">
   <ui5-card-header slot="header" interactive>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ZONx1JQXcDyoYygBP0NNX62oAlZUw3PLAg&s"
-      slot="avatar" />
+    <img [src]="item?.icon?.light?.data" slot="avatar" />
   </ui5-card-header>
 
   <div class="content content-padding">
+    <!-- {{item | json}} -->
     <ui5-title level="H5" style="padding-bottom: 1rem;">
-      Accessibility Management Platform (Access Continuum)
+      {{item?.displayName}}
     </ui5-title>
-
-    <div class="content-group">
-      <ui5-label>Company Name</ui5-label>
-      <ui5-title level="H6">Company A</ui5-title>
-    </div>
-
     <div class="content-group ">
       <small>
-        Accessibility Management Platform (AMP) is a web-based third-party accessibility testing automation platform,
-        that
-        provides a powerful accessibility test engine, ability to store automation test results and enable fixing of
-        issues. One of the major component of AMP is Access Continuum, which is a Software Development Kit (SDK) that
-        allows to
+        {{item?.description | slice:0:100 }}
       </small>
-
     </div>
 
     <div class="content-group">
