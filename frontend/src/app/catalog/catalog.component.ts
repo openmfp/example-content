@@ -1,41 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import { IconComponent } from "@ui5/webcomponents-ngx/main/icon";
-import { CatalogCardListComponent } from './catalog-card-list/catalog-card-list.component';
 import { CommonModule } from '@angular/common';
-import { ExtensionClass } from '../services/extension.schema';
-import { CatalogDataService } from '../services/catalog-data.service';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LuigiContextService } from '@luigi-project/client-support-angular';
+import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
+import { IconComponent } from '@ui5/webcomponents-ngx/main/icon';
+import { finalize } from 'rxjs/operators';
+import { CatalogContext } from '../models/catalog-model';
+import { CatalogDataService } from '../services/catalog-data.service';
+import { ExtensionClass } from '../services/extension.schema';
+import { CatalogCardListComponent } from './catalog-card-list/catalog-card-list.component';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
   imports: [Ui5WebcomponentsModule, IconComponent, CatalogCardListComponent, CommonModule],
   templateUrl: './catalog.component.html',
-  styleUrl: './catalog.component.scss'
+  styleUrl: './catalog.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogComponent implements OnInit {
-  items?: ExtensionClass[];
+  context?: CatalogContext;
+  fetchFinalized = false;
+  items: WritableSignal<ExtensionClass[]> = signal([]);
   categories: Set<string> = new Set();
   providers: Set<string> = new Set();
   selectedCategories: string[] = [];
   selectedProviders: string[] = [];
-  filteredItems?: ExtensionClass[];
+  filteredItems: WritableSignal<ExtensionClass[]> = signal([]);
+  private destroyRef = inject(DestroyRef);
 
   constructor(private dataService: CatalogDataService, private luigiContextService: LuigiContextService) { }
 
-  async ngOnInit() {
-    this.luigiContextService.getContextAsync().then(async ctx => {
-      const account: string = (ctx['accountId'] || '').trim();
-      this.items = await this.dataService.getCatalogItems(account?.length > 0 ? account : undefined);
-
-      this.items.forEach(item => {
-        item.category && this.categories.add(item.category);
-        item.provider && this.providers.add(item.provider);
-      });
+  ngOnInit() {
+    this.luigiContextService.getContextAsync().then(ctx => {
+      this.fetchItems((ctx['accountId'] || '').trim());
     });
-
-    this.filterItems();
   }
 
   public onCategoriesChange(e: any) {
@@ -51,27 +50,61 @@ export class CatalogComponent implements OnInit {
 
 
   public filterItems() {
-    if (!this.items) return;
+    if (!this.items()) return;
 
     if (this.selectedCategories.length === 0 && this.selectedProviders.length === 0) {
-      this.filteredItems = this.items;
+      this.filteredItems.set(this.items());
       return;
     }
 
     if (this.selectedCategories.length > 0 && this.selectedProviders.length > 0) {
-      this.filteredItems = this.items.filter(item =>
+      this.filteredItems.set(this.items().filter(item =>
         item.category !== undefined && this.selectedCategories.includes(item.category) &&
         item.provider !== undefined && this.selectedProviders.includes(item.provider)
-      );
+      ));
       return;
     }
 
-    this.filteredItems = this.items.filter(item =>
+    this.filteredItems.set(this.items().filter(item =>
       item.category !== undefined && this.selectedCategories.includes(item.category) ||
       item.provider !== undefined && this.selectedProviders.includes(item.provider)
-    );
+    ));
   }
 
+  private fetchItems(account: string) {
+    this.dataService.fetchCatalogItems();
+    this.dataService.getCatalogItems(account?.length > 0 ? account : undefined)
+      .pipe(finalize(() => this.fetchFinalized = true), takeUntilDestroyed(this.destroyRef))
+      .subscribe(data => {
+        const globalStorage: string[] = JSON.parse(localStorage.getItem('enabled-catalog-items') || '[]');
+
+        this.context = account?.length ? CatalogContext.account : CatalogContext.global;
+
+        data?.forEach(item => {
+          item.category && this.categories.add(item.category);
+          item.provider && this.providers.add(item.provider);
+
+          if (this.context === CatalogContext.global && globalStorage.find((name: string) => item.name === name)) {
+            item.accountConnections = [];
+
+            item.accountConnections.push({
+              description: '',
+              displayName: '',
+              image: {} as any,
+              name: item.name,
+              type: {
+                apiResourceConfig: {} as any,
+                context: this.context as string,
+                name: '',
+              }
+            })
+          }
+        });
+
+        this.items.set(data);
+        this.filterItems();
+      });
+  }
 
   private updateSelection(e: any): string[] {
     return e.detail.items.map((item: any) => item._state.text);
