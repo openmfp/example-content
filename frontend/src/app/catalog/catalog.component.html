@@ -6,19 +6,27 @@
       <div>
         <ui5-label>Category</ui5-label><br>
         <ui5-multi-combobox placeholder="Type your value" (selection-change)="onCategoriesChange($event)">
-          <ui5-mcb-item *ngFor="let cat of categories" text="{{cat}}" ></ui5-mcb-item>
+          <ui5-mcb-item *ngFor="let cat of categories" text="{{cat}}"></ui5-mcb-item>
         </ui5-multi-combobox>
       </div>
       <div>
         <ui5-label>Provider</ui5-label><br>
-        <ui5-multi-combobox placeholder="Type your value">
+        <ui5-multi-combobox placeholder="Type your value" (selection-change)="onProvidersChange($event)">
           <ui5-mcb-item *ngFor="let provider of providers" text="{{provider}}"></ui5-mcb-item>
         </ui5-multi-combobox>
       </div>
+      <div style="margin-left: auto">
+      <br>
       <ui5-input id="searchInput" placeholder="Enter search criteria ...">
         <ui5-icon id="searchIcon" slot="icon" name="search"></ui5-icon>
       </ui5-input>
+      </div>
     </div>
   </div>
 </ui5-card>
-<app-catalog-card-list [items]="filteredItems.length > 0 ? filteredItems : items"></app-catalog-card-list>
+@if (filteredItems && filteredItems.length === 0) {
+  <h3 class="no-results-found">No results found</h3> 
+}
+@else {
+  <app-catalog-card-list [items]="filteredItems"></app-catalog-card-list>
+}

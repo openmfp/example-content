@@ -1,4 +1,14 @@
 .flex-row {
     display: flex;
     flex-direction: row;
+    gap: 5px;
+    padding: 10px 15px;
+}
+
+.no-results-found {
+    font-family: "72override", var(--sapFontFamily);
+    color: #1d2d3e;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
 }
