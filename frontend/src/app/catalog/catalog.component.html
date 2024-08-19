@@ -24,9 +24,12 @@
     </div>
   </div>
 </ui5-card>
-@if (filteredItems && filteredItems.length === 0) {
+@if (fetchFinalized && filteredItems().length === 0) {
   <h3 class="no-results-found">No results found</h3> 
 }
 @else {
-  <app-catalog-card-list [items]="filteredItems ?? items"></app-catalog-card-list>
+  <app-catalog-card-list
+    [context]="context"
+    [items]="filteredItems().length ? filteredItems() : items()">
+  </app-catalog-card-list>
 }

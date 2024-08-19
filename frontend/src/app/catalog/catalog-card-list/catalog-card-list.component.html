@@ -1,5 +1,5 @@
 <div class="catalog-card-list">
   @for (item of items; track item) {
-    <app-catalog-card class="catalog-card" [item]="item"></app-catalog-card>
-    }
+    <app-catalog-card class="catalog-card" [context]="context" [item]="item"></app-catalog-card>
+  }
 </div>
