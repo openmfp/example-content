@@ -329,12 +329,12 @@ matches the snapshot (providers):
                           "pathSegment": ":id",
                           "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/catalog-item/:id",
                           "hideFromNav": true,
-                          "label": "_"
+                          "label": "Service Details"
                       }]
                     },
                     {
-                      "pathSegment": "marketplace",
-                      "label": "Marketplace",
+                      "pathSegment": "capabilities",
+                      "label": "Capabilities",
                       "entityType": "main.account",
                       "loadingIndicator": {
                         "enabled": false
@@ -345,7 +345,7 @@ matches the snapshot (providers):
                           "pathSegment": ":id",
                           "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/catalog-item/:id",
                           "hideFromNav": true,
-                          "label": "_"
+                          "label": "Service Details"
                       }]
                     }
                   ]
