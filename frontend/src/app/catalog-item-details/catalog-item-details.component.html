@@ -1,1 +1,57 @@
-<p>{{catalogItem | json}}</p>
+@if (catalogItem) {
+<div class="catalog-wrapper" *ngIf="catalogItem">
+  <div class="fixed-header">
+    <div class="header-content">
+      <h1 class="catalog-name">{{ catalogItem.displayName }}</h1>
+      <div class="catalog-actions">
+        <ui5-button design="Emphasized" (click)="enableCatalogItem()">
+          Enable
+        </ui5-button>
+      </div>
+    </div>
+    <div class="header-info">
+      <img
+        [src]="catalogItem.icon?.light?.data"
+        alt="Catalog Icon"
+        class="catalog-image"
+      />
+      <span class="catalog-provider">by {{ catalogItem.provider }}</span>
+    </div>
+  </div>
+
+  <div class="scrollable-content">
+    <section>
+      <h3>What is {{ catalogItem.displayName }}?</h3>
+      <p>{{ catalogItem.description }}</p>
+    </section>
+    <section>
+      <h3>Want to know more?</h3>
+      <p>
+        <a [href]="catalogItem.documentation?.url" target="_blank">
+          Documentation
+        </a>
+      </p>
+    </section>
+    <section *ngIf="catalogItem.preferredSupportChannels?.length">
+      <h3>How to get help?</h3>
+      <ul>
+        <li>
+          <span>Report an issue: </span>
+          <a href="#" target="_blank">
+            Support Ticket
+          </a>
+        </li>
+        <li>
+          <span>Product Owners: </span>
+          <span *ngFor="let contact of catalogItem.contacts">
+            <a [href]="'mailto:' + contact.email">{{ contact.displayName }}</a>
+          </span>
+        </li>
+        <li>
+          Service Level: {{ catalogItem.serviceLevel }} 
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
+}
