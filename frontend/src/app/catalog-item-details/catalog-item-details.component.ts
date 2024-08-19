@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { CatalogDataService } from '../services/catalog-data.service';
 import { ActivatedRoute } from '@angular/router';
@@ -25,5 +25,9 @@ export class CatalogItemDetailsComponent implements OnInit {
         return item.name === this.catalogItemId;
       })[0];
     }
+  }
+
+  enableCatalogItem() {
+    // TODO: logic to enable item here
   }
 }
