@@ -25,7 +25,7 @@ export class CatalogCardComponent {
   openExtensionClass() {
     if (this.item) {
       linkManager().openAsModal(this.item.name).then(() => {
-        this.dataService.fetchCatalogItems();
+        //this.dataService.fetchCatalogItems(); // TODO: re-enable after luigi update and removal of storage listener
      });
     }
   }

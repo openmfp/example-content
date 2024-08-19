@@ -72,6 +72,18 @@ export class CatalogComponent implements OnInit {
   }
 
   private fetchItems(account: string) {
+    // TODO: remove after luigi update
+    if (!(window as any)._catalogUpdateListener) {
+      (window as any)._catalogUpdateListener = (event: StorageEvent) => {
+        if (event.storageArea === localStorage && event.key?.startsWith('enabled-catalog-items')) {
+          console.debug('change detected, refetching catalog');
+          this.dataService.fetchCatalogItems();
+        }
+      };
+      window.addEventListener('storage', (window as any)._catalogUpdateListener);
+    }
+    ///////////////
+
     this.dataService.fetchCatalogItems();
     this.dataService.getCatalogItems(account?.length > 0 ? account : undefined)
       .pipe(finalize(() => this.fetchFinalized = true), takeUntilDestroyed(this.destroyRef))
