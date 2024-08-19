@@ -6,6 +6,7 @@ import { filter } from 'rxjs/operators';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { CatalogDataService } from '../services/catalog-data.service';
 import { ExtensionClass } from '../services/extension.schema';
+import { LuigiContextService } from '@luigi-project/client-support-angular';
 
 @Component({
   selector: 'app-catalog-item-details',
@@ -20,8 +21,9 @@ export class CatalogItemDetailsComponent implements OnInit {
   catalogItem: WritableSignal<ExtensionClass | null> = signal(null);
   buttonVisible: WritableSignal<boolean> = signal(false);
   private destroyRef = inject(DestroyRef);
+  account?: string;
 
-  constructor(private route: ActivatedRoute, private dataService: CatalogDataService) {}
+  constructor(private route: ActivatedRoute, private dataService: CatalogDataService, private luigiContextService: LuigiContextService) {}
   
   ngOnInit() {
     this.catalogItemId = this.route.snapshot.paramMap.get('catalogItemId');
@@ -29,13 +31,16 @@ export class CatalogItemDetailsComponent implements OnInit {
     if (!this.catalogItemId) {
       return;
     }
-
-    this.setButtonVisibility();
-    this.fetchItemDetails();
+    this.luigiContextService.getContextAsync().then(ctx => {
+      this.account = ctx['accountId'];
+      this.setButtonVisibility();
+      this.fetchItemDetails();
+    });
   }
 
   toggleCatalogItem() {
-    let globalStorage: string[] = JSON.parse(localStorage.getItem('enabled-catalog-items') || '[]');
+    const storageKey = this.account ? 'enabled-catalog-items-' + this.account : 'enabled-catalog-items';
+    let globalStorage: string[] = JSON.parse(localStorage.getItem(storageKey) || '[]');
 
     if (this.buttonVisible()) {
       globalStorage.push(this.catalogItemId as string);
@@ -45,12 +50,13 @@ export class CatalogItemDetailsComponent implements OnInit {
       this.buttonVisible.set(true);
     }
 
-    localStorage.setItem('enabled-catalog-items', JSON.stringify(globalStorage));
+    localStorage.setItem(storageKey, JSON.stringify(globalStorage));
     
   }
 
   private setButtonVisibility() {
-    const globalStorage: string[] = JSON.parse(localStorage.getItem('enabled-catalog-items') || '[]');
+    const storageKey = this.account ? 'enabled-catalog-items-' + this.account : 'enabled-catalog-items';
+    const globalStorage: string[] = JSON.parse(localStorage.getItem(storageKey) || '[]');
 
     if (!globalStorage.find((name: string) => name === this.catalogItemId)) {
       this.buttonVisible.set(true);

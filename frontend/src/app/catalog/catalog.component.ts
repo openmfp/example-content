@@ -76,7 +76,8 @@ export class CatalogComponent implements OnInit {
     this.dataService.getCatalogItems(account?.length > 0 ? account : undefined)
       .pipe(finalize(() => this.fetchFinalized = true), takeUntilDestroyed(this.destroyRef))
       .subscribe(data => {
-        const globalStorage: string[] = JSON.parse(localStorage.getItem('enabled-catalog-items') || '[]');
+        const storageKey = account ? 'enabled-catalog-items-' + account : 'enabled-catalog-items';
+        const globalStorage: string[] = JSON.parse(localStorage.getItem(storageKey) || '[]');
 
         this.context = account?.length ? CatalogContext.account : CatalogContext.global;
 
@@ -84,7 +85,7 @@ export class CatalogComponent implements OnInit {
           item.category && this.categories.add(item.category);
           item.provider && this.providers.add(item.provider);
 
-          if (this.context === CatalogContext.global && globalStorage.find((name: string) => item.name === name)) {
+          if (globalStorage.find((name: string) => item.name === name)) {
             item.accountConnections = [];
 
             item.accountConnections.push({

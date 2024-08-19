@@ -2,7 +2,7 @@
   <ui5-card class="small" (click)="openExtensionClass()">
     <ui5-card-header slot="header" interactive>
       <img [src]="item.icon?.light?.data" slot="avatar" height="48" width="48" alt="" />
-      @if (context === catalogContext.global && (item | itemEnabled)) {
+      @if (item | itemEnabled) {
         <ui5-tag design="Set2" color-scheme="7" slot="action">Enabled</ui5-tag>
       }
     </ui5-card-header>
