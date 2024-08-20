@@ -24,6 +24,32 @@
                 }
               }
             ]
+          },{
+            "entityType": "main.account",
+            "pathSegment": "dashboard",
+            "label": "Dashboard",
+            "defineEntity": {
+              "id": "dashboard"
+            },
+            "compound": {
+              "renderer" : {
+                "use": "grid",
+                "config": {
+                  "columns": "1fr 1fr 1fr 1fr"
+                }
+              }
+            }
+          },{
+            "entityType": "main.account::compound",
+            "viewUrl": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
+            "context": {
+              "title": "Dashboard",
+              "description": "works"
+            },
+            "layoutConfig": {
+              "row": "1",
+              "column": "1 / -1"
+            }
           }
         ]
       }
