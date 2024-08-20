@@ -244,7 +244,7 @@
                               },
                               {
                                   "type": "TextBlock",
-                                  "text": "Nasdaq Global Select: MSFT",
+                                  "text": "Nasdaq Global Select: ACME",
                                   "isSubtle": true,
                                   "spacing": "None",
                                   "wrap": true
