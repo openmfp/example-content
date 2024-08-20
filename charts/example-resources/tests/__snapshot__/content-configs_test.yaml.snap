@@ -50,7 +50,7 @@ matches the snapshot:
                         }
                       }
                     },{
-                      "entityType": "main.account::compound",
+                      "entityType": "main.account.dashboard::compound",
                       "viewUrl": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                       "context": {
                         "title": "Dashboard",
@@ -172,7 +172,7 @@ matches the snapshot (gardener):
                         }
                       }
                     },{
-                      "entityType": "main.account::compound",
+                      "entityType": "main.account.dashboard::compound",
                       "viewUrl": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                       "context": {
                         "title": "Dashboard",
@@ -241,7 +241,7 @@ matches the snapshot (infra):
                         }
                       }
                     },{
-                      "entityType": "main.account::compound",
+                      "entityType": "main.account.dashboard::compound",
                       "viewUrl": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                       "context": {
                         "title": "Dashboard",
@@ -387,7 +387,7 @@ matches the snapshot (providers):
                         }
                       }
                     },{
-                      "entityType": "main.account::compound",
+                      "entityType": "main.account.dashboard::compound",
                       "viewUrl": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                       "context": {
                         "title": "Dashboard",
