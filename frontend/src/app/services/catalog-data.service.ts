@@ -1,8 +1,9 @@
 import { Injectable, Injector } from '@angular/core';
-import { ENV, Environment } from '../models/env.token';
-import { ExtensionClass } from './extension.schema';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { LOCAL_STORAGE_CATALOG_KEY } from '../app.constants';
+import { ENV, Environment } from '../models/env.token';
+import { ExtensionClass } from './extension.schema';
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +25,8 @@ export class CatalogDataService {
   getCatalogItems(account?: string): Observable<ExtensionClass[]> {
     return this.catalogItems.asObservable().pipe(map(data => {
       if (account) {
-        const enabled: string[] = JSON.parse(localStorage.getItem('enabled-catalog-items') || '[]');
-    
+        const enabled: string[] = JSON.parse(localStorage.getItem(LOCAL_STORAGE_CATALOG_KEY) || '[]');
+
         return data.filter(item => enabled.indexOf(item.name) >= 0);
       }
 
