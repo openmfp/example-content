@@ -6,10 +6,10 @@ import { ExtensionClass } from '../../services/extension.schema';
 
 @Component({
   selector: 'app-catalog-card-list',
+  standalone: true,
+  imports: [CatalogCardComponent, Ui5WebcomponentsModule],
   templateUrl: './catalog-card-list.component.html',
   styleUrls: ['./catalog-card-list.component.scss'],
-  standalone: true,
-  imports: [Ui5WebcomponentsModule, CatalogCardComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogCardListComponent {
