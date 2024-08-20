@@ -41,7 +41,7 @@
             }
           },{
             "entityType": "main.account.dashboard::compound",
-            "viewUrl": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
+            "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
             "context": {
               "title": "Dashboard",
               "description": "works"
