@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build:wc": "ng build wc --single-bundle --output-hashing none --output-path dist",
-    "build:ui": "ng build ui --configuration production --localize --output-path dist",
+    "start": "ng serve ui",
     "start:wc": "ng serve wc --single-bundle --no-live-reload",
-    "start:ui": "ng serve ui",
+    "build": "ng build ui",
+    "build:wc": "ng build wc --single-bundle --output-hashing none --output-path dist",
+    "build-prod": "ng build ui -c production",
+    "watch": "ng build ui --watch --configuration development",
     "test": "echo 'tests skipped for now'"
   },
   "private": true,
