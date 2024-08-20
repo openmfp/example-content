@@ -209,7 +209,7 @@ matches the snapshot (infra):
                         "enabled": false
                       },
                       "keepSelectedForChildren": true,
-                      "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                      "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/compute",
                       "children": [ ],
                       "context": {
                         "title": "Iron Core",
@@ -225,7 +225,7 @@ matches the snapshot (infra):
                         "enabled": false
                       },
                       "keepSelectedForChildren": true,
-                      "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                      "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/network",
                       "children": [ ],
                       "context": {
                         "title": "OpenMCP",
@@ -244,7 +244,7 @@ matches the snapshot (infra):
                         "enabled": false
                       },
                       "keepSelectedForChildren": true,
-                      "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
+                      "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/openmcp/control-planes",
                       "children": [ ],
                       "context": {
                         "title": "OpenMCP",
