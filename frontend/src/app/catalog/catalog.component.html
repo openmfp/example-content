@@ -2,24 +2,24 @@
   <ui5-card-header slot="header" title-text="Catalog">
   </ui5-card-header>
   <div class="card-content">
-    <div class="flex-row samples-margin">
-      <div>
+    <div class="flex-row samples-margin catalog-filters">
+      <div class="catalog-filter">
         <ui5-label>Category</ui5-label><br>
         <ui5-multi-combobox placeholder="Type your value" (selection-change)="onCategoriesChange($event)">
           <ui5-mcb-item *ngFor="let cat of categories" text="{{cat}}"></ui5-mcb-item>
         </ui5-multi-combobox>
       </div>
-      <div>
+      <div class="catalog-filter">
         <ui5-label>Provider</ui5-label><br>
         <ui5-multi-combobox placeholder="Type your value" (selection-change)="onProvidersChange($event)">
           <ui5-mcb-item *ngFor="let provider of providers" text="{{provider}}"></ui5-mcb-item>
         </ui5-multi-combobox>
       </div>
-      <div style="margin-left: auto">
-      <br>
-      <ui5-input id="searchInput" placeholder="Enter search criteria ...">
-        <ui5-icon id="searchIcon" slot="icon" name="search"></ui5-icon>
-      </ui5-input>
+      <div class="catalog-filter">
+        <br>
+        <ui5-input id="searchInput" placeholder="Enter search criteria ...">
+          <ui5-icon id="searchIcon" slot="icon" name="search"></ui5-icon>
+        </ui5-input>
       </div>
     </div>
   </div>

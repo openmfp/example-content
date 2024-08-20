@@ -1,12 +1,31 @@
 .catalog-card-list {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  gap: 20px;
+  justify-content: space-between;
+  column-gap: 1%;
+  row-gap: 1rem;
   padding: 20px 0;
   flex-wrap: wrap;
 
   .catalog-card {
-    width: calc(24%);
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .catalog-card {
+      width: 49%;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    .catalog-card {
+      width: 32%;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .catalog-card {
+      width: 24%;
+    }
   }
 }
