@@ -5,15 +5,16 @@ import { LuigiContextService } from '@luigi-project/client-support-angular';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { IconComponent } from '@ui5/webcomponents-ngx/main/icon';
 import { finalize } from 'rxjs/operators';
+import { LOCAL_STORAGE_CATALOG_KEY } from '../app.constants';
 import { CatalogContext } from '../models/catalog-model';
 import { CatalogDataService } from '../services/catalog-data.service';
-import { ExtensionClass } from '../services/extension.schema';
+import { AccountConnection, AccountConnectionType, ExtensionClass } from '../services/extension.schema';
 import { CatalogCardListComponent } from './catalog-card-list/catalog-card-list.component';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [Ui5WebcomponentsModule, IconComponent, CatalogCardListComponent, CommonModule],
+  imports: [CatalogCardListComponent, CommonModule, IconComponent, Ui5WebcomponentsModule],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -40,14 +41,12 @@ export class CatalogComponent implements OnInit {
   public onCategoriesChange(e: any) {
     this.selectedCategories = this.updateSelection(e);
     this.filterItems();
-
   }
 
   public onProvidersChange(e: any) {
     this.selectedProviders = this.updateSelection(e);
     this.filterItems();
   }
-
 
   public filterItems() {
     if (!this.items()) return;
@@ -75,7 +74,7 @@ export class CatalogComponent implements OnInit {
     // TODO: remove after luigi update
     if (!(window as any)._catalogUpdateListener) {
       (window as any)._catalogUpdateListener = (event: StorageEvent) => {
-        if (event.storageArea === localStorage && event.key?.startsWith('enabled-catalog-items')) {
+        if (event.storageArea === localStorage && event.key?.startsWith(LOCAL_STORAGE_CATALOG_KEY)) {
           console.debug('change detected, refetching catalog');
           this.dataService.fetchCatalogItems();
         }
@@ -84,39 +83,34 @@ export class CatalogComponent implements OnInit {
     }
     ///////////////
 
+    this.context = account?.length ? CatalogContext.account : CatalogContext.global;
+
     this.dataService.fetchCatalogItems();
     this.dataService.getCatalogItems(account?.length > 0 ? account : undefined)
       .pipe(finalize(() => this.fetchFinalized = true), takeUntilDestroyed(this.destroyRef))
-      .subscribe(data => {
-        const storageKey = account ? 'enabled-catalog-items-' + account : 'enabled-catalog-items';
-        const globalStorage: string[] = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      .subscribe(data => this.updateCatalogItems(account, data));
+  }
 
-        this.context = account?.length ? CatalogContext.account : CatalogContext.global;
+  private updateCatalogItems(account: string, data: ExtensionClass[]) {
+    const storageKey = account ? `${LOCAL_STORAGE_CATALOG_KEY}-${account}` : LOCAL_STORAGE_CATALOG_KEY;
+    const globalStorage: string[] = JSON.parse(localStorage.getItem(storageKey) || '[]');
 
-        data?.forEach(item => {
-          item.category && this.categories.add(item.category);
-          item.provider && this.providers.add(item.provider);
+    data?.forEach(item => {
+      item.category && this.categories.add(item.category);
+      item.provider && this.providers.add(item.provider);
 
-          if (globalStorage.find((name: string) => item.name === name)) {
-            item.accountConnections = [];
+      if (globalStorage.find((name: string) => item.name === name)) {
+        item.accountConnections = [];
 
-            item.accountConnections.push({
-              description: '',
-              displayName: '',
-              image: {} as any,
-              name: item.name,
-              type: {
-                apiResourceConfig: {} as any,
-                context: this.context as string,
-                name: '',
-              }
-            })
-          }
-        });
+        item.accountConnections.push(<AccountConnection>{
+          name: item.name,
+          type: <AccountConnectionType>{context: <string>this.context}
+        })
+      }
+    });
 
-        this.items.set(data);
-        this.filterItems();
-      });
+    this.items.set(data);
+    this.filterItems();
   }
 
   private updateSelection(e: any): string[] {

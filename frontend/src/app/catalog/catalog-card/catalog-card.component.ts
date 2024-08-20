@@ -9,16 +9,15 @@ import { ExtensionClass } from '../../services/extension.schema';
 
 @Component({
   selector: 'app-catalog-card',
-  templateUrl: './catalog-card.component.html',
-  styleUrls: ['./catalog-card.component.scss'],
   standalone: true,
   imports: [CommonModule, ItemStatePipe, Ui5WebcomponentsModule],
+  templateUrl: './catalog-card.component.html',
+  styleUrls: ['./catalog-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogCardComponent {
   @Input() context?: CatalogContext;
   @Input() item?: ExtensionClass;
-  readonly catalogContext = CatalogContext;
 
   constructor(private dataService: CatalogDataService) {}
 
