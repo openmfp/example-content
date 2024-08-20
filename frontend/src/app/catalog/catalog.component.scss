@@ -5,6 +5,20 @@
     padding: 10px 15px;
 }
 
+.catalog-filter:last-child {
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 700px) {
+    .catalog-filters {
+        flex-direction: column;
+    }
+
+    .catalog-filter:last-child {
+        margin: 0;
+    }
+}
+
 .no-results-found {
     color: #1d2d3e;
     display: flex;
