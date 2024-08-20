@@ -59,7 +59,7 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
             "context": {
-              "style": "padding: 0",
+              "style": "padding: 1rem",
               "disableBorder": true,
               "card": {
                 "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -175,7 +175,7 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
             "context": {
-              "style": "padding: 0",
+              "style": "padding: 1rem",
               "disableBorder": true,
               "card": {
                 "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -251,7 +251,7 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
             "context": {
-              "style": "padding: 0",
+              "style": "padding: 1rem",
               "disableBorder": true,
               "card": {
                 "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -341,7 +341,7 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
             "context": {
-              "style": "padding: 0",
+              "style": "padding: 1rem",
               "disableBorder": true,
               "card": {
                 "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -432,7 +432,7 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
             "context": {
-              "style": "padding: 0",
+              "style": "padding: 1rem",
               "disableBorder": true,
               "card": {
                 "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
