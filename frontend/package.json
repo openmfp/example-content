@@ -36,6 +36,7 @@
     "@ui5/webcomponents-ngx": "0.3.0",
     "apollo-angular": "7.0.2",
     "chart.js": "^4.4.4",
+    "deepmerge": "^4.3.1",
     "fundamental-styles": "0.37.0",
     "graphql": "16.9.0",
     "graphql-sse": "^2.5.2",

@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 import deepmerge from 'deepmerge';
 import { map } from 'rxjs/operators';
 import { ENV, Environment } from '../models/env.token';
-import { PortalContext } from '../models/portal-context';
+import { PortalRootContext } from '../models/portal-context';
 
 export interface IContextMessage {
   contextType: ILuigiContextTypes;
-  context: PortalContext;
+  context: PortalRootContext;
 }
 
 @Injectable({
@@ -35,13 +35,13 @@ export class PortalLuigiContextService extends LuigiContextService {
    *
    * @param context the context to be set
    */
-  setContext(context: PortalContext): void {
+  setContext(context: PortalRootContext): void {
     this.luigiContextService.addListener(ILuigiContextTypes.UPDATE, context);
   }
 
-  getContext(): PortalContext {
+  getContext(): PortalRootContext {
     if (!this.env.luigiContextOverwrite) {
-      return this.luigiContextService.getContext() as PortalContext;
+      return this.luigiContextService.getContext() as PortalRootContext;
     }
 
     return deepmerge(
@@ -50,17 +50,17 @@ export class PortalLuigiContextService extends LuigiContextService {
     );
   }
 
-  getContextAsync(): Promise<PortalContext> {
+  getContextAsync(): Promise<PortalRootContext> {
     if (!this.env.luigiContextOverwrite) {
-      return this.luigiContextService.getContextAsync() as Promise<PortalContext>;
+      return this.luigiContextService.getContextAsync() as Promise<PortalRootContext>;
     }
 
     return this.luigiContextService
       .getContextAsync()
       .then((context) =>
         deepmerge(
-          context as PortalContext,
-          this.env.luigiContextOverwrite as Partial<PortalContext>
+          context as PortalRootContext,
+          this.env.luigiContextOverwrite as Partial<PortalRootContext>
         )
       );
   }
@@ -73,8 +73,8 @@ export class PortalLuigiContextService extends LuigiContextService {
     return this.luigiContextService.contextObservable().pipe(
       map((context) => {
         const mergedContext = deepmerge(
-          context.context as PortalContext,
-          this.env.luigiContextOverwrite as Partial<PortalContext>
+          context.context as PortalRootContext,
+          this.env.luigiContextOverwrite as Partial<PortalRootContext>
         );
         return { contextType: context.contextType, context: mergedContext };
       })

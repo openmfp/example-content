@@ -71,17 +71,17 @@ export class CatalogComponent implements OnInit {
   }
 
   private fetchItems(account: string) {
-    // TODO: remove after luigi update
-    if (!(window as any)._catalogUpdateListener) {
-      (window as any)._catalogUpdateListener = (event: StorageEvent) => {
-        if (event.storageArea === localStorage && event.key?.startsWith(LOCAL_STORAGE_CATALOG_KEY)) {
-          console.debug('change detected, refetching catalog');
-          this.dataService.fetchCatalogItems();
-        }
-      };
-      window.addEventListener('storage', (window as any)._catalogUpdateListener);
-    }
-    ///////////////
+    // // TODO: remove after luigi update
+    // if (!(window as any)._catalogUpdateListener) {
+    //   (window as any)._catalogUpdateListener = (event: StorageEvent) => {
+    //     if (event.storageArea === localStorage && event.key?.startsWith(LOCAL_STORAGE_CATALOG_KEY)) {
+    //       console.debug('change detected, refetching catalog');
+    //       this.dataService.fetchCatalogItems();
+    //     }
+    //   };
+    //   window.addEventListener('storage', (window as any)._catalogUpdateListener);
+    // }
+    // ///////////////
 
     this.context = account?.length ? CatalogContext.account : CatalogContext.global;
 

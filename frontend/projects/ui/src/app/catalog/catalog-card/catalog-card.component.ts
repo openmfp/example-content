@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { linkManager } from '@luigi-project/client'
+import { linkManager, sendCustomMessage } from '@luigi-project/client'
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { CatalogContext } from '../../models/catalog-model';
 import { ItemStatePipe } from '../../pipes/item-state.pipe';
@@ -24,7 +24,10 @@ export class CatalogCardComponent {
   openExtensionClass() {
     if (this.item) {
       linkManager().openAsModal(this.item.name).then(() => {
-        //this.dataService.fetchCatalogItems(); // TODO: re-enable after luigi update and removal of storage listener
+        this.dataService.fetchCatalogItems();
+        if (this.context === CatalogContext.account) {
+          sendCustomMessage({ id: 'openmfp.refetch-nav'});
+        }
      });
     }
   }

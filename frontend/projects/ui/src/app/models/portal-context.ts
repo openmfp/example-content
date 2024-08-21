@@ -1,8 +1,9 @@
 import { FrameContext } from "./frame-context";
 
-export interface PortalContext extends Record<string, any> {
+export interface PortalRootContext extends Record<string, any> {
   token: string;
   userid: string;
+  portalContext: PortalContext;
   tenantid: string;
   frameContext: FrameContext;
   serviceProviderConfig: Record<string, string>;
@@ -35,4 +36,8 @@ export interface PortalContext extends Record<string, any> {
   parentNavigationContexts: string[];
 
   extClassName?: string;
+}
+
+export interface PortalContext extends Record<string, string> {
+  crdGatewayApiUrl: string;
 }
