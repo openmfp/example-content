@@ -1,15 +1,12 @@
 @if (catalogItem(); as catalogItem) {
-  <div class="catalog-wrapper">
-    <div class="fixed-header">
-      <div class="header-content">
-        <h1 class="catalog-name">{{ catalogItem.displayName }}</h1>
-        <div class="catalog-actions">
-          <ui5-button design="Emphasized" (click)="toggleCatalogItem()">
-            {{buttonVisible() ? 'Enable' : 'Disable'}}
-          </ui5-button>
-        </div>
-      </div>
-      <div class="header-info">
+<div class="wrapper">
+  <ui5-dynamic-page id="page">
+    <ui5-dynamic-page-title slot="titleArea">
+      <ui5-title wrapping-type="None" slot="heading">
+        {{ catalogItem.displayName }}
+      </ui5-title>
+
+      <div slot="snappedHeading" class="snapped-title-heading">
         <img
           [src]="catalogItem.icon?.light?.data"
           alt="Catalog Icon"
@@ -17,42 +14,833 @@
           height="48"
           width="48"
         />
-        <span class="catalog-provider">by {{ catalogItem.provider }}</span>
+        <ui5-title wrapping-type="None">{{ catalogItem.displayName }}</ui5-title>
       </div>
-    </div>
-    <div class="scrollable-content">
-      <section>
-        <h3>What is {{ catalogItem.displayName }}?</h3>
-        <p>{{ catalogItem.description }}</p>
-      </section>
-      <section>
-        <h3>Want to know more?</h3>
-        <p>
-          <a [href]="catalogItem.documentation?.url" target="_blank">
-            Documentation
-          </a>
-        </p>
-      </section>
-      <section *ngIf="catalogItem.preferredSupportChannels?.length">
-        <h3>How to get help?</h3>
-        <ul>
-          <li>
-            <span>Report an issue: </span>
-            <a href="#" target="_blank">
-              Support Ticket
-            </a>
-          </li>
-          <li>
-            <span>Product Owners: </span>
-            <span *ngFor="let contact of catalogItem.contacts">
-              <a [href]="'mailto:' + contact.email">{{ contact.displayName }}</a>
-            </span>
-          </li>
-          <li>
-            Service Level: {{ catalogItem.serviceLevel }}
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
+
+      <ui5-text slot="subheading">by {{ catalogItem.provider }}</ui5-text>
+      <ui5-text slot="snappedSubheading">by {{ catalogItem.provider }}</ui5-text>
+
+      <ui5-toolbar id="actionsToolbar" slot="actionsBar" design="Transparent">
+        <ui5-toolbar-button
+          (click)="toggleCatalogItem()"
+          [text]="buttonVisible() ? 'Enable' : 'Disable'"
+          design="Emphasized"
+        ></ui5-toolbar-button>
+      </ui5-toolbar>
+    </ui5-dynamic-page-title>
+
+    <ui5-dynamic-page-header slot="headerArea">
+      <div class="product-info">
+        <img
+          [src]="catalogItem.icon?.light?.data"
+          alt="Catalog Icon"
+          class="catalog-image"
+          height="48"
+          width="48"
+        />
+        <!-- This will be replaced with catalogItem info -->
+        <div class="product-info-cell">
+          <ui5-label>Availability</ui5-label>
+          <ui5-text class="availability">In Stock</ui5-text>
+        </div>
+        <div class="product-info-cell">
+          <ui5-label>Price</ui5-label>
+          <ui5-text class="price">379.99 USD</ui5-text>
+        </div>
+        <div class="product-info-cell">
+          <ui5-label>Product Description</ui5-label>
+          <ui5-text class="product-description">
+            Super-lightweight cushioning propels you forward from landing to
+            toe-off and has a fast, snappy feel.
+          </ui5-text>
+        </div>
+      </div>
+    </ui5-dynamic-page-header>
+
+    <ui5-list header-text="Products (13)" mode="SingleSelect">
+      <!-- This will be replaced with catalogItem info -->
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="47.00 EUR"
+      >
+        10 inch Portable DVD
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="249.00 EUR"
+      >
+        7 inch WidescreenPortable DVD Player w MP3
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="947.00 EUR"
+      >
+        Astro Laptop 1516
+      </ui5-li>
+      <ui5-li
+        description="HT-1251"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.00 EUR"
+      >
+        Astro Phone 6
+      </ui5-li>
+      <ui5-li
+        description="HT-1252"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="27.99 EUR"
+      >
+        Audio/Video Cable Kit - 4m
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="447.90 EUR"
+      >
+        Beam Breaker B-1
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="647.50 EUR"
+      >
+        Beam Breaker B-2
+      </ui5-li>
+      <ui5-li
+        description="HT-6001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="847.80 EUR"
+      >
+        Beam Breaker B-3
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,250.00 EUR"
+      >
+        Beam Breaker B-4
+      </ui5-li>
+      <ui5-li
+        description="HT-8001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="1,288.00 EUR"
+      >
+        Camcorder View
+      </ui5-li>
+      <ui5-li
+        description="HT-2001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="996.00 EUR"
+      >
+        Benda Laptop 1408
+      </ui5-li>
+      <ui5-li
+        description="HT-0003"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="147.00 EUR"
+      >
+        Cepat Tablet 10.5
+      </ui5-li>
+      <ui5-li
+        description="HT-1001"
+        icon="slim-arrow-right"
+        icon-end
+        additional-text="87.90 EUR"
+      >
+        Gladiator MX
+      </ui5-li>
+    </ui5-list>
+
+    <ui5-bar slot="footerArea" design="FloatingFooter">
+      <ui5-button id="save-edit" slot="endContent">Save</ui5-button>
+      <ui5-button id="cancel-edit" slot="endContent">Close</ui5-button>
+    </ui5-bar>
+  </ui5-dynamic-page>
+</div>
 }
