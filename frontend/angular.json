@@ -3,31 +3,31 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "example-content": {
+    "ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/index.html",
-            "main": "src/main.ts",
+            "index": "projects/ui/src/index.html",
+            "main": "projects/ui/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/ui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
+              "projects/ui/src/favicon.ico",
+              "projects/ui/src/assets",
               {
                 "glob": "**/css_variables.css",
                 "input": "./node_modules/@sap-theming/theming-base-content/content/Base/baseLib/",
@@ -40,7 +40,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
+              "projects/ui/src/styles.scss",
               "./node_modules/@fundamental-ngx/core/styles/fundamental-ngx-core.css",
               "./node_modules/fundamental-styles/dist/fonts/sap_fonts.css",
               {
@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "example-content:build:production"
+              "buildTarget": "ui:build:production"
             },
             "development": {
-              "buildTarget": "example-content:build:development"
+              "buildTarget": "ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "example-content:build"
+            "buildTarget": "ui:build"
           }
         },
         "test": {
@@ -106,16 +106,96 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "tsconfig.spec.json",
+            "tsConfig": "projects/ui/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/ui/src/favicon.ico",
+              "projects/ui/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/ui/src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "wc": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/wc",
+      "sourceRoot": "projects/wc/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist-wc",
+            "index": "",
+            "main": "projects/wc/src/main.ts",
+            "polyfills": "projects/wc/src/polyfills.ts",
+            "tsConfig": "projects/wc/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": ["projects/wc/src/assets"],
+            "styles": ["projects/wc/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "8mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "70kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/wc/src/environments/environment.ts",
+                  "with": "projects/wc/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "wc:build:production"
+            },
+            "development": {
+              "browserTarget": "wc:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "wc:build"
           }
         }
       }
