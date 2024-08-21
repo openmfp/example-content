@@ -1,15 +1,8 @@
 @if (catalogItem(); as catalogItem) {
-  <div class="catalog-wrapper">
-    <div class="fixed-header">
-      <div class="header-content">
-        <h1 class="catalog-name">{{ catalogItem.displayName }}</h1>
-        <div class="catalog-actions">
-          <ui5-button design="Emphasized" (click)="toggleCatalogItem()">
-            {{buttonVisible() ? 'Enable' : 'Disable'}}
-          </ui5-button>
-        </div>
-      </div>
-      <div class="header-info">
+<div class="wrapper">
+  <ui5-dynamic-page id="page" hidePinButton>
+    <ui5-dynamic-page-title slot="titleArea">
+      <div slot="heading" class="title-heading">
         <img
           [src]="catalogItem.icon?.light?.data"
           alt="Catalog Icon"
@@ -17,42 +10,79 @@
           height="48"
           width="48"
         />
-        <span class="catalog-provider">by {{ catalogItem.provider }}</span>
+        <ui5-title wrapping-type="None">
+          {{ catalogItem.displayName }}
+        </ui5-title>
+      </div>
+
+      <div slot="snappedHeading" class="snapped-title-heading">
+        <img
+          [src]="catalogItem.icon?.light?.data"
+          alt="Catalog Icon"
+          class="catalog-image"
+          height="48"
+          width="48"
+        />
+        <ui5-title wrapping-type="None">
+          {{ catalogItem.displayName }}
+        </ui5-title>
+      </div>
+
+      <ui5-toolbar id="actionsToolbar" slot="actionsBar" design="Transparent">
+        <ui5-toolbar-button
+          (click)="toggleCatalogItem()"
+          [text]="buttonVisible() ? 'Enable' : 'Disable'"
+          design="Emphasized"
+        ></ui5-toolbar-button>
+      </ui5-toolbar>
+    </ui5-dynamic-page-title>
+
+    <ui5-dynamic-page-header slot="headerArea">
+      <div class="product-info">
+        <div class="product-info-cell">
+          <ui5-label>Provider</ui5-label>
+          <ui5-text class="availability">{{ catalogItem.provider }}</ui5-text>
+        </div>
+        <div class="product-info-cell">
+          <ui5-label>Category</ui5-label>
+          <ui5-text class="price">{{ catalogItem.category }}</ui5-text>
+        </div>
+      </div>
+    </ui5-dynamic-page-header>
+
+    <div class="content-padding">
+      <div>
+        <ui5-title level="H3">What is {{ catalogItem.displayName }}?</ui5-title>
+        <ui5-label>{{ catalogItem.description }}</ui5-label>
+      </div>
+      <div>
+        <ui5-title level="H3">Want to know more?</ui5-title>
+        <ui5-link [href]="catalogItem.documentation?.url" target="_blank">
+          Documentation
+        </ui5-link>
+      </div>
+      <div>
+        <ui5-title level="H3">How to get help?</ui5-title>
+        <div>
+          <ui5-label>Report an issue: </ui5-label>
+          <ui5-link href="#" target="_blank"> Support Ticket </ui5-link>
+        </div>
+        <div>
+          <ui5-label>Product Owners: </ui5-label>
+          @for (contact of catalogItem.contacts; track contact) {
+          <ui5-link [href]="'mailto:' + contact.email" class="contact-link">
+            {{ contact.displayName}}
+          </ui5-link>
+          }
+        </div>
+        <div>
+          <ui5-label>Service Level: </ui5-label>
+          <ui5-link href="#" target="_blank">
+            {{ catalogItem.serviceLevel }}
+          </ui5-link>
+        </div>
       </div>
     </div>
-    <div class="scrollable-content">
-      <section>
-        <h3>What is {{ catalogItem.displayName }}?</h3>
-        <p>{{ catalogItem.description }}</p>
-      </section>
-      <section>
-        <h3>Want to know more?</h3>
-        <p>
-          <a [href]="catalogItem.documentation?.url" target="_blank">
-            Documentation
-          </a>
-        </p>
-      </section>
-      <section *ngIf="catalogItem.preferredSupportChannels?.length">
-        <h3>How to get help?</h3>
-        <ul>
-          <li>
-            <span>Report an issue: </span>
-            <a href="#" target="_blank">
-              Support Ticket
-            </a>
-          </li>
-          <li>
-            <span>Product Owners: </span>
-            <span *ngFor="let contact of catalogItem.contacts">
-              <a [href]="'mailto:' + contact.email">{{ contact.displayName }}</a>
-            </span>
-          </li>
-          <li>
-            Service Level: {{ catalogItem.serviceLevel }}
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
+  </ui5-dynamic-page>
+</div>
 }
