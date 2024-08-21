@@ -1,1 +1,17 @@
 <p>openmcp works!</p>
+
+<ui5-card class="chart-card">
+  <ui5-card-header slot="header"
+                   title-text="Project Cloud Transformation"
+                   subtitle-text="Revenue | EUR">
+  </ui5-card-header>
+  <div class="card-content">
+    <div class="price-details">
+      <ui5-title level="H2" class="txt-red">65.34 &darr;</ui5-title>
+      <p>Target <br>100K</p>
+      <p>Deviation <br><span class="txt-red">34.7%</span></p>
+    </div>
+    <p><small>Q1, 2024</small></p>
+    <app-line-chart [data]="chartData" [title]="chartTitle"></app-line-chart>
+  </div>
+</ui5-card>
