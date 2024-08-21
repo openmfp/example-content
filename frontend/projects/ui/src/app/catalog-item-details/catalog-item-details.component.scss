@@ -1,44 +1,57 @@
 .wrapper {
-    height: 100%;
+  height: 100%;
 }
 .content-padding > * {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .product-info {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .product-info [ui5-avatar],
 .product-info .product-info-cell {
-    margin-right: 2rem;
-    margin-bottom: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
 }
 
 .product-info-cell {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 
 .product-description {
-    display: inline;
-    max-width: 300px;
+  display: inline;
+  max-width: 300px;
 }
 
-.snapped-title-heading {
-    display: flex;
-    align-items: center;
+.snapped-title-heading,
+.title-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
 }
-.snapped-title-heading [ui5-avatar] {
-    margin-right: 1rem;
+
+.snapped-title-heading [ui5-title],
+.title-heading [ui5-title] {
+  font-family: var(--sapObjectHeader_Title_FontFamily);
+  color: var(--sapObjectHeader_Title_TextColor);
+  padding: 0.3125rem 0 0 0;
+  font-size: var(--sapObjectHeader_Title_SnappedFontSize);
+  text-overflow: ellipsis;
+  min-width: 0;
 }
-.snapped-title-heading [ui5-title] {
-    font-family: var(--sapObjectHeader_Title_FontFamily);
-    color: var(--sapObjectHeader_Title_TextColor);
-    padding: 0.3125rem 0 0 0;
-    font-size: var(--sapObjectHeader_Title_SnappedFontSize);
-    text-overflow: ellipsis;
-    min-width: 0;
+
+.contact-link {
+  margin-right: 8px;
+}
+
+ui5-title {
+  padding-bottom: 0.5rem;
+}
+
+ui5-label {
+  padding-bottom: 0.3rem;
 }
