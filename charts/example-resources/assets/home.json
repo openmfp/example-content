@@ -24,6 +24,569 @@
                 }
               }
             ]
+          },{
+            "entityType": "main.account",
+            "pathSegment": "dashboard",
+            "label": "Dashboard",
+            "defineEntity": {
+              "id": "dashboard"
+            },
+            "compound": {
+              "renderer" : {
+                "use": "grid",
+                "config": {
+                  "columns": "1fr 1fr 1fr 1fr"
+                }
+              }
+            }
+          },{
+            "entityType": "main.account.dashboard::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
+            "context": {
+              "title": "Dashboard",
+              "description": "works"
+            },
+            "layoutConfig": {
+              "row": "1",
+              "column": "1 / -1"
+            }
+          },
+          
+          
+          
+          
+          {
+            "entityType": "main.account.dashboard::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
+            "context": {
+              "style": "padding: 1rem",
+              "disableBorder": true,
+              "card": {
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "type": "AdaptiveCard",
+                "version": "1.0",
+                "speak": "<s>Your  meeting about \"Adaptive Card design session\"<break strength='weak'/> is starting at 12:30pm</s><s>Do you want to snooze <break strength='weak'/> or do you want to send a late notification to the attendees?</s>",
+                "body": [
+                  {
+                    "type": "TextBlock",
+                    "text": "Adaptive Card design session",
+                    "size": "large",
+                    "weight": "bolder",
+                    "wrap": true
+                  },
+                  {
+                    "type": "TextBlock",
+                    "text": "Conf Room 112/3377 (10)",
+                    "isSubtle": true,
+                    "wrap": true
+                  },
+                  {
+                    "type": "TextBlock",
+                    "text": "12:30 PM - 1:30 PM",
+                    "isSubtle": true,
+                    "spacing": "none",
+                    "wrap": true
+                  },
+                  {
+                    "type": "TextBlock",
+                    "text": "Snooze for",
+                    "wrap": true
+                  },
+                  {
+                    "type": "Input.ChoiceSet",
+                    "id": "snooze",
+                    "style": "compact",
+                    "value": "5",
+                    "choices": [
+                      {
+                        "title": "5 minutes",
+                        "value": "5"
+                      },
+                      {
+                        "title": "15 minutes",
+                        "value": "15"
+                      },
+                      {
+                        "title": "30 minutes",
+                        "value": "30"
+                      }
+                    ]
+                  }
+                ],
+                "actions": [
+                  {
+                    "type": "Action.Submit",
+                    "title": "Snooze",
+                    "data": {
+                      "x": "snooze"
+                    }
+                  },
+                  {
+                    "type": "Action.Submit",
+                    "title": "I'll be late",
+                    "data": {
+                      "x": "late"
+                    }
+                  }
+                ]
+              }
+            }            
+          },{
+            "entityType": "main.account.dashboard::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
+            "context": {
+              "style": "padding: 1rem",
+              "disableBorder": true,
+              "card": {
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "type": "AdaptiveCard",
+                "version": "1.0",
+                "speak": "<s>The forecast for Seattle January 20 is mostly clear with a High of 51 degrees and Low of 40 degrees</s>",
+                "body": [
+                  {
+                    "type": "TextBlock",
+                    "text": "Redmond, WA",
+                    "size": "large",
+                    "isSubtle": true,
+                    "wrap": true
+                  },
+                  {
+                    "type": "TextBlock",
+                    "text": "Mon, Nov 4, 2019 6:21 PM",
+                    "spacing": "none",
+                    "wrap": true
+                  },
+                  {
+                    "type": "ColumnSet",
+                    "columns": [
+                      {
+                        "type": "Column",
+                        "width": "auto",
+                        "items": [
+                          {
+                            "type": "Image",
+                            "url": "https://messagecardplayground.azurewebsites.net/assets/Mostly%20Cloudy-Square.png",
+                            "size": "small",
+                            "altText": "Mostly cloudy weather"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Column",
+                        "width": "auto",
+                        "items": [
+                          {
+                            "type": "TextBlock",
+                            "text": "46",
+                            "size": "extraLarge",
+                            "spacing": "none",
+                            "wrap": true
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Column",
+                        "width": "stretch",
+                        "items": [
+                          {
+                            "type": "TextBlock",
+                            "text": "°F",
+                            "weight": "bolder",
+                            "spacing": "small",
+                            "wrap": true
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Column",
+                        "width": "stretch",
+                        "items": [
+                          {
+                            "type": "TextBlock",
+                            "text": "Hi 50",
+                            "horizontalAlignment": "left",
+                            "wrap": true
+                          },
+                          {
+                            "type": "TextBlock",
+                            "text": "Lo 41",
+                            "horizontalAlignment": "left",
+                            "spacing": "none",
+                            "wrap": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }            
+          },{
+            "entityType": "main.account.dashboard::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
+            "context": {
+              "style": "padding: 1rem",
+              "disableBorder": true,
+              "card": {
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "type": "AdaptiveCard",
+                "version": "1.0",
+                "speak": "ACME stock is trading at $62.30 a share, which is down .32%",
+                "body": [
+                  {
+                    "type": "Container",
+                    "items": [
+                              {
+                                  "type": "TextBlock",
+                                  "text": "ACME Inc.",
+                                  "size": "Medium",
+                                  "wrap": true
+                              },
+                              {
+                                  "type": "TextBlock",
+                                  "text": "Nasdaq Global Select: ACME",
+                                  "isSubtle": true,
+                                  "spacing": "None",
+                                  "wrap": true
+                              },
+                              {
+                                  "type": "TextBlock",
+                                  "text": "Fri, May 3, 2019 1:00 PM",
+                        "wrap": true
+                              }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "spacing": "none",
+                    "items": [
+                      {
+                        "type": "ColumnSet",
+                        "columns": [
+                          {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                              {
+                                "type": "TextBlock",
+                                "text": "128.90",
+                                "size": "extraLarge",
+                                "wrap": true
+                              },
+                              {
+                                "type": "TextBlock",
+                                "text": "▲ 2.69 USD (2.13%)",
+                                "color": "good",
+                                "spacing": "none",
+                                "wrap": true
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                              {
+                                "type": "FactSet",
+                                "facts": [
+                                  {
+                                    "title": "Open",
+                                    "value": "127.42"
+                                  },
+                                  {
+                                    "title": "High",
+                                    "value": "129.43"
+                                  },
+                                  {
+                                    "title": "Low",
+                                    "value": "127.25"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }            
+          },{
+            "entityType": "main.account.dashboard::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
+            "context": {
+              "style": "padding: 1rem",
+              "disableBorder": true,
+              "card": {
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "type": "AdaptiveCard",
+                "version": "1.0",
+                "body": [
+                  {
+                    "type": "TextBlock",
+                    "text": "Your registration is almost complete",
+                    "size": "medium",
+                    "weight": "bolder",
+                    "wrap": true
+                  },
+                  {
+                    "type": "TextBlock",
+                    "text": "What type of food do you prefer?",
+                    "wrap": true
+                  },
+                  {
+                    "type": "ImageSet",
+                    "imageSize": "medium",
+                    "images": [
+                      {
+                        "type": "Image",
+                        "url": "https://contososcubademo.azurewebsites.net/assets/steak.jpg",
+                        "altText": "Steak cut with fries"
+                      },
+                      {
+                        "type": "Image",
+                        "url": "https://contososcubademo.azurewebsites.net/assets/chicken.jpg",
+                        "altText": "Fried chicken with lettuce"
+                      },
+                      {
+                        "type": "Image",
+                        "url": "https://contososcubademo.azurewebsites.net/assets/tofu.jpg",
+                        "altText": "Tofu topped with red sauce"
+                      }
+                    ]
+                  }
+                ],
+                "actions": [
+                  {
+                    "type": "Action.ShowCard",
+                    "title": "Steak",
+                    "card": {
+                      "type": "AdaptiveCard",
+                      "body": [
+                        {
+                          "type": "Input.ChoiceSet",
+                          "id": "SteakTemp",
+                          "style": "expanded",
+                          "label": "How would you like your steak prepared?",
+                          "isRequired": true,
+                          "errorMessage": "Please select one of the above options",
+                          "choices": [
+                            {
+                              "title": "Rare",
+                              "value": "rare"
+                            },
+                            {
+                              "title": "Medium-Rare",
+                              "value": "medium-rare"
+                            },
+                            {
+                              "title": "Well-done",
+                              "value": "well-done"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Input.Text",
+                          "id": "SteakOther",
+                          "isMultiline": true,
+                          "label": "Any other preparation requests?"
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": "Action.Submit",
+                          "title": "OK",
+                          "data": {
+                            "FoodChoice": "Steak"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Action.ShowCard",
+                    "title": "Chicken",
+                    "card": {
+                      "type": "AdaptiveCard",
+                      "body": [
+                        {
+                          "type": "Input.Toggle",
+                          "id": "ChickenAllergy",
+                          "valueOn": "noPeanuts",
+                          "valueOff": "peanuts",
+                          "title": "I'm allergic to peanuts",
+                          "label": "Do you have any allergies?"
+                        },
+                        {
+                          "type": "Input.Text",
+                          "id": "ChickenOther",
+                          "isMultiline": true,
+                          "label": "Any other preparation requests?"
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": "Action.Submit",
+                          "title": "OK",
+                          "data": {
+                            "FoodChoice": "Chicken"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Action.ShowCard",
+                    "title": "Tofu",
+                    "card": {
+                      "type": "AdaptiveCard",
+                      "body": [
+                        {
+                          "type": "Input.Toggle",
+                          "id": "Vegetarian",
+                          "title": "Please prepare it vegan",
+                          "label": "Would you like it prepared vegan?",
+                          "valueOn": "vegan",
+                          "valueOff": "notVegan"
+                        },
+                        {
+                          "type": "Input.Text",
+                          "id": "VegOther",
+                          "isMultiline": true,
+                          "label": "Any other preparation requests?"
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": "Action.Submit",
+                          "title": "OK",
+                          "data": {
+                            "FoodChoice": "Vegetarian"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }            
+          },{
+            "entityType": "main.account.dashboard::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
+            "context": {
+              "style": "padding: 1rem",
+              "disableBorder": true,
+              "card": {
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "type": "AdaptiveCard",
+                "version": "1.0",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "text": "Publish Adaptive Card Schema",
+                        "weight": "bolder",
+                        "size": "medium",
+                        "wrap": true
+                    },
+                    {
+                        "type": "ColumnSet",
+                        "columns": [
+                            {
+                                "type": "Column",
+                                "width": "auto",
+                                "items": [
+                                    {
+                                        "type": "Image",
+                                        "url": "https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg",
+                                        "size": "small",
+                                        "style": "person"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Column",
+                                "width": "stretch",
+                                "items": [
+                                    {
+                                        "type": "TextBlock",
+                                        "text": "Matt Hidinger",
+                                        "weight": "bolder",
+                                        "wrap": true
+                                    },
+                                    {
+                                        "type": "TextBlock",
+                                        "spacing": "none",
+                                        "text": "Created {{DATE(2017-02-14T06:08:39Z, SHORT)}}",
+                                        "isSubtle": true,
+                                        "wrap": true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "Now that we have defined the main rules and features of the format, we need to produce a schema and publish it to GitHub. The schema will be the starting point of our reference documentation.",
+                        "wrap": true
+                    },
+                    {
+                        "type": "FactSet",
+                        "facts": [
+                            {
+                                "title": "Board:",
+                                "value": "Adaptive Cards"
+                            },
+                            {
+                                "title": "List:",
+                                "value": "Backlog"
+                            },
+                            {
+                                "title": "Assigned to:",
+                                "value": "Matt Hidinger"
+                            },
+                            {
+                                "title": "Due date:",
+                                "value": "Not set"
+                            }
+                        ]
+                    }
+                ],
+                "actions": [
+                    {
+                        "type": "Action.ShowCard",
+                        "title": "Set due date",
+                        "card": {
+                            "type": "AdaptiveCard",
+                            "body": [
+                                {
+                                    "type": "Input.Date",
+                                    "id": "dueDate"
+                                },
+                                {
+                                    "type": "Input.Text",
+                                    "id": "comment",
+                                    "placeholder": "Add a comment",
+                                    "isMultiline": true
+                                }
+                            ],
+                            "actions": [
+                                {
+                                    "type": "Action.Submit",
+                                    "title": "OK"
+                                }
+                            ],
+                            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+                        }
+                    },
+                    {
+                        "type": "Action.OpenUrl",
+                        "title": "View",
+                        "url": "https://adaptivecards.io"
+                    }
+                ]
+              }
+            }            
           }
         ]
       }

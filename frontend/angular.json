@@ -137,7 +137,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/wc",
+            "outputPath": "dist-wc",
             "index": "",
             "main": "projects/wc/src/main.ts",
             "polyfills": "projects/wc/src/polyfills.ts",
