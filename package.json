@@ -10,8 +10,6 @@
     "prepare": "husky && npm run npm:install:ui"
   },
   "private": true,
-  "dependencies": {
-  },
   "devDependencies": {
     "concurrently": "8.2.2",
     "husky": "9.0.11"
