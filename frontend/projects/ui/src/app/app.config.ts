@@ -11,11 +11,11 @@ import {
   LuigiContextService,
   LuigiContextServiceImpl,
 } from '@luigi-project/client-support-angular';
-import { DEFAULT_THEME_NAME } from './app.constants';
-import { routes } from './app.routes';
-import { ApolloFactory } from './apollo.factory';
 import { Apollo, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
+import { ApolloFactory } from './apollo.factory';
+import { DEFAULT_THEME_NAME } from './app.constants';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
