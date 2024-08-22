@@ -14,7 +14,7 @@ import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 export class CatalogComponent implements OnChanges {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
-  
+
   title?: string;
   dummyData?: string[];
 
@@ -27,10 +27,11 @@ export class CatalogComponent implements OnChanges {
 
   fetchEnabledExtensions() {
     let storageKey = 'Luigi#content.d1.openmfp.dxp.k8s.ondemand.com#enabled-catalog-items';
+
     if (this.context.accountId) { // acocuntScope
       storageKey += '-' + this.context.accountId;
-    } 
-    
+    }
+
     this.dummyData = JSON.parse(localStorage.getItem(storageKey) || '[]');
   }
 }
