@@ -17,14 +17,35 @@
                 "pathSegment": "overview",
                 "label": "Overview",
                 "icon": "home",
-                "url": "https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html",
-                "context": {
-                  "title": "Welcome to OpenMFP Portal",
-                  "content": " "
+                "defineEntity": {
+                  "id": "overview"
+                },
+                "compound": {
+                  "renderer" : {
+                    "use": "grid",
+                    "config": {
+                      "columns": "1fr 1fr 1fr 1fr"
+                    }
+                  }
                 }
               }
             ]
           },{
+            "entityType": "main.overview::compound",
+            "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
+            "context": {
+              "title": "Welcome to OpenMFP Portal",
+              "description": " "
+            },
+            "layoutConfig": {
+              "row": "1",
+              "column": "1 / -1"
+            }
+          },
+          
+          
+          
+          {
             "entityType": "main.account",
             "pathSegment": "dashboard",
             "label": "Dashboard",
