@@ -225,6 +225,9 @@ matches the snapshot (providers):
                       "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/main.js#catalog",
                       "context": {
                         "title": "Enabled services"
+                      },
+                      "webcomponent": {
+                        "selfRegistered": true
                       }
                     },
                     {
@@ -232,6 +235,9 @@ matches the snapshot (providers):
                       "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/main.js#catalog",
                       "context": {
                         "title": "Account view - Enabled services"
+                      },
+                      "webcomponent": {
+                        "selfRegistered": true
                       }
                     }
                   ]
