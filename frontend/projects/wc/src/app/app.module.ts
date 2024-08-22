@@ -10,10 +10,13 @@ export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap(appRef: ApplicationRef) {
-    if (!customElements.get('line-chart')) {
-      const lineChartComponent = createCustomElement(LineChartComponent, {injector: this.injector});
-
-      customElements.define('line-chart', lineChartComponent);
+    const lineChartComponent = createCustomElement(LineChartComponent, {injector: this.injector});
+    try {
+      (window as any).Luigi._registerWebcomponent(document.currentScript?.getAttribute('src'), lineChartComponent);
+    } catch (e) {
+      if (!customElements.get('line-chart')) {
+        customElements.define('line-chart', lineChartComponent);
+      }
     }
   }
 }

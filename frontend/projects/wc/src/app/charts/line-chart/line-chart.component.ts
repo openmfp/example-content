@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import Chart, { ChartData } from 'chart.js/auto';
+import { LuigiClient } from '@luigi-project/client/luigi-element';
 
 @Component({
   selector: 'app-line-chart',
@@ -13,12 +14,20 @@ import Chart, { ChartData } from 'chart.js/auto';
 export class LineChartComponent implements OnChanges {
   @Input() data?: ChartData;
   @Input() title?: string;
+  @Input() LuigiClient?: LuigiClient;
+  @Input() context?: any;
   @ViewChild('lineChart', {read: ElementRef}) lineChart?: ElementRef<HTMLElement>;
   chart: any;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.createChart(changes['data'].currentValue);
+    }
+    if (changes['context']) {
+      setTimeout(() => {
+        this.createChart(changes['context'].currentValue.chartData);
+      })
+      this.title = changes['context'].currentValue.title;
     }
   }
 
