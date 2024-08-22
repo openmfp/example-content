@@ -1,21 +1,22 @@
 import { ApplicationRef, DoBootstrap, Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
-import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { DataChartComponent } from './charts/data-chart/data-chart.component';
 
 @NgModule({
-  imports: [BrowserModule, LineChartComponent],
+  imports: [BrowserModule, DataChartComponent],
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap(appRef: ApplicationRef) {
-    const lineChartComponent = createCustomElement(LineChartComponent, {injector: this.injector});
+    const dataChartComponent = createCustomElement(DataChartComponent, {injector: this.injector});
+
     try {
-      (window as any).Luigi._registerWebcomponent(document.currentScript?.getAttribute('src'), lineChartComponent);
+      (window as any).Luigi._registerWebcomponent(document.currentScript?.getAttribute('src'), dataChartComponent);
     } catch (e) {
-      if (!customElements.get('line-chart')) {
-        customElements.define('line-chart', lineChartComponent);
+      if (!customElements.get('data-chart')) {
+        customElements.define('data-chart', dataChartComponent);
       }
     }
   }

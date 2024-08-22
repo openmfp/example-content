@@ -1,6 +1,11 @@
+.openmcp-cards {
+  display: flex;
+  gap: 1rem;
+}
+
 .chart-card {
   display: block;
-  width: 30%;
+  width: 40%;
 }
 
 .card-content {

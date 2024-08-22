@@ -1,18 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import Chart, { ChartData } from 'chart.js/auto';
 
 @Component({
-  selector: 'app-line-chart',
+  selector: 'app-data-chart',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss'],
+  templateUrl: './data-chart.component.html',
+  styleUrls: ['./data-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LineChartComponent implements OnInit {
+export class DataChartComponent implements OnInit {
   @Input() data?: ChartData;
   @Input() title?: string;
+  @Input() type: 'bar' | 'line' = 'line';
+  @ViewChild('dataChart', {read: ElementRef, static: true}) dataChart?: ElementRef<HTMLElement>;
   chart: any;
 
   ngOnInit() {
@@ -20,12 +22,14 @@ export class LineChartComponent implements OnInit {
   }
 
   createChart() {
-    if (!this.data) {
+    const ctx = (this.dataChart as any)?.nativeElement?.getContext('2d');
+
+    if (!this.data || !ctx) {
       return;
     }
 
-    this.chart = new Chart('LineChart', {
-      type: 'line',
+    this.chart = new Chart(ctx, {
+      type: this.type,
       data: <any>this.data,
       options: {
         aspectRatio: 2,

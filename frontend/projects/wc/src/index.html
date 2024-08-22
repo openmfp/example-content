@@ -9,15 +9,15 @@
 </head>
 <body>
   <h1>Angular Elements</h1>
-  <line-chart id="wcLineChart"></line-chart>
+  <data-chart id="wcLineChart" style="display:block; width:50%"></data-chart>
   <script type="text/javascript" src="../../../dist-wc/polyfills.js"></script>
   <script type="text/javascript" src="../../../dist-wc/main.js"></script>
   <script>
-    const lineChart = document.getElementById('wcLineChart');
+    const dataChart = document.getElementById('wcLineChart');
 
     setTimeout(() => {
-      lineChart.title = 'Line chart';
-      lineChart.data = {
+      dataChart.title = 'Line chart';
+      dataChart.data = {
         labels: ['CW14', 'CW15', 'CW16', 'CW17', 'CW18', 'CW19', 'CW20'],
         datasets: [
           {

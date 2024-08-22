@@ -1,28 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import Chart, { ChartData } from 'chart.js/auto';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
+import Chart, { ChartData } from 'chart.js/auto';
 
 @Component({
-  selector: 'app-line-chart',
+  selector: 'app-data-chart',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss'],
+  templateUrl: './data-chart.component.html',
+  styleUrls: ['./data-chart.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class LineChartComponent implements OnChanges {
+export class DataChartComponent implements OnChanges {
   @Input() data?: ChartData;
   @Input() title?: string;
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
-  @ViewChild('lineChart', {read: ElementRef}) lineChart?: ElementRef<HTMLElement>;
+  @Input() type: 'bar' | 'line' = 'line';
+  @ViewChild('dataChart', {read: ElementRef, static: true}) dataChart?: ElementRef<HTMLElement>;
   chart: any;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.createChart(changes['data'].currentValue);
     }
+
     if (changes['context']) {
       setTimeout(() => {
         this.createChart(changes['context'].currentValue.chartData);
@@ -32,14 +34,14 @@ export class LineChartComponent implements OnChanges {
   }
 
   createChart(data: any) {
-    const ctx = (this.lineChart as any)?.nativeElement?.getContext('2d');
+    const ctx = (this.dataChart as any)?.nativeElement?.getContext('2d');
 
     if (!ctx) {
       return;
     }
 
     this.chart = new Chart(ctx, {
-      type: 'line',
+      type: this.type,
       data,
       options: {
         aspectRatio: 2,

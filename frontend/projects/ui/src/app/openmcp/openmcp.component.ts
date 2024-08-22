@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { ChartData } from 'chart.js';
-import { LineChartComponent } from '../charts/line-chart/line-chart.component';
+import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 
 @Component({
   selector: 'app-openmcp',
   standalone: true,
-  imports: [LineChartComponent, Ui5WebcomponentsModule],
+  imports: [DataChartComponent, Ui5WebcomponentsModule],
   templateUrl: './openmcp.component.html',
   styleUrl: './openmcp.component.scss'
 })
@@ -28,5 +28,4 @@ export class OpenmcpComponent {
       }
     ]
   };
-  readonly chartTitle = 'Line chart';
 }
