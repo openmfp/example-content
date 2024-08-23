@@ -238,7 +238,7 @@ matches the snapshot (providers):
                         "title": "Resource Overview"
                       },
                       "layoutConfig": {
-                        "row": "1",
+                        "row": "auto",
                         "column": "1 / -1"
                       },
                       "webcomponent": {
