@@ -227,6 +227,10 @@ matches the snapshot (providers):
                       "context": {
                         "title": "Enabled services"
                       },
+                      "layoutConfig": {
+                        "row": "auto",
+                        "column": "1 / -1"
+                      },
                       "webcomponent": {
                         "selfRegistered": true
                       }
