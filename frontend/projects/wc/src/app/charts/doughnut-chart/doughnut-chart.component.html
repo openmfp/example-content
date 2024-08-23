@@ -1,0 +1,13 @@
+<div class="chart-container">
+  <canvas #dataChart>{{ chart }}</canvas>
+  @if (title) {
+    <div class="title-wrapper">
+      <p [ngStyle]="{color: data && data['color'] ? data['color'] : 'inherit'}">
+        {{ title }}
+      </p>
+      @if (subtitle) {
+        <small>{{ subtitle }}</small>
+      }
+    </div>
+  }
+</div>

@@ -9,28 +9,48 @@
   column-gap: 1.3%;
   row-gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 1rem;
 }
 
 .catalog-card {
   width: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 900px) {
   .catalog-card {
     width: 49%;
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1200px) {
   .catalog-card {
     width: 32%;
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .catalog-card {
-    width: 24%;
+.price-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+
+  ui5-title {
+    margin-right: 2rem;
   }
+
+  p {
+    margin: 0;
+    text-align: right;
+  }
+}
+
+.txt-green {
+  color: var(--sapIndicationColor_4_Background);
+}
+
+.txt-red {
+  color: var(--sapIndicationColor_2_Background);
 }
 
 .item-list {
