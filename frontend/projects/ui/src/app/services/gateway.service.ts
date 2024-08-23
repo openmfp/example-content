@@ -58,6 +58,7 @@ export class GatewayService {
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js",
             "context": {
+              "title": "Activated Services from Marketplace",
               "style": "padding: 1rem",
               "disableBorder": true,
               "card": {
@@ -130,7 +131,11 @@ export class GatewayService {
                   }
                 ]
               }
-            }            
+            },
+            "layoutConfig": {
+              "row": "1",
+              "column": "1 / -1"
+            }
           }
         ]
       }

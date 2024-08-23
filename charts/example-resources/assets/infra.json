@@ -47,6 +47,7 @@
             "entityType": "main.account",
             "category": {
               "label": "OpenMCP",
+              "icon": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/assets/openmcp.png",
               "collapsible": false
             },
             "loadingIndicator": {
