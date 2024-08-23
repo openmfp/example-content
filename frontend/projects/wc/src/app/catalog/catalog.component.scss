@@ -28,29 +28,12 @@
   }
 }
 
-.price-details {
+.card-content {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
+  box-sizing: border-box;
   gap: 1rem;
-
-  ui5-title {
-    margin-right: 2rem;
-  }
-
-  p {
-    margin: 0;
-    text-align: right;
-  }
-}
-
-.txt-green {
-  color: var(--sapIndicationColor_4_Background);
-}
-
-.txt-red {
-  color: var(--sapIndicationColor_2_Background);
 }
 
 .item-list {
