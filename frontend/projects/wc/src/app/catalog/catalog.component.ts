@@ -15,9 +15,8 @@ import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 export class CatalogComponent implements OnChanges {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
-
-  title?: string;
   dummyData?: string[];
+  title = 'Resource Overview';
   readonly chartData = {
     labels: ['CW14', 'CW15', 'CW16', 'CW17', 'CW18', 'CW19', 'CW20'],
     datasets: [
