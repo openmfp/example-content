@@ -51,7 +51,11 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/main.js#catalog",
             "context": {
-              "title": "Account view - Enabled services"
+              "title": "Resource Overview"
+            },
+            "layoutConfig": {
+              "row": "1",
+              "column": "1 / -1"
             },
             "webcomponent": {
               "selfRegistered": true
