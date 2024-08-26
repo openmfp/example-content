@@ -6,6 +6,7 @@ import { DataChartComponent } from './charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
 import { RootOverviewComponent } from './root-overview/root-overview.component';
 import { ServicesComponent } from './services/services.component';
+import { EnabledCapabilitiesComponent } from './enabled-capabilities/enabled-capabilities.component';
 
 @NgModule({
   imports: [BrowserModule, DataChartComponent, DoughnutChartComponent],
@@ -27,6 +28,7 @@ export class AppModule implements DoBootstrap {
     const servicesComponent = createCustomElement(ServicesComponent, {injector: this.injector});
     const accountOverviewComponent = createCustomElement(AccountOverviewComponent, {injector: this.injector});
     const rootOverviewComponent = createCustomElement(RootOverviewComponent, {injector: this.injector});
+    const enabledCapabilitiesComponent = createCustomElement(EnabledCapabilitiesComponent, {injector: this.injector});
 
     try {
       this.registerWebcomponent(dataChartComponent, 'chart');
@@ -34,6 +36,7 @@ export class AppModule implements DoBootstrap {
       this.registerWebcomponent(servicesComponent, 'services');
       this.registerWebcomponent(accountOverviewComponent, 'account-overview');
       this.registerWebcomponent(rootOverviewComponent, 'root-overview');
+      this.registerWebcomponent(enabledCapabilitiesComponent, 'enabled-capabilities');
     } catch (e) {
       if (!customElements.get('data-chart')) {
         customElements.define('data-chart', dataChartComponent);

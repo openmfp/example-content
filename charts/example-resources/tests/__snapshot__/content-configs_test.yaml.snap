@@ -248,6 +248,17 @@ matches the snapshot (providers):
                       "webcomponent": {
                         "selfRegistered": true
                       }
+                    },
+                    {
+                      "entityType": "main.overview::compound",
+                      "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/main.js#enabled-capabilities",
+                      "layoutConfig": {
+                        "row": "auto",
+                        "column": "1 / -1"
+                      },
+                      "webcomponent": {
+                        "selfRegistered": true
+                      }
                     }
                   ]
                 }
