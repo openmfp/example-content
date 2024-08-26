@@ -4,12 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AccountOverviewComponent } from './account-overview/account-overview.component';
 import { DataChartComponent } from './charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
+import { EnabledCapabilitiesComponent } from './enabled-capabilities/enabled-capabilities.component';
 import { RootOverviewComponent } from './root-overview/root-overview.component';
 import { ServicesComponent } from './services/services.component';
-import { EnabledCapabilitiesComponent } from './enabled-capabilities/enabled-capabilities.component';
 
 @NgModule({
-  imports: [BrowserModule, DataChartComponent, DoughnutChartComponent],
+  imports: [
+    AccountOverviewComponent,
+    BrowserModule,
+    DataChartComponent,
+    DoughnutChartComponent,
+    EnabledCapabilitiesComponent,
+    RootOverviewComponent,
+    ServicesComponent
+  ],
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
