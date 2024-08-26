@@ -130,10 +130,6 @@ export class GatewayService {
                   }
                 ]
               }
-            },
-            "layoutConfig": {
-              "row": "1",
-              "column": "1 / -1"
             }
           }
         ]
