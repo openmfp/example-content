@@ -10,10 +10,13 @@
 <body>
   <h1>Angular Elements</h1>
   <data-chart id="wcLineChart" style="display:block; width:50%"></data-chart>
+  <br><br>
+  <doughnut-chart id="wcDoughnutChart" style="display:block"></doughnut-chart>
   <script type="text/javascript" src="../../../dist-wc/polyfills.js"></script>
   <script type="text/javascript" src="../../../dist-wc/main.js"></script>
   <script>
     const dataChart = document.getElementById('wcLineChart');
+    const doughnutChart = document.getElementById('wcDoughnutChart');
 
     setTimeout(() => {
       dataChart.title = 'Line chart';
@@ -33,6 +36,12 @@
             borderColor: '#c87b00'
           }
         ]
+      };
+      doughnutChart.data = {
+        color: '#AD49E1',
+        total: 1200,
+        unit: 'MiB',
+        value: 800
       };
     }, 100);
   </script>
