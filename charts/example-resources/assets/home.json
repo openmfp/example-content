@@ -34,7 +34,7 @@
             "entityType": "main.overview::compound",
             "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
             "context": {
-              "disableBorder": true,
+              "border": "shadow",
               "title": "Welcome to OpenMFP Portal",
               "description": " "
             },
@@ -65,7 +65,7 @@
             "entityType": "main.account.dashboard::compound",
             "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
             "context": {
-              "disableBorder": true,
+              "border": "shadow",
               "title": "Account Level Dashboard",
               "description": "Comprehensive account overview dashboard for an account running inside an ApeiroRA instance"
             },
