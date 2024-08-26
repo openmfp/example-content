@@ -25,13 +25,6 @@
         <app-data-chart [data]="chartData" type="bar"></app-data-chart>
       </div>
     </ui5-card>
-    <ui5-card class="catalog-card">
-      <ui5-card-header slot="header" titleText="Number of activated services ({{dummyData?.length || 0}})"></ui5-card-header>
-      <ui5-list separators="None" class="item-list">
-        @for (item of dummyData; track item) {
-          <ui5-li icon="product">{{item}}</ui5-li>
-        }
-      </ui5-list>
-    </ui5-card>
+    <app-services class="catalog-card"></app-services>
   </div>
 </div>
