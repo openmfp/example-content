@@ -25,7 +25,7 @@ export class ServicesComponent implements OnChanges {
   fetchEnabledExtensions() {
     let storageKey = 'Luigi#content.d1.openmfp.dxp.k8s.ondemand.com#enabled-catalog-items';
 
-    if (this.context.accountId) { // acocuntScope
+    if (this.context?.accountId) { // accountScope
       storageKey += '-' + this.context.accountId;
     }
 

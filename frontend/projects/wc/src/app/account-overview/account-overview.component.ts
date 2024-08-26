@@ -18,7 +18,6 @@ export class AccountOverviewComponent implements OnChanges {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
   @Input() title = 'Resource Overview';
-  dummyData?: string[];
   readonly instanceData = {
     color: '#AD49E1',
     total: 100,
@@ -50,17 +49,6 @@ export class AccountOverviewComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['context']) {
       this.title = changes['context'].currentValue.title;
-      this.fetchEnabledExtensions();
     }
-  }
-
-  fetchEnabledExtensions() {
-    let storageKey = 'Luigi#content.d1.openmfp.dxp.k8s.ondemand.com#enabled-catalog-items';
-
-    if (this.context.accountId) { // acocuntScope
-      storageKey += '-' + this.context.accountId;
-    }
-
-    this.dummyData = JSON.parse(localStorage.getItem(storageKey) || '[]');
   }
 }

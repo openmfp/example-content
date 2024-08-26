@@ -1,5 +1,8 @@
 <div class="catalog-container">
-  <ui5-title level="H3">{{title}}</ui5-title>
+  <ui5-title level="H4"
+             class="catalog-headline">
+    {{title}}
+  </ui5-title>
   <div class="catalog-cards">
     <ui5-card class="catalog-card">
       <ui5-card-header slot="header"
@@ -25,6 +28,8 @@
         <app-data-chart [data]="chartData" type="bar"></app-data-chart>
       </div>
     </ui5-card>
-    <app-services class="catalog-card"></app-services>
+    <app-services [context]="context"
+                  class="catalog-card">
+    </app-services>
   </div>
 </div>
