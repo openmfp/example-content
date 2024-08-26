@@ -1,4 +1,4 @@
-<div class="chart-container">
+<div class="chart-container" [class.no-title]="!title">
   @if (title) {
     <h3>{{ title }}</h3>
   }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
+import { array, color, number } from 'minifaker';
 import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
 import { ServicesComponent } from '../services/services.component';
@@ -19,27 +20,43 @@ export class AccountOverviewComponent implements OnChanges {
   @Input() context?: any;
   @Input() title = 'Resource Overview';
   readonly instanceData = {
-    color: '#AD49E1',
+    color: color(),
     total: 100,
-    value: 60
+    value: number({
+      min: 1,
+      max: 99,
+      float: false
+    })
   };
   readonly clusterData = {
-    color: '#41B3A2',
+    color: color(),
     total: 100,
-    value: 80
+    value: number({
+      min: 1,
+      max: 99,
+      float: false
+    })
   };
   readonly chartData = {
-    labels: ['CW14', 'CW15', 'CW16', 'CW17', 'CW18', 'CW19', 'CW20'],
+    labels: ['CW15', 'CW16', 'CW17', 'CW18', 'CW19', 'CW20'],
     datasets: [
       {
         label: 'Idle',
-        data: [431000, 491000, 485000, 536000, 670000, 680000, 659000],
+        data: array(6, () => number({
+          min: 500000,
+          max: 699000,
+          float: false
+        })),
         backgroundColor: '#0070f2',
         borderColor: '#0070f2'
       },
       {
         label: 'Active',
-        data: [230000, 238000, 221000, 280000, 230000, 250000, 325000],
+        data: array(6, () => number({
+          min: 200000,
+          max: 399000,
+          float: false
+        })),
         backgroundColor: '#c87b00',
         borderColor: '#c87b00'
       }
