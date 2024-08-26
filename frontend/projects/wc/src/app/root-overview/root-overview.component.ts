@@ -6,11 +6,20 @@ import { array, color, number } from 'minifaker';
 import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
 import { ServicesComponent } from '../services/services.component';
+import { QuickNavigationComponent } from '../quick-navigation/quick-navigation.component';
+import { EnabledCapabilitiesComponent } from '../enabled-capabilities/enabled-capabilities.component';
 
 @Component({
   selector: 'app-root-overview',
   standalone: true,
-  imports: [CommonModule, DataChartComponent, DoughnutChartComponent, ServicesComponent, Ui5WebcomponentsModule],
+  imports: [
+    CommonModule, 
+    DataChartComponent, 
+    DoughnutChartComponent, 
+    ServicesComponent, 
+    Ui5WebcomponentsModule, 
+    QuickNavigationComponent,
+    EnabledCapabilitiesComponent],
   templateUrl: './root-overview.component.html',
   styleUrls: ['./root-overview.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
