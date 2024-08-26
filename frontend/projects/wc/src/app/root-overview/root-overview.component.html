@@ -1,0 +1,30 @@
+<div class="catalog-container">
+  <ui5-title level="H3">{{title}}</ui5-title>
+  <div class="catalog-cards">
+    <ui5-card class="catalog-card">
+      <ui5-card-header slot="header"
+                       title-text="Total Iron Core Instances">
+      </ui5-card-header>
+      <div class="card-content">
+        <app-doughnut-chart [data]="instanceData"></app-doughnut-chart>
+      </div>
+    </ui5-card>
+    <ui5-card class="catalog-card">
+      <ui5-card-header slot="header"
+                       title-text="Number of Accounts">
+      </ui5-card-header>
+      <div class="card-content">
+        <app-doughnut-chart [data]="accountData"></app-doughnut-chart>
+      </div>
+    </ui5-card>
+    <ui5-card class="catalog-card">
+      <ui5-card-header slot="header"
+                       title-text="Global Distribution Map">
+      </ui5-card-header>
+      <div class="card-content">
+        <app-data-chart [data]="chartData" type="bar"></app-data-chart>
+      </div>
+    </ui5-card>
+    <app-services class="catalog-card"></app-services>
+  </div>
+</div>

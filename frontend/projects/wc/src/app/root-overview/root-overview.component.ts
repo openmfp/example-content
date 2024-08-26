@@ -4,26 +4,27 @@ import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
+import { ServicesComponent } from '../services/services.component';
 
 @Component({
-  selector: 'app-catalog',
+  selector: 'app-root-overview',
   standalone: true,
-  imports: [CommonModule, DataChartComponent, DoughnutChartComponent, Ui5WebcomponentsModule],
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss'],
+  imports: [CommonModule, DataChartComponent, DoughnutChartComponent, ServicesComponent, Ui5WebcomponentsModule],
+  templateUrl: './root-overview.component.html',
+  styleUrls: ['./root-overview.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class CatalogComponent implements OnChanges {
+export class RootOverviewComponent implements OnChanges {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
+  @Input() title = 'Resource Overview';
   dummyData?: string[];
-  title = 'Resource Overview';
   readonly instanceData = {
     color: '#AD49E1',
     total: 100,
     value: 60
   };
-  readonly clusterData = {
+  readonly accountData = {
     color: '#41B3A2',
     total: 100,
     value: 80
