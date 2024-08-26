@@ -1,0 +1,26 @@
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: var(--sapHighlightColor);
+}
+
+.checkmark-icon {
+  color: green;
+}
+
+ui5-card {
+    height: 100%;
+}

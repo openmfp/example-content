@@ -1,0 +1,9 @@
+.quick-access {
+  padding: 20px 0;
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}

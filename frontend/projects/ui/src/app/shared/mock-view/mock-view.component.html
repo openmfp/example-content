@@ -1,0 +1,9 @@
+<div class="cards-grid">
+  @for (item of items; track item) {
+  <app-small-card
+    [item]="item"
+    (deleteItem)="deleteItem(item)"
+    (openItem)="deleteItem(item)"
+  ></app-small-card>
+  }
+</div>

@@ -1,0 +1,11 @@
+<section class="quick-access">
+  <h2>Quick access</h2>
+  <div class="cards-grid">
+    @for (category of categories; track category) {
+    <app-small-card [item]="category"></app-small-card>
+    }
+  </div>
+</section>
+<ui5-button design="Emphasized" (click)="viewAllProducts()">
+  View all products
+</ui5-button>
