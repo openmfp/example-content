@@ -5,9 +5,9 @@ import { AccountOverviewComponent } from './account-overview/account-overview.co
 import { DataChartComponent } from './charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
 import { EnabledCapabilitiesComponent } from './enabled-capabilities/enabled-capabilities.component';
+import { QuickNavigationComponent } from './quick-navigation/quick-navigation.component';
 import { RootOverviewComponent } from './root-overview/root-overview.component';
 import { ServicesComponent } from './services/services.component';
-import { QuickNavigationComponent } from './quick-navigation/quick-navigation.component';
 import { SmallCardComponent } from './small-card/small-card.component';
 
 @NgModule({
@@ -17,10 +17,10 @@ import { SmallCardComponent } from './small-card/small-card.component';
     DataChartComponent,
     DoughnutChartComponent,
     EnabledCapabilitiesComponent,
+    QuickNavigationComponent,
     RootOverviewComponent,
     ServicesComponent,
-    QuickNavigationComponent,
-    SmallCardComponent
+    SmallCardComponent,
   ],
 })
 export class AppModule implements DoBootstrap {

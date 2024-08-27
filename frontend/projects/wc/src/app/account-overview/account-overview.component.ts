@@ -10,7 +10,13 @@ import { ServicesComponent } from '../services/services.component';
 @Component({
   selector: 'app-account-overview',
   standalone: true,
-  imports: [CommonModule, DataChartComponent, DoughnutChartComponent, ServicesComponent, Ui5WebcomponentsModule],
+  imports: [
+    CommonModule,
+    DataChartComponent,
+    DoughnutChartComponent,
+    ServicesComponent,
+    Ui5WebcomponentsModule,
+  ],
   templateUrl: './account-overview.component.html',
   styleUrls: ['./account-overview.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
