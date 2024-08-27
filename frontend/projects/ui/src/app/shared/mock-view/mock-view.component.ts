@@ -1,8 +1,13 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { SmallCardDataModel } from '../small-card/small-card-data.model';
 import { SmallCardComponent } from '../small-card/small-card.component';
+import "@ui5/webcomponents-icons/dist/list.js";
 
+export enum ViewType {
+  Grid,
+  List
+}
 @Component({
   selector: 'app-mock-view',
   templateUrl: './mock-view.component.html',
@@ -11,7 +16,10 @@ import { SmallCardComponent } from '../small-card/small-card.component';
   imports: [Ui5WebcomponentsModule, IconComponent, SmallCardComponent],
 })
 export class MockViewComponent {
-  items = [
+  activeViewType: ViewType = ViewType.Grid;
+  viewTypeEnum = ViewType;
+
+  @Input() items: SmallCardDataModel[] = [
     {
       name: 'Home',
       subtitleText: 'Subtitle',
@@ -68,5 +76,13 @@ export class MockViewComponent {
 
   openItem(item: SmallCardDataModel) {
     console.log('openItem');
+  }
+
+  getEnabledView(viewType: ViewType) {
+    return this.activeViewType === viewType;
+  }
+
+  updateActiveViewType(viewType: ViewType) {
+    this.activeViewType = viewType;
   }
 }

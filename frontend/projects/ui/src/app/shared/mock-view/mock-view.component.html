@@ -1,4 +1,19 @@
-<div class="cards-grid">
+<section class="mock-view-actions">
+  <ui5-button
+  icon="sap-icon://grid"
+  [disabled]="getEnabledView(viewTypeEnum.Grid)"
+  (click)="updateActiveViewType(viewTypeEnum.Grid)"
+></ui5-button>
+<ui5-button
+  icon="sap-icon://list"
+  [disabled]="getEnabledView(viewTypeEnum.List)"
+  (click)="updateActiveViewType(viewTypeEnum.List)"
+></ui5-button>
+</section>
+<div
+  [class.cards-grid]="getEnabledView(viewTypeEnum.Grid)"
+  [class.cards-list]="getEnabledView(viewTypeEnum.List)"
+>
   @for (item of items; track item) {
   <app-small-card
     [item]="item"
