@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import { SmallCardDataModel } from '../../shared/small-card/small-card-data.model';
-import { SmallCardComponent } from '../../shared/small-card/small-card.component';
-
+import { SmallCardDataModel } from '../small-card/small-card-data.model';
+import { SmallCardComponent } from '../small-card/small-card.component';
 @Component({
   selector: 'app-enabled-capabilities',
   standalone: true,
