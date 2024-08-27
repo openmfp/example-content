@@ -18,7 +18,7 @@
       <ui5-icon
         name="delete"
         class="delete-icon"
-        (click)="deleteItem(item)"
+        (click)="onDeleteItem(item)"
       ></ui5-icon>
       }
     </div>
@@ -32,7 +32,7 @@
         ></ui5-icon>
         } 
         @if (item.openable) {
-        <ui5-button design="Transparent" (click)="openItem(item)">
+        <ui5-button design="Transparent" (click)="onOpenItem(item)">
           Open
         </ui5-button>
         }
