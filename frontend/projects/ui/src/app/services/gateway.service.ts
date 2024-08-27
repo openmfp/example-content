@@ -97,7 +97,7 @@ export class GatewayService {
                     body: [
                       {
                         type: 'TextBlock',
-                        text: '${name}',
+                        text: `${name}`,
                         size: 'large',
                         isSubtle: true,
                         wrap: true,
