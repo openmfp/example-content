@@ -13,14 +13,14 @@ import { SmallCardDataModel } from './small-card-data.model';
 })
 export class SmallCardComponent {
   @Input() item!: SmallCardDataModel;
-  @Output() deleteItemEvent = new EventEmitter<SmallCardDataModel>();
-  @Output() openItemEvent = new EventEmitter<SmallCardDataModel>();
+  @Output() deleteItem = new EventEmitter<SmallCardDataModel>();
+  @Output() openItem = new EventEmitter<SmallCardDataModel>();
 
-  deleteItem(item: SmallCardDataModel) {
-    this.deleteItemEvent.emit(item);
+  onDeleteItem(item: SmallCardDataModel) {
+    this.deleteItem.emit(item);
   }
 
-  openItem(item: SmallCardDataModel) {
-    this.openItemEvent.emit(item);
+  onOpenItem(item: SmallCardDataModel) {
+    this.openItem.emit(item);
   }
 }
