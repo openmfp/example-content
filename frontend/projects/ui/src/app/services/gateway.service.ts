@@ -45,7 +45,7 @@ export class GatewayService {
         enabled: false,
       },
       viewUrl:
-        'https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html',
+        'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/compute',
       context: {
         title: `Welcome to the ${name} child extension`,
         content: ' ',
@@ -73,7 +73,7 @@ export class GatewayService {
                   icon: 'dimension',
                   collapsible: true,
                 },
-                url: 'https://fiddle.luigi-project.io/examples/microfrontends/multipurpose.html',
+                url: 'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/compute',
                 context: {
                   title: `Welcome to the ${name} extension`,
                   content: ' ',
