@@ -160,6 +160,10 @@ export class GatewayService {
                     ],
                   },
                 },
+                layoutConfig: {
+                  column: 'auto',
+                  row: 'auto',
+                },
               },
             ],
           },
