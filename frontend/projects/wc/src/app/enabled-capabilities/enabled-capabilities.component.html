@@ -1,27 +1,11 @@
-<section class="enabled-capabilities">
-    <h2>Enabled Capabilities</h2>
-    <section class="cards-container">
-      @for (item of enabledCapabilities; track item) {
-      <ui5-card class="small">
-        <ui5-card-header
-          slot="header"
-          [titleText]="item.displayName"
-          interactive
-          [subtitleText]="'by ' + item.provider"
-          status="3 of 6"
-        >
-          <ui5-icon name="employee" slot="avatar"></ui5-icon>
-        </ui5-card-header>
-        <div class="content content-padding">
-          <div class="content-group item-description">
-            {{ item.description }}
-          </div>
-          <div class="content-group">
-            <ui5-label>Category:</ui5-label>
-            <ui5-label>{{ item.category }}</ui5-label>
-          </div>
-        </div>
-      </ui5-card>
-      }
-    </section>
-  </section>
+<section class="ec-container">
+  <ui5-title level="H4"
+             class="ec-headline">
+    Core Capabilities
+  </ui5-title>
+  <div class="ec-cards">
+    @for (capability of capabilities; track capability) {
+      <app-small-card [item]="capability"></app-small-card>
+    }
+  </div>
+</section>

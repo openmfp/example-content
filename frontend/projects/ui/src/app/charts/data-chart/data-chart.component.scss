@@ -1,6 +1,7 @@
 .chart-container {
   overflow: hidden;
   max-width: 100%;
+  min-height: 200px;
 
   &.no-title {
     margin-top: 1rem;

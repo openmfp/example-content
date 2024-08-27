@@ -1,41 +1,45 @@
 <ui5-card class="custom-card">
-    <div class="card-title">
-      <div style="display: flex; align-items: center">
-        <ui5-icon
-          [name]="item.icon"
-          class="card-icon"
-          style="padding-right: 0.5rem"
-        ></ui5-icon>
-        <div class="content">
-          <ui5-title level="H5">{{ item.name }}</ui5-title>
-          @if (item.subtitleText) {
-          <ui5-label>{{ item.subtitleText }}</ui5-label>
-          }
-        </div>
-      </div>
-
-      @if (item.deletable) {
+  <div class="card-title">
+    <div class="card-headline">
+      @if (item.icon) {
       <ui5-icon
-        name="delete"
-        class="delete-icon"
-        (click)="deleteItem(item)"
+        [name]="item.icon"
+        class="card-icon"
       ></ui5-icon>
       }
-    </div>
-
-    @if (item.checked || item.openable) {
-      <div class="card-actions">
-        @if (item.checked) {
-        <ui5-icon
-          name="sys-enter-2"
-          class="checkmark-icon"
-        ></ui5-icon>
-        } 
-        @if (item.openable) {
-        <ui5-button design="Transparent" (click)="openItem(item)">
-          Open
-        </ui5-button>
+      @if (item.image) {
+        <img src="{{item.image}}" height="20" width="20" alt="">
+      }
+      <div class="content">
+        <ui5-title level="H5">{{ item.name }}</ui5-title>
+        @if (item.subtitleText) {
+        <ui5-label>{{ item.subtitleText }}</ui5-label>
         }
       </div>
+    </div>
+
+    @if (item.deletable) {
+    <ui5-icon
+      name="delete"
+      class="delete-icon"
+      (click)="deleteItem(item)"
+    ></ui5-icon>
     }
-  </ui5-card>
+  </div>
+
+  @if (item.checked || item.openable) {
+    <div class="card-actions">
+      @if (item.checked) {
+      <ui5-icon
+        name="sys-enter-2"
+        class="checkmark-icon"
+      ></ui5-icon>
+      }
+      @if (item.openable) {
+      <ui5-button design="Transparent" (click)="openItem(item)">
+        Open
+      </ui5-button>
+      }
+    </div>
+  }
+</ui5-card>

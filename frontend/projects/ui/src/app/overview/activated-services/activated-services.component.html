@@ -1,0 +1,11 @@
+<section class="as-container">
+  <ui5-title level="H4"
+             class="as-headline">
+    Activated Services
+  </ui5-title>
+  <div class="as-cards">
+    @for (service of services; track service) {
+      <app-small-card [item]="service"></app-small-card>
+    }
+  </div>
+</section>

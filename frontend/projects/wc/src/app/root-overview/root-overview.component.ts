@@ -3,22 +3,20 @@ import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { array, color, number } from 'minifaker';
+import { ActivatedServicesComponent } from '../activated-services/activated-services.component';
 import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
 import { EnabledCapabilitiesComponent } from '../enabled-capabilities/enabled-capabilities.component';
-import { QuickNavigationComponent } from '../quick-navigation/quick-navigation.component';
-import { ServicesComponent } from '../services/services.component';
 
 @Component({
   selector: 'app-root-overview',
   standalone: true,
   imports: [
+    ActivatedServicesComponent,
     CommonModule,
     DataChartComponent,
     DoughnutChartComponent,
     EnabledCapabilitiesComponent,
-    QuickNavigationComponent,
-    ServicesComponent,
     Ui5WebcomponentsModule,
   ],
   templateUrl: './root-overview.component.html',

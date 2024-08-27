@@ -1,41 +1,15 @@
-.enabled-capabilities {
-    padding: 20px 40px 0 40px;
-  
-    h2 {
-      text-align: center;
-    }
-  
-    .cards-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 10px;
-    }
-  }
-  
-  ui5-card {
-    .content,
-    .content-group {
-      display: flex;
-      flex-direction: column;
-      padding-block-end: 1rem;
-      cursor: pointer;
-    }
-  
-    .content-padding {
-      padding: 0.5rem 1rem 0 1rem;
-      box-sizing: border-box;
-    }
-  
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 22rem);
-      grid-auto-rows: 1fr;
-      gap: 1rem;
-    }
-  
-    .ui5-card {
-      min-width: 250px;
-    }
-  }
-  
+.ec-container {
+  padding: 1rem;
+}
+
+.ec-headline {
+  text-align: center;
+}
+
+.ec-cards {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+}

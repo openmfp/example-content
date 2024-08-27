@@ -44,7 +44,7 @@
               "title": "Resource Overview"
             },
             "layoutConfig": {
-              "row": "auto",
+              "row": "2",
               "column": "1 / -1"
             },
             "webcomponent": {
@@ -58,7 +58,7 @@
               "title": "Resource Overview"
             },
             "layoutConfig": {
-              "row": "auto",
+              "row": "2",
               "column": "1 / -1"
             },
             "webcomponent": {
