@@ -37,7 +37,7 @@ export class GatewayService {
   private generateChildren(name: string) {
     const length = Math.floor(Math.random() * (3 - 1 + 1) + 1);
     return new Array(length).fill(0).map((_, idx) => ({
-      pathSegment: 'child' + idx,
+      pathSegment: `${name}/child/${idx}`,
       label: `Child ${name} ${idx}`,
       category: name,
       entityType: 'main.account',
