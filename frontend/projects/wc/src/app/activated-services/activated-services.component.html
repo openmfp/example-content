@@ -8,4 +8,12 @@
       <app-small-card [item]="service"></app-small-card>
     }
   </div>
+  @if (parent) {
+    <p class="as-actions">
+      <ui5-button design="Emphasized"
+                  (click)="viewMarketplace()">
+        Go to Marketplace
+      </ui5-button>
+    </p>
+  }
 </section>

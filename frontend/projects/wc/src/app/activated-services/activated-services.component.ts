@@ -15,6 +15,7 @@ import { SmallCardComponent } from '../small-card/small-card.component';
 export class ActivatedServicesComponent implements OnChanges {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
+  @Input() parent?: 'account' | 'root';
   readonly services: SmallCardDataModel[] = [];
 
   ngOnChanges(changes: SimpleChanges) {
@@ -40,5 +41,21 @@ export class ActivatedServicesComponent implements OnChanges {
         });
       });
     }
+  }
+
+  viewMarketplace() {
+    const pathname = window.location.pathname.split('/');
+    let target = 'marketplace';
+
+    if (!pathname?.length) {
+      return;
+    }
+
+    if (this.parent === 'account') {
+      target = 'capabilities';
+    }
+
+    pathname[pathname.length - 1] = target;
+    window.location.href = pathname.join('/');
   }
 }

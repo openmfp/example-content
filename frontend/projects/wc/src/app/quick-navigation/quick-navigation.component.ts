@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import '@ui5/webcomponents-icons/dist/delete.js';
 import { SmallCardComponent } from '../small-card/small-card.component';
 import { SmallCardDataModel } from '../small-card/small-card-data.model';
 

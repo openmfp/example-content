@@ -6,10 +6,18 @@
   text-align: center;
 }
 
-.as-cards {
-  padding-top: 1rem;
+.as-cards,
+.as-actions {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   gap: 1rem;
+}
+
+.as-cards {
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+.as-actions {
+  justify-content: flex-end;
 }
