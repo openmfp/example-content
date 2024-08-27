@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SmallCardDataModel } from './small-card-data.model';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
+import "@ui5/webcomponents-icons/dist/delete.js";
 
 @Component({
   selector: 'app-small-card',
