@@ -2,7 +2,11 @@ import { Injectable, Injector } from '@angular/core';
 import LuigiClient from '@luigi-project/client';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LOCAL_STORAGE_CATALOG_KEY, LOCAL_STORAGE_DATA_KEY } from '../app.constants';
+import {
+  LOCAL_STORAGE_CATALOG_KEY,
+  LOCAL_STORAGE_CATEGORIES_KEY,
+  LOCAL_STORAGE_DATA_KEY
+} from '../app.constants';
 import { ENV, Environment } from '../models/env.token';
 import { ExtensionClass } from './extension.schema';
 
@@ -58,10 +62,30 @@ export class CatalogDataService {
       }
     });
 
+    this.setCatalogCategories(mappedData);
     localStorage.setItem(storageKey, JSON.stringify(storageData));
     LuigiClient.storageManager().setItem(
       storageKey,
       JSON.stringify(storageData)
+    );
+  }
+
+  private setCatalogCategories(data: Record<string, string>[]) {
+    const storageKey = LOCAL_STORAGE_CATEGORIES_KEY;
+    const storageData: string[] = [];
+
+    data.forEach((item: Record<string, string>) => {
+      const categoryName = item['category'] ? item['category'] : 'Unknown';
+
+      if (!storageData.includes(categoryName)) {
+        storageData.push(categoryName);
+      }
+    });
+
+    localStorage.setItem(storageKey, JSON.stringify(storageData.sort()));
+    LuigiClient.storageManager().setItem(
+      storageKey,
+      JSON.stringify(storageData.sort())
     );
   }
 }
