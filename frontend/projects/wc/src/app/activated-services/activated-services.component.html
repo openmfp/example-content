@@ -7,7 +7,7 @@
     @for (service of services; track service) {
       <ui5-card class="as-card">
         <ui5-card-header slot="header">
-          <ui5-icon name="product" class="card-icon"></ui5-icon>
+          <ui5-icon slot="avatar" name="product" class="card-icon"></ui5-icon>
         </ui5-card-header>
         <div class="card-content">
           <ui5-title level="H5">{{service['title']}}</ui5-title>
@@ -28,7 +28,7 @@
   </div>
   @if (parent) {
     <p class="as-actions">
-      <ui5-button design="Emphasized"
+      <ui5-button icon="grid"
                   (click)="viewMarketplace()">
         Go to Marketplace
       </ui5-button>

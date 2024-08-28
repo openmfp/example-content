@@ -26,21 +26,15 @@
     width: 100%;
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 900px) {
     .as-card {
       width: 49%;
     }
   }
 
-  @media only screen and (min-width: 800px) {
-    .as-card {
-      width: 32%;
-    }
-  }
-
   @media only screen and (min-width: 1200px) {
     .as-card {
-      width: 24%;
+      width: 32%;
     }
   }
 }
@@ -54,11 +48,10 @@
 .card-categories {
   display: flex;
   flex-direction: column;
-  padding-block-end: 1rem;
 }
 
 .card-content {
-  padding: 0.5rem 1rem 0 1rem;
+  padding: 0.5rem 1rem 1rem;
   box-sizing: border-box;
 }
 
@@ -75,8 +68,4 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   -webkit-line-clamp: 5;
-}
-
-.as-actions {
-  justify-content: flex-end;
 }

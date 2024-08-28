@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { gql } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
+import { number } from 'minifaker';
 import { map } from 'rxjs/operators';
 
 const createContentConfiguration = gql`
@@ -129,7 +130,11 @@ export class GatewayService {
                             items: [
                               {
                                 type: 'TextBlock',
-                                text: '46',
+                                text: number({
+                                  min: 1,
+                                  max: 99,
+                                  float: false
+                                }),
                                 size: 'extraLarge',
                                 spacing: 'none',
                                 wrap: true,
