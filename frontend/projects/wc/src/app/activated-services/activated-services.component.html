@@ -20,7 +20,7 @@
     @for (category of categories; track category) {
       <ui5-panel [collapsed]="!products[category] || products[category].length === 0">
         <span slot="header">{{category}}</span>
-        @if (products[category].length > 0) {
+        @if (products[category] && products[category].length > 0) {
           <ui5-list separators="None">
             @for (item of products[category]; track item) {
               <ui5-li icon="product">{{item}}</ui5-li>

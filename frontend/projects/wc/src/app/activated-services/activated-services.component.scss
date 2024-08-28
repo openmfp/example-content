@@ -12,6 +12,11 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  padding: 1rem 0;
+}
+
+.as-actions {
+  padding: 0;
 }
 
 .as-categories {
@@ -24,7 +29,6 @@
   justify-content: flex-start;
   column-gap: 1.3%;
   row-gap: 1rem;
-  padding: 1rem 0;
   flex-wrap: wrap;
 
   .as-card {

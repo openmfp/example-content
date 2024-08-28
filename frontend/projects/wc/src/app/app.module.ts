@@ -2,25 +2,21 @@ import { ApplicationRef, DoBootstrap, Injector, NgModule } from '@angular/core';
 import { createCustomElement, NgElementConstructor } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccountOverviewComponent } from './account-overview/account-overview.component';
+import { ActivatedServicesComponent } from './activated-services/activated-services.component';
 import { DataChartComponent } from './charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
 import { EnabledCapabilitiesComponent } from './enabled-capabilities/enabled-capabilities.component';
-import { QuickNavigationComponent } from './quick-navigation/quick-navigation.component';
 import { RootOverviewComponent } from './root-overview/root-overview.component';
-import { ServicesComponent } from './services/services.component';
-import { SmallCardComponent } from './small-card/small-card.component';
 
 @NgModule({
   imports: [
     AccountOverviewComponent,
+    ActivatedServicesComponent,
     BrowserModule,
     DataChartComponent,
     DoughnutChartComponent,
     EnabledCapabilitiesComponent,
-    QuickNavigationComponent,
     RootOverviewComponent,
-    ServicesComponent,
-    SmallCardComponent,
   ],
 })
 export class AppModule implements DoBootstrap {
@@ -37,12 +33,10 @@ export class AppModule implements DoBootstrap {
   ngDoBootstrap(appRef: ApplicationRef) {
     const dataChartComponent = createCustomElement(DataChartComponent, {injector: this.injector});
     const doughnutChartComponent = createCustomElement(DoughnutChartComponent, {injector: this.injector});
-    const servicesComponent = createCustomElement(ServicesComponent, {injector: this.injector});
+    const servicesComponent = createCustomElement(ActivatedServicesComponent, {injector: this.injector});
     const accountOverviewComponent = createCustomElement(AccountOverviewComponent, {injector: this.injector});
     const rootOverviewComponent = createCustomElement(RootOverviewComponent, {injector: this.injector});
     const enabledCapabilitiesComponent = createCustomElement(EnabledCapabilitiesComponent, {injector: this.injector});
-    const quickNavigationComponent = createCustomElement(QuickNavigationComponent, {injector: this.injector});
-    const smallCardComponent = createCustomElement(SmallCardComponent, {injector: this.injector});
 
     try {
       this.registerWebcomponent(dataChartComponent, 'chart');
@@ -51,8 +45,6 @@ export class AppModule implements DoBootstrap {
       this.registerWebcomponent(accountOverviewComponent, 'account-overview');
       this.registerWebcomponent(rootOverviewComponent, 'root-overview');
       this.registerWebcomponent(enabledCapabilitiesComponent, 'enabled-capabilities');
-      this.registerWebcomponent(quickNavigationComponent, 'quick-navigation');
-      this.registerWebcomponent(smallCardComponent, 'small-card');
     } catch (e) {
       if (!customElements.get('data-chart')) {
         customElements.define('data-chart', dataChartComponent);
