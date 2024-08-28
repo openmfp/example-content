@@ -130,11 +130,11 @@ export class GatewayService {
                             items: [
                               {
                                 type: 'TextBlock',
-                                text: number({
+                                text: `${number({
                                   min: 1,
                                   max: 99,
                                   float: false
-                                }),
+                                })}`,
                                 size: 'extraLarge',
                                 spacing: 'none',
                                 wrap: true,
@@ -147,13 +147,21 @@ export class GatewayService {
                             items: [
                               {
                                 type: 'TextBlock',
-                                text: 'Hi 50',
+                                text: `Hi ${number({
+                                  min: 50,
+                                  max: 99,
+                                  float: false
+                                })}`,
                                 horizontalAlignment: 'left',
                                 wrap: true,
                               },
                               {
                                 type: 'TextBlock',
-                                text: 'Lo 41',
+                                text: `Lo ${number({
+                                  min: 1,
+                                  max: 49,
+                                  float: false
+                                })}`,
                                 horizontalAlignment: 'left',
                                 spacing: 'none',
                                 wrap: true,
