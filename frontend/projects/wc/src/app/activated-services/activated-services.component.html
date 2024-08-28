@@ -18,20 +18,16 @@
 <ng-template #rootServices>
   <div class="as-categories">
     @for (category of categories; track category) {
-      <ui5-panel [collapsed]="!products[category] || products[category].length === 0">
-        <span slot="header">{{category}}</span>
-        @if (products[category] && products[category].length > 0) {
+      @if (products[category] && products[category].length > 0) {
+        <ui5-panel>
+          <span slot="header">{{category}}</span>
           <ui5-list separators="None">
             @for (item of products[category]; track item) {
               <ui5-li icon="product">{{item}}</ui5-li>
             }
           </ui5-list>
-        } @else {
-          <ui5-label class="no-services">
-            No selected services
-          </ui5-label>
-        }
-      </ui5-panel>
+        </ui5-panel>
+      }
     }
   </div>
 </ng-template>
