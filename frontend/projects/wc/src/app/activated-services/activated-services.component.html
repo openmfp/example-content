@@ -3,6 +3,40 @@
              class="as-headline">
     Activated Services ({{services.length || 0}})
   </ui5-title>
+  <ng-container *ngTemplateOutlet="parent && parent === 'root' && categories?.length ? rootServices : accountServices">
+  </ng-container>
+  @if (parent) {
+    <p class="as-actions">
+      <ui5-button icon="grid"
+                  (click)="viewMarketplace()">
+        Go to Marketplace
+      </ui5-button>
+    </p>
+  }
+</section>
+
+<ng-template #rootServices>
+  <div class="as-categories">
+    @for (category of categories; track category) {
+      <ui5-panel [collapsed]="!products[category] || products[category].length === 0">
+        <span slot="header">{{category}}</span>
+        @if (products[category].length > 0) {
+          <ui5-list separators="None">
+            @for (item of products[category]; track item) {
+              <ui5-li icon="product">{{item}}</ui5-li>
+            }
+          </ui5-list>
+        } @else {
+          <ui5-label class="no-services">
+            No selected services
+          </ui5-label>
+        }
+      </ui5-panel>
+    }
+  </div>
+</ng-template>
+
+<ng-template #accountServices>
   <div class="as-cards">
     @for (service of services; track service) {
       <ui5-card class="as-card">
@@ -26,12 +60,4 @@
       </ui5-card>
     }
   </div>
-  @if (parent) {
-    <p class="as-actions">
-      <ui5-button icon="grid"
-                  (click)="viewMarketplace()">
-        Go to Marketplace
-      </ui5-button>
-    </p>
-  }
-</section>
+</ng-template>

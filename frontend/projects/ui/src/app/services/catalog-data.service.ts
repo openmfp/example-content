@@ -53,7 +53,7 @@ export class CatalogDataService {
     const storageData: Record<string, string[]> = {};
 
     mappedData.forEach((item: Record<string, string>) => {
-      const categoryName = item['category'] === null ? '' : item['category'];
+      const categoryName = item['category'] === null ? 'Unknown' : item['category'];
 
       if (storageData[item['name']]) {
         storageData[item['name']].push(categoryName);
