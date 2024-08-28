@@ -5,7 +5,25 @@
   </ui5-title>
   <div class="as-cards">
     @for (service of services; track service) {
-      <app-small-card [item]="service"></app-small-card>
+      <ui5-card class="as-card">
+        <ui5-card-header slot="header">
+          <ui5-icon name="product" class="card-icon"></ui5-icon>
+        </ui5-card-header>
+        <div class="card-content">
+          <ui5-title level="H5">{{service['title']}}</ui5-title>
+          @if (service['description']) {
+            <ui5-text class="card-description">
+              {{service['description']}}
+            </ui5-text>
+          }
+          @if (service['categories']) {
+            <div class="card-categories">
+              <ui5-label>Category:</ui5-label>
+              <ui5-label>{{service['categories']}}</ui5-label>
+            </div>
+          }
+        </div>
+      </ui5-card>
     }
   </div>
   @if (parent) {
