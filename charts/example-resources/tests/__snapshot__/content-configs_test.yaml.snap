@@ -207,7 +207,7 @@ matches the snapshot (providers):
                     },
                     {
                       "pathSegment": "capabilities",
-                      "label": "Capabilities",
+                      "label": "Marketplace",
                       "entityType": "main.account",
                       "loadingIndicator": {
                         "enabled": false
