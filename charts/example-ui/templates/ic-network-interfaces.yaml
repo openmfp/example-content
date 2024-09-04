@@ -1,0 +1,69 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: networkinterfaces.networking.ironcore.dev
+  namespace: kube-public
+  creationTimestamp: '2024-09-04T08:23:27Z'
+  labels:
+    app.kubernetes.io/name: networkinterfaces.networking.ironcore.dev
+    busola.io/extension: resource
+    busola.io/extension-version: '0.5'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2024-09-04T08:23:27Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:details: {}
+          f:form: {}
+          f:general: {}
+          f:list: {}
+          f:translations: {}
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/name: {}
+            f:busola.io/extension: {}
+            f:busola.io/extension-version: {}
+data:
+  details: |
+    header: []
+    body:
+      - name: Summary
+        widget: Panel
+        children:
+          - name: providerID
+            source: spec.providerID
+          - name: State
+            source: status.state
+          - name: Network
+            source: spec.networkRef.name
+      - source: spec
+        widget: CodeViewer
+  form: |
+    - path: spec.providerID
+      required: false
+  general: |
+    resource:
+      kind: NetworkInterface
+      group: networking.ironcore.dev
+      version: v1alpha1
+    name: Network Interfaces
+    category: Iron Core
+    urlPath: networkinterfaces
+    scope: namespace
+  list: |
+    - name: providerID
+      source: spec.providerID
+    - name: State
+      source: status.state
+    - name: Network
+      source: spec.networkRef.name
+  translations: |
+    en:
+      metadata.annotations: Annotations
+      metadata.labels: Labels
+      metadata.creationTimestamp: Created at
