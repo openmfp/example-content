@@ -10,7 +10,7 @@
             "label": "Compute",
             "entityType": "main.account",
             "category": {
-              "label": "Iron Core",
+              "label": "Infrastructure",
               "icon": "https://avatars.githubusercontent.com/u/147836484?s=200&v=4",
               "collapsible": false
             },
@@ -46,7 +46,7 @@
             "label": "Control Planes",
             "entityType": "main.account",
             "category": {
-              "label": "OpenMCP",
+              "label": "Shared Services",
               "icon": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/assets/openmcp.png",
               "collapsible": false
             },
