@@ -116,7 +116,7 @@ matches the snapshot (infra):
                       "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/compute",
                       "children": [ ],
                       "context": {
-                        "title": "Iron Core",
+                        "title": "Iron Core Compute",
                         "content": " "
                       }
                     },
@@ -124,7 +124,7 @@ matches the snapshot (infra):
                       "pathSegment": "network",
                       "label": "Network",
                       "entityType": "main.account",
-                      "category": "Iron Core",
+                      "category": "Compute",
                       "loadingIndicator": {
                         "enabled": false
                       },
@@ -132,7 +132,7 @@ matches the snapshot (infra):
                       "url": "https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/network",
                       "children": [ ],
                       "context": {
-                        "title": "OpenMCP",
+                        "title": "Iron Core Network",
                         "content": " "
                       }
                     },
