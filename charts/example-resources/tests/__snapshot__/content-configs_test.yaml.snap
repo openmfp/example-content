@@ -124,7 +124,7 @@ matches the snapshot (infra):
                       "pathSegment": "network",
                       "label": "Network",
                       "entityType": "main.account",
-                      "category": "Compute",
+                      "category": "Infrastructure",
                       "loadingIndicator": {
                         "enabled": false
                       },
