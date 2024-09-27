@@ -35,12 +35,12 @@ const deleteContentConfiguration = gql`
 export class GatewayService {
   constructor(private readonly apollo: Apollo) {}
 
-  private generateChildren(name: string) {
+  private generateChildren(name: string, displayName: string) {
     const length = Math.floor(Math.random() * (3 - 1 + 1) + 1);
     return new Array(length).fill(0).map((_, idx) => ({
       pathSegment: `${name}/child/${idx}`,
       label: `Child ${name} ${idx}`,
-      category: name,
+      category: displayName,
       entityType: 'main.account',
       loadingIndicator: {
         enabled: false,
@@ -48,12 +48,12 @@ export class GatewayService {
       viewUrl:
         'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/openmcp',
       context: {
-        title: name,
+        title: displayName,
       },
     }));
   }
 
-  private buildContentConfiguration(name: string) {
+  private buildContentConfiguration(name: string, displayName: string) {
     return JSON.stringify({
       name: name,
       creationTimestamp: '2022-05-17T11:37:17Z',
@@ -69,16 +69,16 @@ export class GatewayService {
                   enabled: false,
                 },
                 category: {
-                  label: name,
+                  label: displayName,
                   icon: 'dimension',
                   collapsible: true,
                 },
                 url: 'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/openmcp/control-planes',
                 context: {
-                  title: name,
+                  title: displayName,
                 },
               },
-              ...this.generateChildren(name),
+              ...this.generateChildren(name, displayName),
               {
                 entityType: 'main.account.dashboard::compound',
                 url: 'https://luigiwebcomponents.gitlab.io/ms-adaptive-cards/main.js',
@@ -96,7 +96,7 @@ export class GatewayService {
                     body: [
                       {
                         type: 'TextBlock',
-                        text: `${name}`,
+                        text: `${displayName}`,
                         size: 'large',
                         isSubtle: true,
                         wrap: true,
@@ -206,14 +206,19 @@ export class GatewayService {
 
   public enableContentConfiguration(
     configName: string,
-    configNamespace: string
+    configNamespace: string,
+    displayName?: string
   ) {
+    if (!displayName) {
+      displayName = configName;
+    }
+
     return this.apollo.mutate({
       mutation: createContentConfiguration,
       variables: {
         name: configName,
         namespace: configNamespace,
-        content: this.buildContentConfiguration(configName),
+        content: this.buildContentConfiguration(configName, displayName),
       },
     });
   }

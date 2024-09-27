@@ -12,7 +12,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import LuigiClient from '@luigi-project/client';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import { filter } from 'rxjs/operators';
+import { filter, tap } from 'rxjs/operators';
 import { LOCAL_STORAGE_CATALOG_KEY } from '../app.constants';
 import { CatalogContext } from '../models/catalog-model';
 import { CatalogDataService } from '../services/catalog-data.service';
@@ -88,7 +88,8 @@ export class CatalogItemDetailsComponent implements OnInit {
         this.gatewayService
           .enableContentConfiguration(
             `${this.catalogItemId}-${this.account}`,
-            'openmfp-system'
+            'openmfp-system',
+            this.catalogItem()?.displayName,
           )
           .subscribe();
       }
@@ -133,7 +134,7 @@ export class CatalogItemDetailsComponent implements OnInit {
       .getCatalogItems()
       .pipe(
         filter((data) => data.length > 0),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe((data) => {
         this.catalogItem.set(
