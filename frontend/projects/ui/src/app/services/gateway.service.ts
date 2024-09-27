@@ -46,10 +46,9 @@ export class GatewayService {
         enabled: false,
       },
       viewUrl:
-        'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/compute',
+        'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/openmcp',
       context: {
-        title: `Welcome to the ${name} child extension`,
-        content: ' ',
+        title: name,
       },
     }));
   }
@@ -74,10 +73,9 @@ export class GatewayService {
                   icon: 'dimension',
                   collapsible: true,
                 },
-                url: 'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/iron-core/compute',
+                url: 'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/example-content/index.html#/openmcp/control-planes',
                 context: {
-                  title: `Welcome to the ${name} extension`,
-                  content: ' ',
+                  title: name,
                 },
               },
               ...this.generateChildren(name),

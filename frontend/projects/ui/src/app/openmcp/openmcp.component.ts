@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   DynamicPageComponent,
   Ui5WebcomponentsModule,
@@ -6,15 +6,25 @@ import {
 import { ChartData } from 'chart.js';
 import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 import { MockViewComponent } from '../shared/mock-view/mock-view.component';
+import { LuigiContextService } from '@luigi-project/client-support-angular';
 
 @Component({
   selector: 'app-openmcp',
   standalone: true,
-  imports: [DataChartComponent, Ui5WebcomponentsModule, DynamicPageComponent, MockViewComponent],
+  imports: [
+    DataChartComponent,
+    Ui5WebcomponentsModule,
+    DynamicPageComponent,
+    MockViewComponent,
+  ],
   templateUrl: './openmcp.component.html',
   styleUrl: './openmcp.component.scss',
 })
-export class OpenmcpComponent {
+export class OpenmcpComponent implements OnInit {
+  constructor(private readonly luigiContext: LuigiContextService) {}
+
+  title: string = '';
+
   readonly chartData: ChartData = {
     labels: ['CW14', 'CW15', 'CW16', 'CW17', 'CW18', 'CW19', 'CW20'],
     datasets: [
@@ -32,4 +42,10 @@ export class OpenmcpComponent {
       },
     ],
   };
+
+  ngOnInit(): void {
+    this.luigiContext.contextObservable().subscribe((context) => {
+      this.title = context.context?.['title'] ?? '';
+    });
+  }
 }
