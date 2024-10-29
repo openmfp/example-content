@@ -12,6 +12,6 @@
   "private": true,
   "devDependencies": {
     "concurrently": "8.2.2",
-    "husky": "9.0.11"
+    "husky": "9.1.6"
   }
 }
