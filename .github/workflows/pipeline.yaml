@@ -16,7 +16,7 @@ jobs:
     uses: openmfp/gha/.github/workflows/pipeline-node-app.yml@feat-improve-tagging
     secrets: inherit
     with:
-      imageTagName: ghcr.io/openmfp/apeirora-example-content
+      imageTagName: ghcr.io/openmfp/example-content
       componentVersionKey: apeirora-example-content
       release_branch: apeirora
       versionPrefix: 'apeirora-'
