@@ -1,5 +1,11 @@
 name: pipe
-on: [push]
+on:
+  push:
+    branches:
+      - apeirora
+  pull_request:
+    branches:
+      - apeirora
 
 concurrency:
   group: ${{ github.ref }}
