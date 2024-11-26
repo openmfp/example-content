@@ -19,3 +19,4 @@ jobs:
       imageTagName: ghcr.io/openmfp/apeirora-example-content
       componentVersionKey: apeirora-example-content
       release_branch: apeirora
+      versionPrefix: 'apeirora-'
