@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "npm:install:ui": "cd frontend && npm install",
+    "start": "cd frontend && npm start",
     "test": "concurrently 'npm:test:*(!cov)'",
     "test:ui": "cd frontend && npm run test",
     "build": "concurrently 'npm:build:*'",

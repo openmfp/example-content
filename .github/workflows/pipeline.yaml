@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   pipe:
-    uses: openmfp/gha/.github/workflows/pipeline-node-app.yml@feat-improve-tagging
+    uses: openmfp/gha/.github/workflows/pipeline-node-app.yml@main
     secrets: inherit
     with:
       imageTagName: ghcr.io/openmfp/example-content
