@@ -6,6 +6,11 @@ import { IronCoreComponent } from './iron-core/iron-core.component';
 import { HttpBinComponent } from './httpbin/httpbin.component';
 
 export const routes: Routes = [
+  { path: 'platform-mesh-catalog', component: CatalogComponent },
+  {
+    path: 'platform-mesh-catalog/:catalogItemId',
+    component: CatalogItemDetailsComponent,
+  },
   { path: 'global-catalog', component: CatalogComponent },
   {
     path: 'catalog-item/:catalogItemId',

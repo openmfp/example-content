@@ -1,0 +1,430 @@
+{
+  "data": {
+    "getExtensionClassesForScopes": [
+      {
+        "name": "cloud-storage",
+        "displayName": "Cloud Storage",
+        "description": "A scalable and secure storage service for storing and retrieving any amount of data at any time. Ideal for backups, content storage, and data archiving.",
+        "category": "Storage",
+        "provider": "DataHaven Inc.",
+        "serviceLevel": "high",
+        "contacts": [
+          {
+            "displayName": "Alice Smith",
+            "email": "alice.smith@datahaven.com",
+            "role": ["Support Engineer"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.datahaven.com",
+            "displayName": "DataHaven Support Portal",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://cloud.datahaven.com",
+          "displayName": "Cloud Storage Access",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.datahaven.com/cloud-storage",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyNSIgZmlsbD0icmdiKDQ3LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2MiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTczKSIgLz4KICAgICAgICA8cGF0aCBkPSJNNTAgMjUgTDUzIDI1IEw1NSAzMCBMNTggMzEgTDYyIDI4IEw2NCAzMCBMNjIgMzQgTDYzIDM3IEw2OCAzOCBMNjggNDEgTDYzIDQzIEw2MiA0NiBMNjQgNTAgTDYyIDUyIEw1OCA0OSBMNTUgNTAgTDUzIDU1IEw1MCA1NSBMNDggNTAgTDQ1IDQ5IEw0MSA1MiBMMzkgNTAgTDQxIDQ2IEw0MCA0MyBMMzUgNDEgTDM1IDM4IEw0MCAzNyBMNDEgMzQgTDM5IDMwIEw0MSAyOCBMNDUgMzEgTDQ4IDMwIEw1MCAyNSBaIiBmaWxsPSJyZ2IoMTkyLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1NSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzUpIiAvPgogICAgICAgIDxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjEwIiBmaWxsPSJyZ2IoNDcsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDYyLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzMpIiAvPgogICAgICA8L3N2Zz4=",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDEzNCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjMzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMzcpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik0zMCAxNSBMNTUgMTUgTDcwIDMwIEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDEzNCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjMzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMzcpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01NSAxNSBMNTUgMzAgTDcwIDMwIiBmaWxsPSJyZ2IoMjIzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNDAsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyMikiIC8+CiAgICAgICAgPHJlY3QgeD0iNDAiIHk9IjQ1IiB3aWR0aD0iMzAiIGhlaWdodD0iNSIgcng9IjIiIGZpbGw9InJnYigyMjMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI0MCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjIyKSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDIyMywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjQwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMjIpIiAvPgogICAgICAgIDxyZWN0IHg9IjQwIiB5PSI2NSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjUiIHJ4PSIyIiBmaWxsPSJyZ2IoMjIzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNDAsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyMikiIC8+CiAgICAgIDwvc3ZnPg==",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "compute-engine",
+        "displayName": "Compute Engine",
+        "description": "High-performance virtual machines with flexible configurations. Run your applications on reliable and customizable compute instances.",
+        "category": "Compute",
+        "provider": "ComputeCore Solutions",
+        "serviceLevel": "veryHigh24x7",
+        "contacts": [
+          {
+            "displayName": "John Doe",
+            "email": "john.doe@computecore.com",
+            "role": ["Senior Support Specialist"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.computecore.com",
+            "displayName": "ComputeCore Support Center",
+            "typename": "Link"
+          },
+          {
+            "URL": "tel:+18001234567",
+            "displayName": "ComputeCore 24x7 Hotline",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://console.computecore.com",
+          "displayName": "Compute Engine Console",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.computecore.com/compute-engine",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyNSIgZmlsbD0icmdiKDQxLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzNiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODUpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01MCAyNSBMNTMgMjUgTDU1IDMwIEw1OCAzMSBMNjIgMjggTDY0IDMwIEw2MiAzNCBMNjMgMzcgTDY4IDM4IEw2OCA0MSBMNjMgNDMgTDYyIDQ2IEw2NCA1MCBMNjIgNTIgTDU4IDQ5IEw1NSA1MCBMNTMgNTUgTDUwIDU1IEw0OCA1MCBMNDUgNDkgTDQxIDUyIEwzOSA1MCBMNDEgNDYgTDQwIDQzIEwzNSA0MSBMMzUgMzggTDQwIDM3IEw0MSAzNCBMMzkgMzAgTDQxIDI4IEw0NSAzMSBMNDggMzAgTDUwIDI1IFoiIGZpbGw9InJnYig4MSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTExLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMTEpIiAvPgogICAgICAgIDxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjEwIiBmaWxsPSJyZ2IoNDEsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM2LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4NSkiIC8+CiAgICAgIDwvc3ZnPg==",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyNSIgZmlsbD0icmdiKDE2NSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjAzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzcpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01MCAyNSBMNTMgMjUgTDU1IDMwIEw1OCAzMSBMNjIgMjggTDY0IDMwIEw2MiAzNCBMNjMgMzcgTDY4IDM4IEw2OCA0MSBMNjMgNDMgTDYyIDQ2IEw2NCA1MCBMNjIgNTIgTDU4IDQ5IEw1NSA1MCBMNTMgNTUgTDUwIDU1IEw0OCA1MCBMNDUgNDkgTDQxIDUyIEwzOSA1MCBMNDEgNDYgTDQwIDQzIEwzNSA0MSBMMzUgMzggTDQwIDM3IEw0MSAzNCBMMzkgMzAgTDQxIDI4IEw0NSAzMSBMNDggMzAgTDUwIDI1IFoiIGZpbGw9InJnYigyMjAsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE4OCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjI0KSIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIxMCIgZmlsbD0icmdiKDE2NSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjAzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzcpIiAvPgogICAgICA8L3N2Zz4=",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "HttpBin",
+        "displayName": "HttpBin as a Service",
+        "description": "A fully managed, HttpBin Service allowing developers to troubleshoot their API calls easily.",
+        "category": "Development",
+        "provider": "ABC MSP Provider",
+        "serviceLevel": "medium",
+        "contacts": [
+          {
+            "displayName": "Maria Garcia",
+            "email": "maria.garcia@abc.com",
+            "role": ["Technical Support Lead"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://help.abc.com",
+            "displayName": "ABC Help Desk",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://streams.abc.com",
+          "displayName": "HttpBin Support Dashboard",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.abc.com/httpbin",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE1MywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODEpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik0zMCAxNSBMNTUgMTUgTDcwIDMwIEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE1MywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODEpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01NSAxNSBMNTUgMzAgTDcwIDMwIiBmaWxsPSJyZ2IoMTEwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxODYsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5OCkiIC8+CiAgICAgICAgPHJlY3QgeD0iNDAiIHk9IjQ1IiB3aWR0aD0iMzAiIGhlaWdodD0iNSIgcng9IjIiIGZpbGw9InJnYigxMTAsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE4NiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTk4KSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDExMCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTg2LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOTgpIiAvPgogICAgICAgIDxyZWN0IHg9IjQwIiB5PSI2NSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjUiIHJ4PSIyIiBmaWxsPSJyZ2IoMTEwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxODYsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5OCkiIC8+CiAgICAgIDwvc3ZnPg==",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyNSIgZmlsbD0icmdiKDEzMSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjI1LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMzgpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01MCAyNSBMNTMgMjUgTDU1IDMwIEw1OCAzMSBMNjIgMjggTDY0IDMwIEw2MiAzNCBMNjMgMzcgTDY4IDM4IEw2OCA0MSBMNjMgNDMgTDYyIDQ2IEw2NCA1MCBMNjIgNTIgTDU4IDQ5IEw1NSA1MCBMNTMgNTUgTDUwIDU1IEw0OCA1MCBMNDUgNDkgTDQxIDUyIEwzOSA1MCBMNDEgNDYgTDQwIDQzIEwzNSA0MSBMMzUgMzggTDQwIDM3IEw0MSAzNCBMMzkgMzAgTDQxIDI4IEw0NSAzMSBMNDggMzAgTDUwIDI1IFoiIGZpbGw9InJnYigyNDQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyNSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjU0KSIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIxMCIgZmlsbD0icmdiKDEzMSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjI1LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMzgpIiAvPgogICAgICA8L3N2Zz4=",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "machine-learning-studio",
+        "displayName": "Machine Learning Studio",
+        "description": "An integrated platform to build, deploy, and manage machine learning models with ease. Supports popular frameworks and tools.",
+        "category": "AI & Machine Learning",
+        "provider": "AI Innovators",
+        "serviceLevel": "high",
+        "contacts": [
+          {
+            "displayName": "Dr. Alan Turing",
+            "email": "alan.turing@aiinnovators.com",
+            "role": ["ML Specialist"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.aiinnovators.com",
+            "displayName": "AI Innovators Support",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://mlstudio.aiinnovators.com",
+          "displayName": "Machine Learning Studio",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.aiinnovators.com/ml-studio",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cmVjdCB4PSIyMCIgeT0iMzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI0MCIgcng9IjEwIiBmaWxsPSJyZ2IoMTkwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNDkpIiAvPgogICAgICAgIDxwb2x5Z29uIHBvaW50cz0iMzAsNzAgNDAsODAgNTAsNzAiIGZpbGw9InJnYigxOTAsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI2LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0OSkiIC8+CiAgICAgICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI1MCIgcj0iNSIgZmlsbD0icmdiKDE4MSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTkwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNTkpIiAvPgogICAgICAgIDxjaXJjbGUgY3g9IjYwIiBjeT0iNTAiIHI9IjUiIGZpbGw9InJnYigxODEsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5MCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTU5KSIgLz4KICAgICAgPC9zdmc+",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDIwMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTQ5LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNjMpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik0zMCAxNSBMNTUgMTUgTDcwIDMwIEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDIwMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTQ5LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNjMpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01NSAxNSBMNTUgMzAgTDcwIDMwIiBmaWxsPSJyZ2IoMjQ1LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMjMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIxOCkiIC8+CiAgICAgICAgPHJlY3QgeD0iNDAiIHk9IjQ1IiB3aWR0aD0iMzAiIGhlaWdodD0iNSIgcng9IjIiIGZpbGw9InJnYigyNDUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyMywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjE4KSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDI0NSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjIzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMTgpIiAvPgogICAgICAgIDxyZWN0IHg9IjQwIiB5PSI2NSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjUiIHJ4PSIyIiBmaWxsPSJyZ2IoMjQ1LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMjMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIxOCkiIC8+CiAgICAgIDwvc3ZnPg==",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "postgresql-db",
+        "displayName": "PostgreSQL Database",
+        "description": "A reliable and scalable managed PostgreSQL database service. Offers automatic backups, replication, and high availability.",
+        "category": "Database",
+        "provider": "DB Masters",
+        "serviceLevel": "high",
+        "contacts": [
+          {
+            "displayName": "Emily Chen",
+            "email": "emily.chen@dbmasters.com",
+            "role": ["Database Administrator"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.dbmasters.com",
+            "displayName": "DB Masters Support",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://console.dbmasters.com",
+          "displayName": "DB Masters Console",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.dbmasters.com/postgresql-db",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDIsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0NywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTQ2KSIgLz4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDU1IDE1IEw3MCAzMCBMNzAgODUgTDMwIDg1IFoiIGZpbGw9InJnYigyLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNDcsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0NikiIC8+CiAgICAgICAgPHBhdGggZD0iTTU1IDE1IEw1NSAzMCBMNzAgMzAiIGZpbGw9InJnYigxNjgsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0OSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODApIiAvPgogICAgICAgIDxyZWN0IHg9IjQwIiB5PSI0NSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIyIiBmaWxsPSJyZ2IoMTY4LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNDksIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDgwKSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDE2OCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTQ5LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4MCkiIC8+CiAgICAgICAgPHJlY3QgeD0iNDAiIHk9IjY1IiB3aWR0aD0iMjUiIGhlaWdodD0iNSIgcng9IjIiIGZpbGw9InJnYigxNjgsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0OSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODApIiAvPgogICAgICA8L3N2Zz4=",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjM1IiByPSIyMCIgZmlsbD0icmdiKDE2NCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjUwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNTApIiAvPgogICAgICAgIDxwYXRoIGQ9Ik0yMCA5MCBRMjAgNjAgNTAgNjAgUTgwIDYwIDgwIDkwIiBmaWxsPSJyZ2IoMTY0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNTAsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE1MCkiIC8+CiAgICAgICAgPGNpcmNsZSBjeD0iNTAiIGN5PSIzNSIgcj0iMTUiIGZpbGw9InJnYigyNDMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjQ4KSIgLz4KICAgICAgPC9zdmc+",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "elastic-cache",
+        "displayName": "Elastic Cache",
+        "description": "An in-memory data store service for caching and real-time analytics. Supports Redis and Memcached protocols.",
+        "category": "Database",
+        "provider": "CacheWorks",
+        "serviceLevel": "medium",
+        "contacts": [
+          {
+            "displayName": "Michael Brown",
+            "email": "michael.brown@cacheworks.com",
+            "role": ["Cache Specialist"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.cacheworks.com",
+            "displayName": "CacheWorks Support",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://elastic.cacheworks.com",
+          "displayName": "Elastic Cache Dashboard",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.cacheworks.com/elastic-cache",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDY5LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2MSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTM4KSIgLz4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDU1IDE1IEw3MCAzMCBMNzAgODUgTDMwIDg1IFoiIGZpbGw9InJnYig2OSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNjEsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEzOCkiIC8+CiAgICAgICAgPHBhdGggZD0iTTU1IDE1IEw1NSAzMCBMNzAgMzAiIGZpbGw9InJnYigxNzEsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE3NywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzEpIiAvPgogICAgICAgIDxyZWN0IHg9IjQwIiB5PSI0NSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIyIiBmaWxsPSJyZ2IoMTcxLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzcsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDcxKSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDE3MSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTc3LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA3MSkiIC8+CiAgICAgICAgPHJlY3QgeD0iNDAiIHk9IjY1IiB3aWR0aD0iMjUiIGhlaWdodD0iNSIgcng9IjIiIGZpbGw9InJnYigxNzEsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE3NywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzEpIiAvPgogICAgICA8L3N2Zz4=",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDE2OSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTYxLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMTEpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik0zMCAxNSBMNTUgMTUgTDcwIDMwIEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDE2OSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTYxLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMTEpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01NSAxNSBMNTUgMzAgTDcwIDMwIiBmaWxsPSJyZ2IoMjE0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOTMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE4MSkiIC8+CiAgICAgICAgPHJlY3QgeD0iNDAiIHk9IjQ1IiB3aWR0aD0iMzAiIGhlaWdodD0iNSIgcng9IjIiIGZpbGw9InJnYigyMTQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5MywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTgxKSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDIxNCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTkzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxODEpIiAvPgogICAgICAgIDxyZWN0IHg9IjQwIiB5PSI2NSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjUiIHJ4PSIyIiBmaWxsPSJyZ2IoMjE0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOTMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE4MSkiIC8+CiAgICAgIDwvc3ZnPg==",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "cdn-distribution",
+        "displayName": "CDN Distribution",
+        "description": "A content delivery network service to deliver content globally with low latency and high transfer speeds.",
+        "category": "Networking",
+        "provider": "GlobalEdge Networks",
+        "serviceLevel": "veryHigh24x7",
+        "contacts": [
+          {
+            "displayName": "Sophia Rodriguez",
+            "email": "sophia.rodriguez@globaledge.com",
+            "role": ["Customer Success Manager"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.globaledge.com",
+            "displayName": "GlobalEdge Customer Support",
+            "typename": "Link"
+          },
+          {
+            "URL": "tel:+18009876543",
+            "displayName": "GlobalEdge 24x7 Support",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://cdn.globaledge.com",
+          "displayName": "CDN Management Portal",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.globaledge.com/cdn-distribution",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cGF0aCBkPSJNMzAgMTUgTDcwIDE1IEw3MCA4NSBMMzAgODUgWiIgZmlsbD0icmdiKDE3NiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNTksIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0NykiIC8+CiAgICAgICAgPHBhdGggZD0iTTMwIDE1IEw1NSAxNSBMNzAgMzAgTDcwIDg1IEwzMCA4NSBaIiBmaWxsPSJyZ2IoMTc2LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1OSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTQ3KSIgLz4KICAgICAgICA8cGF0aCBkPSJNNTUgMTUgTDU1IDMwIEw3MCAzMCIgZmlsbD0icmdiKDExMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDU4KSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNDUiIHdpZHRoPSIzMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDExMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDU4KSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDExMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDU4KSIgLz4KICAgICAgICA8cmVjdCB4PSI0MCIgeT0iNjUiIHdpZHRoPSIyNSIgaGVpZ2h0PSI1IiByeD0iMiIgZmlsbD0icmdiKDExMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDU4KSIgLz4KICAgICAgPC9zdmc+",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8ZWxsaXBzZSBjeD0iNTAiIGN5PSIyNSIgcng9IjMwIiByeT0iMTUiIGZpbGw9InJnYigxMzgsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE1NCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTU3KSIgLz4KICAgICAgICA8cmVjdCB4PSIyMCIgeT0iMjUiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgZmlsbD0icmdiKDEzOCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTU0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNTcpIiAvPgogICAgICAgIDxlbGxpcHNlIGN4PSI1MCIgY3k9Ijc1IiByeD0iMzAiIHJ5PSIxNSIgZmlsbD0icmdiKDEzOCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTU0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNTcpIiAvPgogICAgICAgIDxsaW5lIHgxPSIyMCIgeTE9IjUwIiB4Mj0iODAiIHkyPSI1MCIgc3Ryb2tlPSJyZ2IoMjE4LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMTEsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI0MCkiIHN0cm9rZS13aWR0aD0iMiIgLz4KICAgICAgPC9zdmc+",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "log-monitor",
+        "displayName": "Log Monitor",
+        "description": "A centralized logging service to collect, analyze, and monitor application logs for better insights and troubleshooting.",
+        "category": "Monitoring",
+        "provider": "InsightOps",
+        "serviceLevel": "medium",
+        "contacts": [
+          {
+            "displayName": "Daniel Lee",
+            "email": "daniel.lee@insightops.com",
+            "role": ["Support Analyst"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.insightops.com",
+            "displayName": "InsightOps Support Portal",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://logmonitor.insightops.com",
+          "displayName": "Log Monitor Dashboard",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.insightops.com/log-monitor",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcng9IjUiIGZpbGw9InJnYigzNSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDExKSIgLz4KICAgICAgICA8cG9seWxpbmUgcG9pbnRzPSIzMCw3MCA0NSw0MCA2MCw1NSA3NSwzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2IoMTI3LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMzIsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE2NikiIHN0cm9rZS13aWR0aD0iMyIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjcwIiByPSI0IiBmaWxsPSJyZ2IoMTI3LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMzIsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE2NikiIC8+CiAgICAgICAgPGNpcmNsZSBjeD0iNDUiIGN5PSI0MCIgcj0iNCIgZmlsbD0icmdiKDEyNywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTMyLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNjYpIiAvPgogICAgICAgIDxjaXJjbGUgY3g9IjYwIiBjeT0iNTUiIHI9IjQiIGZpbGw9InJnYigxMjcsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEzMiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTY2KSIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSI3NSIgY3k9IjMwIiByPSI0IiBmaWxsPSJyZ2IoMTI3LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMzIsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE2NikiIC8+CiAgICAgIDwvc3ZnPg==",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyNSIgZmlsbD0icmdiKDIzNSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTk4LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzkpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik01MCAyNSBMNTMgMjUgTDU1IDMwIEw1OCAzMSBMNjIgMjggTDY0IDMwIEw2MiAzNCBMNjMgMzcgTDY4IDM4IEw2OCA0MSBMNjMgNDMgTDYyIDQ2IEw2NCA1MCBMNjIgNTIgTDU4IDQ5IEw1NSA1MCBMNTMgNTUgTDUwIDU1IEw0OCA1MCBMNDUgNDkgTDQxIDUyIEwzOSA1MCBMNDEgNDYgTDQwIDQzIEwzNSA0MSBMMzUgMzggTDQwIDM3IEw0MSAzNCBMMzkgMzAgTDQxIDI4IEw0NSAzMSBMNDggMzAgTDUwIDI1IFoiIGZpbGw9InJnYigyNDcsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI0NSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTgwKSIgLz4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIxMCIgZmlsbD0icmdiKDIzNSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTk4LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzkpIiAvPgogICAgICA8L3N2Zz4=",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      },
+      {
+        "name": "kubernetes-service",
+        "displayName": "Kubernetes Service",
+        "description": "Managed Kubernetes service to deploy, scale, and manage containerized applications with ease.",
+        "category": "Containers",
+        "provider": "ContainerCorp",
+        "serviceLevel": "high",
+        "contacts": [
+          {
+            "displayName": "Laura Martinez",
+            "email": "laura.martinez@containercorp.com",
+            "role": ["DevOps Engineer"],
+            "typename": "Contact"
+          }
+        ],
+        "preferredSupportChannels": [
+          {
+            "URL": "https://support.containercorp.com",
+            "displayName": "ContainerCorp Support",
+            "typename": "Link"
+          }
+        ],
+        "mainLink": {
+          "URL": "https://k8s.containercorp.com",
+          "displayName": "Kubernetes Dashboard",
+          "typename": "Link"
+        },
+        "documentation": {
+          "url": "https://docs.containercorp.com/kubernetes-service",
+          "typename": "URL"
+        },
+        "icon": {
+          "light": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8ZWxsaXBzZSBjeD0iNTAiIGN5PSIyNSIgcng9IjMwIiByeT0iMTUiIGZpbGw9InJnYigxNTUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDYyLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4MykiIC8+CiAgICAgICAgPHJlY3QgeD0iMjAiIHk9IjI1IiB3aWR0aD0iNjAiIGhlaWdodD0iNTAiIGZpbGw9InJnYigxNTUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDYyLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4MykiIC8+CiAgICAgICAgPGVsbGlwc2UgY3g9IjUwIiBjeT0iNzUiIHJ4PSIzMCIgcnk9IjE1IiBmaWxsPSJyZ2IoMTU1LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2MiwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODMpIiAvPgogICAgICAgIDxsaW5lIHgxPSIyMCIgeTE9IjUwIiB4Mj0iODAiIHkyPSI1MCIgc3Ryb2tlPSJyZ2IoMTY4LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMTgsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0NikiIHN0cm9rZS13aWR0aD0iMiIgLz4KICAgICAgPC9zdmc+",
+            "typename": "Image"
+          },
+          "dark": {
+            "url": null,
+            "data": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjM1IiByPSIyMCIgZmlsbD0icmdiKDIyNywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTc2LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOTUpIiAvPgogICAgICAgIDxwYXRoIGQ9Ik0yMCA5MCBRMjAgNjAgNTAgNjAgUTgwIDYwIDgwIDkwIiBmaWxsPSJyZ2IoMjI3LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzYsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5NSkiIC8+CiAgICAgICAgPGNpcmNsZSBjeD0iNTAiIGN5PSIzNSIgcj0iMTUiIGZpbGw9InJnYigyNDQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIxMywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTkzKSIgLz4KICAgICAgPC9zdmc+",
+            "typename": "Image"
+          },
+          "typename": "Icon"
+        },
+        "__typename": "ExtensionClass"
+      }
+    ]
+  }
+}

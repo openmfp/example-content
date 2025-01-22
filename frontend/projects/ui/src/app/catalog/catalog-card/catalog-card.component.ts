@@ -23,8 +23,14 @@ export class CatalogCardComponent {
 
   openExtensionClass() {
     if (this.item) {
+      debugger;
       linkManager().openAsModal(this.item.name).then(() => {
-        this.dataService.fetchCatalogItems();
+        let isPlatformMeshCatalog = window.location.href.includes('platform-mesh-catalog');
+        if(isPlatformMeshCatalog) {
+          this.dataService.fetchPocCatalogItems();
+        } else {
+          this.dataService.fetchCatalogItems();
+        }
         if (this.context === CatalogContext.account) {
           sendCustomMessage({ id: 'openmfp.refetch-nav'});
         }

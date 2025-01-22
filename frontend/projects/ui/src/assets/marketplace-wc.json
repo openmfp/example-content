@@ -1,0 +1,38 @@
+{
+  "name": "overview",
+  "creationTimestamp": "2022-05-17T11:37:17Z",
+  "luigiConfigFragment": {
+    "data": {
+      "nodes": [
+        {
+          "entityType": "main.overview::compound",
+          "urlSuffix": "/ui/wc/main.js#root-overview",
+          "context": {
+            "title": "Resource Overview"
+          },
+          "layoutConfig": {
+            "row": "2",
+            "column": "1 / -1"
+          },
+          "webcomponent": {
+            "selfRegistered": true
+          }
+        },
+        {
+          "entityType": "main.account.dashboard::compound",
+          "urlSuffix": "/ui/wc/main.js#account-overview",
+          "context": {
+            "title": "Resource Overview"
+          },
+          "layoutConfig": {
+            "row": "2",
+            "column": "1 / -1"
+          },
+          "webcomponent": {
+            "selfRegistered": true
+          }
+        }
+      ]
+    }
+  }
+}

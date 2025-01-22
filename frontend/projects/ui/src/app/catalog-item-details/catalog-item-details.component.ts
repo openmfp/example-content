@@ -59,17 +59,8 @@ export class CatalogItemDetailsComponent implements OnInit {
         : CatalogContext.global;
 
       this.setButtonVisibility();
-      this.fetchItemDetails();
-      // if (this.account) {
-      //   this.gatewayService
-      //     .getAccountDetails(this.account)
-      //     .pipe(
-      //       tap((res) => {
-      //         this.namespace = res?.status?.namespace ?? '';
-      //       })
-      //     )
-      //     .subscribe();
-      // }
+      let isPlatformMeshCatalog = window.location.href.includes('platform-mesh-catalog');
+      this.fetchItemDetails(isPlatformMeshCatalog);
     });
   }
 
@@ -128,8 +119,12 @@ export class CatalogItemDetailsComponent implements OnInit {
     }
   }
 
-  private fetchItemDetails() {
-    this.dataService.fetchCatalogItems();
+  private fetchItemDetails(isPoc: boolean) {
+    if(isPoc) {
+      this.dataService.fetchCatalogItems();
+    } else {
+      this.dataService.fetchPocCatalogItems();
+    }
     this.dataService
       .getCatalogItems()
       .pipe(

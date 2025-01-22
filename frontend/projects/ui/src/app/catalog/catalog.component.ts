@@ -34,7 +34,8 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit() {
     this.luigiContextService.getContextAsync().then(ctx => {
-      this.fetchItems((ctx['accountId'] || '').trim());
+      let isPlatformMeshCatalog = window.location.href.includes('platform-mesh-catalog');
+      this.fetchItems((ctx['accountId'] || '').trim(), isPlatformMeshCatalog);
     });
   }
 
@@ -70,7 +71,7 @@ export class CatalogComponent implements OnInit {
     ));
   }
 
-  private fetchItems(account: string) {
+  private fetchItems(account: string, isPoc: boolean) {
     // // TODO: remove after luigi update
     // if (!(window as any)._catalogUpdateListener) {
     //   (window as any)._catalogUpdateListener = (event: StorageEvent) => {
@@ -84,8 +85,12 @@ export class CatalogComponent implements OnInit {
     // ///////////////
 
     this.context = account?.length ? CatalogContext.account : CatalogContext.global;
+    if(isPoc) {
+      this.dataService.fetchPocCatalogItems();
+    } else {
+      this.dataService.fetchCatalogItems();
+    }
 
-    this.dataService.fetchCatalogItems();
     this.dataService.getCatalogItems(account?.length > 0 ? account : undefined)
       .pipe(finalize(() => this.fetchFinalized = true), takeUntilDestroyed(this.destroyRef))
       .subscribe(data => this.updateCatalogItems(account, data));
