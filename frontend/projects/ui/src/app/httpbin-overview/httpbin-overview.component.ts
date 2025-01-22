@@ -26,7 +26,7 @@ export class HttpBinOverviewComponent {
     this.account = this.luigiContextService.contextObservable().pipe(
       tap(()=> uxManager().showLoadingIndicator()),
       first(),
-      mergeMap((context) => this.accountService.subscribeBin("test")),
+      mergeMap((context) => this.accountService.subscribeBin(context.context.httpBinName!)),
       tap(() => uxManager().hideLoadingIndicator()),
     )
   }

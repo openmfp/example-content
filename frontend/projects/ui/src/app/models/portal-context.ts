@@ -11,6 +11,7 @@ export interface PortalRootContext extends Record<string, any> {
   teamId?: string;
   componentId?: string;
   profileUserId?: string;
+  httpBinName?: string;
   entityContext: {
     account?: {
       id?: string;
