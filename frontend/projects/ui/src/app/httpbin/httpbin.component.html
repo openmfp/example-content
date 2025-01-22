@@ -1,0 +1,63 @@
+<div class="overlay">
+    <fd-dynamic-page size="large" ariaLabel="HttpBin List Page" [autoResponsive]="false">
+      <fd-dynamic-page-header title="HttpBin List"
+        subtitle="This page displays the created HttpBins on in your Environment">
+        <!-- breadcrumb content -->
+        <fd-dynamic-page-breadcrumb>
+          <fd-breadcrumb>
+            <fd-breadcrumb-item>
+              <a fd-link href="#">HttpBins</a>
+            </fd-breadcrumb-item>
+          </fd-breadcrumb>
+        </fd-dynamic-page-breadcrumb>
+        <fd-dynamic-page-global-actions>
+          <fd-toolbar fdType="transparent" [clearBorder]="true">
+            <button
+              fd-toolbar-item
+              fd-button
+              fdCompact
+              fdType="emphasized"
+              label="Create HttpBin"
+              title="Create"
+              (click)="openCreateHttpBinDialog()">
+            </button>
+            <fd-toolbar-separator></fd-toolbar-separator>
+          </fd-toolbar>
+        </fd-dynamic-page-global-actions>
+      </fd-dynamic-page-header>
+      <fd-dynamic-page-content cdkScrollable>
+        <div *ngIf="(httpbins | async) as httpbinList">
+          <table fd-table aria-label="Default" *ngIf="httpbinList.length > 0">
+            <thead fd-table-header>
+                <tr fd-table-row>
+                    <th fd-table-cell>Name</th>
+                    <th fd-table-cell>Foo</th>
+                </tr>
+            </thead>
+            <tbody fd-table-body  >
+                    <tr fd-table-row *ngFor="let row of httpbinList;">
+                        <td fd-table-cell>
+                            <a fd-link href="#" (click)="navigateToHttpBin($event, row)">{{ row.metadata.name }}</a>
+                        </td>
+                        <td fd-table-cell>
+                          {{ row.spec.foo }}
+                      </td>
+                    </tr>
+            </tbody>
+          </table>
+          <div [style.width.%]="100" [style.display]="'flex'" [style.justify-content]="'center'" *ngIf="httpbinList.length == 0">
+            <figure fd-illustrated-message [svgConfig]="sceneConfig" svgAriaLabel="Illustration label">
+                <figcaption fd-illustrated-message-figcaption>
+                    <h3 fd-illustrated-message-title>No HttpBins so far</h3>
+                    <p fd-illustrated-message-text>Create your first HttpBin!</p>
+                </figcaption>
+                <fd-illustrated-message-actions>
+                    <button fd-button label="Create"></button>
+                </fd-illustrated-message-actions>
+            </figure>
+          </div>
+        </div>
+      </fd-dynamic-page-content>
+    </fd-dynamic-page>
+  </div>
+  

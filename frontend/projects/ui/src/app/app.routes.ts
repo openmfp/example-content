@@ -3,6 +3,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogItemDetailsComponent } from './catalog-item-details/catalog-item-details.component';
 import { OpenmcpComponent } from './openmcp/openmcp.component';
 import { IronCoreComponent } from './iron-core/iron-core.component';
+import { HttpBinComponent } from './httpbin/httpbin.component';
 
 export const routes: Routes = [
   { path: 'global-catalog', component: CatalogComponent },
@@ -23,4 +24,5 @@ export const routes: Routes = [
     component: OpenmcpComponent,
     children: [{ path: 'control-planes', component: OpenmcpComponent }],
   },
+  { path: 'httpbins', component: HttpBinComponent },
 ];
