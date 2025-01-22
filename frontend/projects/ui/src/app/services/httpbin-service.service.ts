@@ -6,13 +6,13 @@ import {
   HttpBinSubscriptionResponse,
   CreateHttpBin,
   CreateHttpBinResponse,
-  DeleteHttpBinResponse
+  DeleteHttpBinResponse,
 } from '../models/httpbins';
 import { PortalLuigiContextService } from './luigi-context.service';
-import { gql } from "@apollo/client/core"
+import { gql } from '@apollo/client/core';
 import { Apollo, MutationResult } from 'apollo-angular';
 
-const accountsSubscription = gql `
+const httpbinsSubscription = gql`
   subscription {
     orchestrate_cloud_sap_httpbins {
       metadata {
@@ -23,8 +23,8 @@ const accountsSubscription = gql `
       }
     }
   }
-`
-const accountSubscription = gql `
+`;
+const httpbinSubscription = gql`
   subscription ($name: String!) {
     orchestrate_cloud_sap_httpbin(namespace: "default", name: $name) {
       metadata {
@@ -35,80 +35,93 @@ const accountSubscription = gql `
       }
     }
   }
-`
+`;
 
-const createAccountMutation = gql `
-  mutation($name: String!, $foo: String!) {
+const createHttpBinMutation = gql`
+  mutation ($name: String!, $foo: String!) {
     orchestrate_cloud_sap {
-     createHttpBin(namespace:"default", metadata: { name: $name}, spec: {
-       foo: $foo,
-     }) {
-       metadata { name }
-     }
-   }
- }
-`
-const deleteAccountMutation = gql `
-  mutation($name: String!) {
-    core_openmfp_io {
-      deleteAccount(name: $name, namespace:"demo-root")
+      createHttpBin(
+        namespace: "default"
+        object: { metadata: { name: $name }, spec: { foo: $foo } }
+      ) {
+        metadata {
+          name
+        }
+      }
     }
   }
-`
+`;
+const deleteAccountMutation = gql`
+  mutation ($name: String!) {
+    core_openmfp_io {
+      deleteAccount(name: $name, namespace: "demo-root")
+    }
+  }
+`;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpBinService {
   constructor(
     private luigiContextService: PortalLuigiContextService,
-    private apollo : Apollo
-  ) { }
+    private apollo: Apollo
+  ) {}
 
   public subscribeBins(): Observable<HttpBin[]> {
-    return this.apollo.subscribe<HttpBinsSubscriptionResponse>({
-        query: accountsSubscription,
-      fetchPolicy: 'no-cache',
-      }).pipe(
-      map((apolloResponse) =>
-        apolloResponse.data?.orchestrate_cloud_sap_httpbins || []
-      ),
-      distinctUntilChanged()
-    )
+    return this.apollo
+      .subscribe<HttpBinsSubscriptionResponse>({
+        query: httpbinsSubscription,
+        fetchPolicy: 'no-cache',
+      })
+      .pipe(
+        map(
+          (apolloResponse) =>
+            apolloResponse.data?.orchestrate_cloud_sap_httpbins || []
+        ),
+        distinctUntilChanged()
+      );
   }
 
   public subscribeBin(name: string): Observable<HttpBin> {
-    return this.apollo.subscribe<HttpBinSubscriptionResponse>({
-      query: accountSubscription,
-      fetchPolicy: 'no-cache',
-      variables: {
-        name: name
-      }
-    }).pipe(
-      map((apolloResponse) =>
-          apolloResponse.data?.orchestrate_cloud_sap_httpbin!
-      ),
-      distinctUntilChanged()
-    )
+    return this.apollo
+      .subscribe<HttpBinSubscriptionResponse>({
+        query: httpbinSubscription,
+        fetchPolicy: 'no-cache',
+        variables: {
+          name: name,
+        },
+      })
+      .pipe(
+        map(
+          (apolloResponse) =>
+            apolloResponse.data?.orchestrate_cloud_sap_httpbin!
+        ),
+        distinctUntilChanged()
+      );
   }
 
-  public createBin(formData: CreateHttpBin): Observable<MutationResult<CreateHttpBinResponse>> {
+  public createBin(
+    formData: CreateHttpBin
+  ): Observable<MutationResult<CreateHttpBinResponse>> {
     return this.luigiContextService.contextObservable().pipe(
       first(),
       mergeMap(() =>
         this.apollo.mutate<CreateHttpBinResponse>({
-          mutation: createAccountMutation,
+          mutation: createHttpBinMutation,
           fetchPolicy: 'no-cache',
           variables: {
             name: formData.key,
             foo: formData.foo,
-          }
+          },
         })
       )
-    )
+    );
   }
 
-  public deleteBin(name: string): Observable<MutationResult<DeleteHttpBinResponse>> {
+  public deleteBin(
+    name: string
+  ): Observable<MutationResult<DeleteHttpBinResponse>> {
     return this.luigiContextService.contextObservable().pipe(
       first(),
       mergeMap(() =>
@@ -117,9 +130,9 @@ export class HttpBinService {
           fetchPolicy: 'no-cache',
           variables: {
             name,
-          }
+          },
         })
       )
-    )
+    );
   }
 }

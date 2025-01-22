@@ -1,0 +1,68 @@
+<form [formGroup]="createHttpbinForm" >
+  <div
+      class="fd-container fd-form-layout-grid-container fd-form-layout-grid-container--vertical fd-form-group"
+  >
+      <div fd-form-item class="fd-row">
+          <div class="fd-col">
+              <label fd-form-label for="key" [required]="true">Key:</label>
+          </div>
+          <div class="fd-col">
+            <fd-form-input-message-group [triggers]="['focusin', 'focusout']">
+              <input fd-form-control
+                  formControlName="key"
+                  type="text"
+                  id="key"
+                  placeholder="Enter HttpBin name"
+                  [state]="createHttpbinForm.controls.key.invalid &&
+                  (createHttpbinForm.controls.key.dirty
+                  || createHttpbinForm.controls.key.touched) ? 'error': 'success'"
+                />
+              <fd-form-message type="error"
+                  *ngIf="createHttpbinForm.controls.key.invalid &&
+                    (createHttpbinForm.controls.key.dirty
+                    || createHttpbinForm.controls.key.touched)">
+                    <ul>
+                      <li>no more than 253 characters</li>
+                      <li>only lowercase alphanumeric characters, '-' or '.'</li>
+                      <li>start with an alphanumeric character</li>
+                      <li>end with an alphanumeric character</li>
+                    </ul>
+              </fd-form-message>
+          </fd-form-input-message-group>
+          </div>
+      </div>
+      <div fd-form-item class="fd-row">
+        <div class="fd-col">
+            <label fd-form-label for="foo">Foo:</label>
+        </div>
+        <div class="fd-col">
+            <input fd-form-control
+                formControlName="foo"
+                type="text"
+                id="foo" />
+        </div>
+    </div>
+  </div>
+  <div fd-bar>
+    <div fd-bar-right>
+      <fd-bar-element>
+        <button
+            fd-button
+            [disabled]="createHttpbinForm.controls.key.invalid"
+            fdType="emphasized"
+            label="Create"
+            (click)="onSubmit()"
+            ariaLabel="Create Account"
+        ></button>
+      </fd-bar-element>
+      <fd-bar-element>
+        <button
+            fd-button
+            label="Cancel"
+            (click)="onClose()"
+            ariaLabel="Cancel"
+        ></button>
+      </fd-bar-element>
+    </div>
+  </div>
+</form>

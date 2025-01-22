@@ -1,0 +1,33 @@
+<div class="overlay" *ngIf="(account | async) as bin">
+  <fd-dynamic-page size="large" ariaLabel="HttpBin Overview Page" [autoResponsive]="false">
+    <fd-dynamic-page-header title="{{bin?.spec?.foo}}"
+                            subtitle="This page provides an overview for the {{bin?.metadata?.name}}">
+      <fd-dynamic-page-breadcrumb>
+        <fd-breadcrumb>
+          <fd-breadcrumb-item>
+            <a fd-link (click)="navigateToAccounts($event)">HttpBins</a>
+          </fd-breadcrumb-item>
+          <fd-breadcrumb-item>
+            {{bin?.metadata?.name}}
+          </fd-breadcrumb-item>
+        </fd-breadcrumb>
+      </fd-dynamic-page-breadcrumb>
+      <fd-dynamic-page-global-actions>
+        <fd-toolbar fdType="transparent" [clearBorder]="true">
+          <button
+            fd-toolbar-item
+            fd-button
+            fdCompact
+            fdType="emphasized"
+            label="Delete HttpBin"
+            title="Create"
+            (click)="openDeleteAccountDialog(bin?.metadata?.name!)">
+          </button>
+          <fd-toolbar-separator></fd-toolbar-separator>
+        </fd-toolbar>
+      </fd-dynamic-page-global-actions>
+    </fd-dynamic-page-header>
+    <fd-dynamic-page-content cdkScrollable>
+    </fd-dynamic-page-content>
+  </fd-dynamic-page>
+</div>

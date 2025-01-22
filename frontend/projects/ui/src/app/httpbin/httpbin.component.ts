@@ -18,7 +18,9 @@ import { linkManager } from '@luigi-project/client';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HttpBinComponent implements OnInit {
-  constructor(private readonly httpbinService: HttpBinService) {}
+  constructor(
+    private readonly httpbinService: HttpBinService,
+  ) {}
 
   sceneConfig = {
     scene: {
@@ -40,12 +42,13 @@ export class HttpBinComponent implements OnInit {
     });
   }
 
-  navigateToHttpBin($event: MouseEvent, item: HttpBin) {
+  async navigateToHttpBin($event: MouseEvent, item: HttpBin) {
     $event.stopPropagation();
-    linkManager().navigate(`/home/accounts/${item.metadata.name}`);
+    linkManager().navigate(`${await linkManager().getCurrentRoute()}/${item.metadata.name}`);
   }
-  openCreateHttpBinDialog(): void {
-    linkManager().openAsModal('/home/create', {
+
+  async openCreateHttpBinDialog() {
+    linkManager().openAsModal(`${await linkManager().getCurrentRoute()}-create`, {
       title: 'Create HttpBin',
       width: '450px',
       height: '310px',

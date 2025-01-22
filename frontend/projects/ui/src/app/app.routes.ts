@@ -4,6 +4,8 @@ import { CatalogItemDetailsComponent } from './catalog-item-details/catalog-item
 import { OpenmcpComponent } from './openmcp/openmcp.component';
 import { IronCoreComponent } from './iron-core/iron-core.component';
 import { HttpBinComponent } from './httpbin/httpbin.component';
+import { CreateHttpBinModalComponent } from './create-httpbin-modal/create-httpbin-modal.component';
+import { HttpBinOverviewComponent } from './httpbin-overview/httpbin-overview.component';
 
 export const routes: Routes = [
   { path: 'platform-mesh-catalog', component: CatalogComponent },
@@ -30,4 +32,6 @@ export const routes: Routes = [
     children: [{ path: 'control-planes', component: OpenmcpComponent }],
   },
   { path: 'httpbins', component: HttpBinComponent },
+  { path: 'httpbins/create', component: CreateHttpBinModalComponent },
+  { path: 'httpbins/:httpbinName', component: HttpBinOverviewComponent },
 ];

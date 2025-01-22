@@ -3,7 +3,7 @@ export interface DeleteHttpBinResponse {
 }
 
 export interface CreateHttpBinResponse {
-  core_openmfp_io: coreOpenmfpIoCreateHttpBin;
+  orchestrate_cloud_sap: coreOpenmfpIoCreateHttpBin;
 }
 
 export interface HttpBinsSubscriptionResponse {
@@ -36,5 +36,5 @@ export interface HttpBinSpec {
 
 export interface CreateHttpBin {
   key: string;
-  foo: string;
+  foo: string | null;
 }

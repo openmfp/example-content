@@ -37,7 +37,7 @@
             <tbody fd-table-body  >
                     <tr fd-table-row *ngFor="let row of httpbinList;">
                         <td fd-table-cell>
-                            <a fd-link href="#" (click)="navigateToHttpBin($event, row)">{{ row.metadata.name }}</a>
+                            <a fd-link (click)="navigateToHttpBin($event, row)">{{ row.metadata.name }}</a>
                         </td>
                         <td fd-table-cell>
                           {{ row.spec.foo }}
@@ -52,7 +52,7 @@
                     <p fd-illustrated-message-text>Create your first HttpBin!</p>
                 </figcaption>
                 <fd-illustrated-message-actions>
-                    <button fd-button label="Create"></button>
+                    <button (click)="openCreateHttpBinDialog()" fd-button label="Create"></button>
                 </fd-illustrated-message-actions>
             </figure>
           </div>
