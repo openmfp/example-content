@@ -1,8 +1,40 @@
 import { Injectable } from '@angular/core';
-import { PortalLuigiContextService } from './services/luigi-context.service';
-import { ApolloLink, InMemoryCache } from '@apollo/client/core';
-import { HttpLink } from 'apollo-angular/http';
+import {
+  ApolloLink,
+  FetchResult,
+  InMemoryCache,
+  Operation,
+  split,
+  Observable as ApolloObservable,
+} from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
+import { PortalLuigiContextService } from './services/luigi-context.service';
+import { HttpLink } from 'apollo-angular/http';
+import { getMainDefinition } from '@apollo/client/utilities';
+import { Client, ClientOptions, createClient } from 'graphql-sse';
+import { ExecutionResult, print } from 'graphql';
+
+class SSELink extends ApolloLink {
+  private client: Client;
+
+  constructor(options: ClientOptions) {
+    super();
+    this.client = createClient(options);
+  }
+
+  public override request(operation: Operation): ApolloObservable<FetchResult> {
+    return new ApolloObservable((sink) => {
+      return this.client.subscribe(
+        { ...operation, query: print(operation.query) },
+        {
+          next: sink.next.bind(sink),
+          complete: sink.complete.bind(sink),
+          error: sink.error.bind(sink),
+        }
+      );
+    });
+  }
+}
 
 @Injectable({
   providedIn: 'root',
@@ -12,20 +44,46 @@ export class ApolloFactory {
 
   createApollo(httpLink: HttpLink) {
     const contextLink = setContext(async () => {
-      const ctx = await this.luigiContextService.getContextAsync();
-      const apiUrl = ctx.portalContext?.crdGatewayApiUrl ?? '';
-
+      let ctx = await this.luigiContextService.getContextAsync();
+      let apiUrl = ctx.portalContext.crdGatewayApiUrl;
       return {
         uri: apiUrl,
         headers: {
           Authorization: `Bearer ${ctx.token}`,
+          Accept: 'charset=utf-8',
         },
       };
     });
 
+    const splitClient = split(
+      ({ query }) => {
+        const definition = getMainDefinition(query);
+        return (
+          definition.kind === 'OperationDefinition' &&
+          definition.operation === 'subscription'
+        );
+      },
+      new SSELink({
+        url: () => {
+          return this.luigiContextService
+            .getContextAsync()
+            .then((ctx) => ctx.portalContext.crdGatewayApiUrl);
+        },
+        headers: () => {
+          return this.luigiContextService.getContextAsync().then((ctx) => ({
+            Authorization: `Bearer ${ctx.token}`,
+          }));
+        },
+      }),
+      httpLink.create({})
+    );
+
+    const link = ApolloLink.from([contextLink, splitClient]);
+    const cache = new InMemoryCache();
+
     return {
-      link: ApolloLink.from([contextLink, httpLink.create({})]),
-      cache: new InMemoryCache(),
+      link,
+      cache,
     };
   }
 }
