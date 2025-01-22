@@ -1,4 +1,4 @@
-import { FrameContext } from "./frame-context";
+import { FrameContext } from './frame-context';
 
 export interface PortalRootContext extends Record<string, any> {
   token: string;
@@ -12,6 +12,9 @@ export interface PortalRootContext extends Record<string, any> {
   componentId?: string;
   profileUserId?: string;
   entityContext: {
+    account?: {
+      id?: string;
+    };
     project?: {
       policies: string[];
       automaticdNamespace?: string;
