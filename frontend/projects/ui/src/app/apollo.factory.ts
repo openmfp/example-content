@@ -47,7 +47,7 @@ export class ApolloFactory {
       let ctx = await this.luigiContextService.getContextAsync();
       let apiUrl = ctx.portalContext.crdGatewayApiUrl;
       if (ctx.entityContext.account?.id) {
-        apiUrl = apiUrl.replace('/graphql', `/${ctx.entityContext.account.id}/graphql`);
+        apiUrl = apiUrl.replace('/graphql', `:${ctx.entityContext.account.id}/graphql`);
       }
       return {
         uri: apiUrl,
@@ -73,7 +73,7 @@ export class ApolloFactory {
             .then((ctx) => {
               let apiUrl = ctx.portalContext.crdGatewayApiUrl;
               if (ctx.entityContext.account?.id) {
-                apiUrl = apiUrl.replace('/graphql', `/${ctx.entityContext.account.id}/graphql`);
+                apiUrl = apiUrl.replace('/graphql', `:${ctx.entityContext.account.id}/graphql`);
               }
 
               return apiUrl
