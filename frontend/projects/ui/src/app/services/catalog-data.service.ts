@@ -32,6 +32,17 @@ export class CatalogDataService {
       });
   }
 
+  fetchPocCatalogItems() {
+    fetch('./assets/catalog_poc_gql_dump.json')
+      .then(response => response.json())
+      .then(data => {
+        const catalogData: ExtensionClass[] = data?.data?.getExtensionClassesForScopes || [];
+
+        this.catalogItems.next(catalogData);
+        this.setCatalogData(catalogData);
+      });
+  }
+
   getCatalogItems(account?: string): Observable<ExtensionClass[]> {
     return this.catalogItems.asObservable().pipe(map(data => {
       if (account) {
