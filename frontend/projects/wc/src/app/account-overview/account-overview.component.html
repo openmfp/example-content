@@ -11,35 +11,35 @@
       <ui5-toolbar-button text="Download Kubeconfig" icon="download-from-cloud" design="Emphasized"></ui5-toolbar-button>
   </ui5-toolbar>
   </ui5-dynamic-page-title>
-</ui5-dynamic-page>
-
-<div class="card-container">
-  <ui5-card>
-    <ui5-card-header slot="header" title-text="These are the HttpBins in your current account">
-    </ui5-card-header>
-    <ui5-list separators="Inner" style="margin-block-end: 0.75rem;">
-        <ui5-li *ngFor="let httpbin of httpbins$ | async">
-          <div style="display: flex;">
-            <span>{{httpbin.metadata.name}}</span>
-            <span style="flex: 1"></span>
-            <ui5-link *ngIf="httpbin.status?.ready" [href]="httpbin.status?.url" target="_blank" endIcon="navigation-right-arrow">Open HttpBin</ui5-link>
-            <ui5-icon *ngIf="!httpbin.status?.ready" name="high-priority" design="Negative"></ui5-icon>
-          </div>
+  
+  <div class="card-container">
+    <ui5-card>
+      <ui5-card-header slot="header" title-text="These are the HttpBins in your current account">
+      </ui5-card-header>
+      <ui5-list separators="Inner" style="margin-block-end: 0.75rem;">
+          <ui5-li *ngFor="let httpbin of httpbins$ | async">
+            <div style="display: flex;">
+              <span>{{httpbin.metadata.name}}</span>
+              <span style="flex: 1"></span>
+              <ui5-link *ngIf="httpbin.status?.ready" [href]="httpbin.status?.url" target="_blank" endIcon="navigation-right-arrow">Open HttpBin</ui5-link>
+              <ui5-icon *ngIf="!httpbin.status?.ready" name="high-priority" design="Negative"></ui5-icon>
+            </div>
+          </ui5-li>
+      </ui5-list>
+    </ui5-card>
+  
+    <ui5-card>
+      <ui5-card-header slot="header" title-text="Your Account is all set up and ready to go!"></ui5-card-header>
+      <ui5-list separator="Inner">
+        <ui5-li>
+          <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
+          Workspace Setup
         </ui5-li>
-    </ui5-list>
-  </ui5-card>
-
-  <ui5-card>
-    <ui5-card-header slot="header" title-text="Your Account is all set up and ready to go!"></ui5-card-header>
-    <ui5-list separator="Inner">
-      <ui5-li>
-        <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
-        Workspace Setup
-      </ui5-li>
-      <ui5-li>
-        <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
-        Namespace Setup
-      </ui5-li>
-    </ui5-list>
-  </ui5-card>
-</div>
+        <ui5-li>
+          <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
+          Namespace Setup
+        </ui5-li>
+      </ui5-list>
+    </ui5-card>
+  </div>
+</ui5-dynamic-page>

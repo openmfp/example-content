@@ -19,7 +19,7 @@ const httpbinsSubscription = gql`
         name
       }
       spec {
-        enableHttps
+        enableHTTPS
       }
       status {
         ready
@@ -35,7 +35,7 @@ const httpbinSubscription = gql`
         name
       }
       spec {
-        enableHttps
+        enableHTTPS
       }
       status {
         ready
@@ -50,7 +50,7 @@ const createHttpBinMutation = gql`
     orchestrate_cloud_sap {
       createHttpBin(
         namespace: "default"
-        object: { metadata: { name: $name }, spec: { enableHttps: $enableHttps } }
+        object: { metadata: { name: $name }, spec: { enableHTTPS: $enableHttps } }
       ) {
         metadata {
           name
