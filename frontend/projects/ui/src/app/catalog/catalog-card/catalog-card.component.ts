@@ -23,7 +23,6 @@ export class CatalogCardComponent {
 
   openExtensionClass() {
     if (this.item) {
-      debugger;
       linkManager().openAsModal(this.item.name).then(() => {
         let isPlatformMeshCatalog = window.location.href.includes('platform-mesh-catalog');
         if(isPlatformMeshCatalog) {

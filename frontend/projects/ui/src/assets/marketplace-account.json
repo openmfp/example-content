@@ -7,24 +7,6 @@
         {
           "pathSegment": "platform-mesh",
           "label": "Platform Mesh",
-          "entityType": "main",
-          "loadingIndicator": {
-            "enabled": false
-          },
-          "keepSelectedForChildren": true,
-          "urlSuffix": "/index.html#/platform-mesh-catalog",
-          "children": [
-            {
-              "pathSegment": ":id",
-              "urlSuffix": "/index.html#/platform-mesh-catalog/:id",
-              "hideFromNav": true,
-              "label": "Service Details"
-            }
-          ]
-        },
-        {
-          "pathSegment": "platform-mesh",
-          "label": "Platform Mesh",
           "entityType": "main.account",
           "loadingIndicator": {
             "enabled": false

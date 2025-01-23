@@ -121,9 +121,9 @@ export class CatalogItemDetailsComponent implements OnInit {
 
   private fetchItemDetails(isPoc: boolean) {
     if(isPoc) {
-      this.dataService.fetchCatalogItems();
-    } else {
       this.dataService.fetchPocCatalogItems();
+    } else {
+      this.dataService.fetchCatalogItems();
     }
     this.dataService
       .getCatalogItems()

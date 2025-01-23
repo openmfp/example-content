@@ -1,0 +1,40 @@
+{
+  "name": "platform-mesh",
+  "creationTimestamp": "2022-05-17T11:37:17Z",
+  "luigiConfigFragment": {
+    "data": {
+      "nodes": [
+        {
+          "pathSegment": "platform-mesh",
+          "label": "Platform Mesh",
+          "entityType": "main",
+          "loadingIndicator": {
+            "enabled": false
+          },
+          "keepSelectedForChildren": true,
+          "urlSuffix": "/#/platform-mesh-catalog",
+          "order": 1000,
+          "children": [
+            {
+              "pathSegment": ":id",
+              "urlSuffix": "/#/platform-mesh-catalog/:id",
+              "hideFromNav": true,
+              "label": "Service Details"
+            }
+          ]
+        },
+        {
+          "label": "ABC MSP",
+          "category": "Providers",
+          "entityType": "main",
+          "keepSelectedForChildren": true,
+          "externalLink": {
+            "url": "https://httpbin-ui.msp.cc-poc-one.showroom.apeirora.eu/",
+            "sameWindow": false
+          },
+          "order": 1100
+        }
+      ]
+    }
+  }
+}
