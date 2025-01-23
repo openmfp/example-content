@@ -35,7 +35,7 @@ clusters:
 - name: <cluster-name>
   cluster:
     certificate-authority-data: <ca-data>
-    server: "<server-url>"
+    server: "https://kcp.api.portal.cc-poc-one.showroom.apeirora.eu/clusters/<server-url>"
 contexts:
 - name: <cluster-name>
   context:
@@ -106,9 +106,11 @@ users:
             }
           }
         }`);
+
+    const u = new URL(this.gatewayUrl)
     const kubeconfig = this.renderKubeconfig(
       this.context.accountId,
-      this.gatewayUrl.replace('/graphql', ''),
+      u.pathname.split('/').filter(s => s.includes(':'))?.[0] ?? "",
       data.core.ConfigMap.data['ca.crt'],
       this.context.token
     );

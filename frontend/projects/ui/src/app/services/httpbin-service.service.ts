@@ -106,16 +106,32 @@ export class HttpBinService {
   ): Observable<MutationResult<CreateHttpBinResponse>> {
     return this.luigiContextService.contextObservable().pipe(
       first(),
-      mergeMap(() =>
-        this.apollo.mutate<CreateHttpBinResponse>({
+      mergeMap(() => {
+        this.apollo
+          .mutate({
+            mutation: gql`
+              mutation {
+                core {
+                  createNamespace(object: { metadata: { name: "default" } }) {
+                    metadata {
+                      name
+                    }
+                  }
+                }
+              }
+            `,
+          })
+          .subscribe((res) => console.log(res));
+
+        return this.apollo.mutate<CreateHttpBinResponse>({
           mutation: createHttpBinMutation,
           fetchPolicy: 'no-cache',
           variables: {
             name: formData.key,
             foo: formData.foo,
           },
-        })
-      )
+        });
+      })
     );
   }
 

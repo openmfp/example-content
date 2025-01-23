@@ -59,10 +59,7 @@ export class CreateHttpBinModalComponent {
           tap(async (apolloResponse: MutationResult<CreateHttpBinResponse>) => {
             if (!apolloResponse.errors) {
               linkManager().navigate(
-                `${await linkManager().getCurrentRoute()}/${
-                  apolloResponse.data?.orchestrate_cloud_sap.createHttpBin
-                    .metadata.name
-                }`
+                `${await linkManager().getCurrentRoute()}`
               );
             }
           })
