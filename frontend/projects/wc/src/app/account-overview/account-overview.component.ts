@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import { array, color, number } from 'minifaker';
 import { ActivatedServicesComponent } from '../activated-services/activated-services.component';
 import { DataChartComponent } from '../charts/data-chart/data-chart.component';
 import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
 import { EnabledCapabilitiesComponent } from '../enabled-capabilities/enabled-capabilities.component';
+import { from, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-account-overview',
@@ -21,59 +21,117 @@ import { EnabledCapabilitiesComponent } from '../enabled-capabilities/enabled-ca
   ],
   templateUrl: './account-overview.component.html',
   styleUrls: ['./account-overview.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class AccountOverviewComponent implements OnChanges {
+export class AccountOverviewComponent implements OnInit {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
-  @Input() title = 'Resource Overview';
-  readonly instanceData = {
-    color: color(),
-    total: 100,
-    value: number({
-      min: 1,
-      max: 99,
-      float: false
-    })
-  };
-  readonly clusterData = {
-    color: color(),
-    total: 100,
-    value: number({
-      min: 1,
-      max: 99,
-      float: false
-    })
-  };
-  readonly chartData = {
-    labels: ['CW15', 'CW16', 'CW17', 'CW18', 'CW19', 'CW20'],
-    datasets: [
-      {
-        label: 'Idle',
-        data: array(6, () => number({
-          min: 500000,
-          max: 699000,
-          float: false
-        })),
-        backgroundColor: '#0070f2',
-        borderColor: '#0070f2'
-      },
-      {
-        label: 'Active',
-        data: array(6, () => number({
-          min: 200000,
-          max: 399000,
-          float: false
-        })),
-        backgroundColor: '#c87b00',
-        borderColor: '#c87b00'
-      }
-    ]
-  };
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['context']) {
-      this.title = changes['context'].currentValue.title;
+  gatewayUrl: string = '';
+
+  kubeconfigTemplate = `apiVersion: v1
+kind: Config
+clusters:
+- name: <cluster-name>
+  cluster:
+    certificate-authority-data: <ca-data>
+    server: "<server-url>"
+contexts:
+- name: <cluster-name>
+  context:
+    cluster: <cluster-name>
+    user: <cluster-name>
+current-context: <cluster-name>
+users:
+- name: <cluster-name>
+  user:
+    token: <token>
+    # exec:
+    #   apiVersion: client.authentication.k8s.io/v1beta1
+    #   args:
+    #   - oidc-login
+    #   - get-token
+    #   - --oidc-issuer-url=https://auth.portal.cc-poc-one.showroom.apeirora.eu/realms/openmfp
+    #   - --oidc-client-id=openmfp
+    #   - --oidc-extra-scope=email
+    #   - --oidc-extra-scope=groups
+    #   command: kubectl
+    #   env: null
+    #   interactiveMode: IfAvailable
+`;
+
+  httpbins$: Observable<any> = new Observable<any>();
+
+  ngOnInit() {
+    this.gatewayUrl = this.context.portalContext.crdGatewayApiUrl;
+    if (this.context.accountId) {
+      this.gatewayUrl = this.gatewayUrl.replace(
+        '/graphql',
+        `:${this.context.accountId}/graphql`
+      );
     }
+
+    this.httpbins$ = from(
+      this.makeGraphQLRequest(`{
+      orchestrate_cloud_sap {
+        HttpBins {
+          metadata {
+            name
+          }
+          spec {
+            foo
+          }
+        }
+      }
+    }`)
+    ).pipe(map((res) => res.data.orchestrate_cloud_sap.HttpBins));
+  }
+
+  makeGraphQLRequest(query: string) {
+    return fetch(this.gatewayUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.context.token}`,
+      },
+      body: JSON.stringify({ query }),
+    }).then((res) => res.json());
+  }
+
+  async downloadKubeconfig() {
+    const { data } = await this.makeGraphQLRequest(`query {
+          core {
+            ConfigMap(name: "kube-root-ca.crt", namespace: "default") {
+              data
+            }
+          }
+        }`);
+    const kubeconfig = this.renderKubeconfig(
+      this.context.accountId,
+      this.gatewayUrl.replace('/graphql', ''),
+      data.core.ConfigMap.data['ca.crt'],
+      this.context.token
+    );
+
+    const blob = new Blob([kubeconfig], { type: 'application/plain' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'kubeconfig.yaml';
+    a.click();
+  }
+
+  private renderKubeconfig(
+    clusterName: string,
+    serverUrl: string,
+    caData: string,
+    token: string
+  ) {
+    return this.kubeconfigTemplate
+      .replaceAll('<cluster-name>', clusterName)
+      .replaceAll('<server-url>', serverUrl)
+      .replaceAll('<ca-data>', btoa(caData))
+      .replaceAll('<token>', token);
   }
 }

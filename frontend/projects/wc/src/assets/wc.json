@@ -1,0 +1,38 @@
+{
+    "name": "overview",
+    "creationTimestamp": "2022-05-17T11:37:17Z",
+    "luigiConfigFragment": {
+        "data": {
+            "nodes": [
+                {
+                    "entityType": "main.account",
+                    "pathSegment": "local-dashboard",
+                    "label": "Local Dashboard",
+                    "defineEntity": {
+                        "id": "local-dashboard"
+                    },
+                    "compound": {
+                        "renderer": {
+                            "use": "grid",
+                            "config": {
+                                "columns": "1fr 1fr 1fr 1fr"
+                            }
+                        }
+                    }
+                },
+                {
+                    "entityType": "main.account.local-dashboard::compound",
+                    "url": "http://localhost:4200/main.js#account-overview",
+                    "context": {},
+                    "layoutConfig": {
+                        "row": "1",
+                        "column": "1 / -1"
+                    },
+                    "webcomponent": {
+                        "selfRegistered": true
+                    }
+                }
+            ]
+        }
+    }
+}

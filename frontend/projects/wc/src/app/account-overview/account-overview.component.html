@@ -1,34 +1,17 @@
-<div class="catalog-container">
-  <ui5-title level="H4"
-             class="catalog-headline">
-    {{title}}
-  </ui5-title>
-  <div class="catalog-cards">
-    <ui5-card class="catalog-card">
-      <ui5-card-header slot="header"
-                       title-text="Total VM Instances">
-      </ui5-card-header>
-      <div class="card-content">
-        <app-doughnut-chart [data]="instanceData"></app-doughnut-chart>
-      </div>
-    </ui5-card>
-    <ui5-card class="catalog-card">
-      <ui5-card-header slot="header"
-                       title-text="Total k8s Clusters">
-      </ui5-card-header>
-      <div class="card-content">
-        <app-doughnut-chart [data]="clusterData"></app-doughnut-chart>
-      </div>
-    </ui5-card>
-    <ui5-card class="catalog-card">
-      <ui5-card-header slot="header"
-                       title-text="Global Distribution Map">
-      </ui5-card-header>
-      <div class="card-content">
-        <app-data-chart [data]="chartData" type="bar"></app-data-chart>
-      </div>
-    </ui5-card>
-  </div>
+<div class="container">
+  <ui5-bar design="Subheader">
+    <ui5-title slot="startContent">Account Overview</ui5-title>
+    <ui5-button slot="endContent" design="Emphasized" (click)="downloadKubeconfig()">Download Kubeconfig</ui5-button>
+  </ui5-bar>
+  
+  <ui5-card>
+    <ui5-card-header slot="header" title-text="These are the HttpBins in your current account">
+        <ui5-icon name="globe" slot="avatar"></ui5-icon>
+    </ui5-card-header>
+    <ui5-list separators="None" style="margin-block-end: 0.75rem;">
+        <ui5-li *ngFor="let httpbin of httpbins$ | async" description="{{ httpbin.spec.foo}}">
+          {{httpbin.metadata.name}}
+        </ui5-li>
+    </ui5-list>
+  </ui5-card>
 </div>
-<app-enabled-capabilities></app-enabled-capabilities>
-<app-activated-services [context]="context" [parent]="'account'"></app-activated-services>
