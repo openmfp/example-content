@@ -22,7 +22,8 @@
           <div style="display: flex;">
             <span>{{httpbin.metadata.name}}</span>
             <span style="flex: 1"></span>
-            <ui5-link [href]="'http://example.com'" endIcon="navigation-right-arrow">Open HttpBin</ui5-link>
+            <ui5-link *ngIf="httpbin.status?.ready" [href]="httpbin.status?.url" target="_blank" endIcon="navigation-right-arrow">Open HttpBin</ui5-link>
+            <ui5-icon *ngIf="!httpbin.status?.ready" name="high-priority" design="Negative"></ui5-icon>
           </div>
         </ui5-li>
     </ui5-list>

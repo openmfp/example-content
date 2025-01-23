@@ -24,6 +24,7 @@ export interface coreOpenmfpIoCreateHttpBin {
 export interface HttpBin {
   metadata: ObjectMetadata;
   spec: HttpBinSpec;
+  status?: HttpBinStatus;
 }
 
 export interface ObjectMetadata {
@@ -31,7 +32,12 @@ export interface ObjectMetadata {
 }
 
 export interface HttpBinSpec {
-  foo: string;
+  enableHTTPS: string;
+}
+
+export interface HttpBinStatus {
+  ready: boolean
+  url: string
 }
 
 export interface CreateHttpBin {

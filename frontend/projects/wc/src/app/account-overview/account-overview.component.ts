@@ -71,6 +71,10 @@ users:
           metadata {
             name
           }
+          status {
+            ready
+            url
+          }
         }
       }
     }`

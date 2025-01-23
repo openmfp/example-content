@@ -31,7 +31,7 @@
             <thead fd-table-header>
                 <tr fd-table-row>
                     <th fd-table-cell>Name</th>
-                    <th fd-table-cell>Foo</th>
+                    <th fd-table-cell>URL</th>
                 </tr>
             </thead>
             <tbody fd-table-body  >
@@ -40,7 +40,8 @@
                             <a fd-link (click)="navigateToHttpBin($event, row)">{{ row.metadata.name }}</a>
                         </td>
                         <td fd-table-cell>
-                          {{ row.spec.foo }}
+                          <fd-busy-indicator [loading]="!row.status?.ready" ariaLabel="loading" title="Please Wait"></fd-busy-indicator>
+                          <a fd-link *ngIf="row.status?.ready" [href]="row.status?.url">Open HTTPBin</a>
                       </td>
                     </tr>
             </tbody>

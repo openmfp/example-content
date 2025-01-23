@@ -21,6 +21,10 @@ const httpbinsSubscription = gql`
       spec {
         enableHttps
       }
+      status {
+        ready
+        url
+      }
     }
   }
 `;
@@ -32,6 +36,10 @@ const httpbinSubscription = gql`
       }
       spec {
         enableHttps
+      }
+      status {
+        ready
+        url
       }
     }
   }

@@ -4,6 +4,7 @@ import { HttpBinService } from '../services/httpbin-service.service';
 import { HttpBin } from '../models/httpbins';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
+  BusyIndicatorModule,
   FundamentalNgxCoreModule,
   IllustratedMessageModule,
 } from '@fundamental-ngx/core';
@@ -12,7 +13,7 @@ import { linkManager } from '@luigi-project/client';
 @Component({
   selector: 'app-httpbin',
   standalone: true,
-  imports: [CommonModule, FundamentalNgxCoreModule, IllustratedMessageModule],
+  imports: [CommonModule, FundamentalNgxCoreModule, IllustratedMessageModule, BusyIndicatorModule],
   templateUrl: './httpbin.component.html',
   styleUrl: './httpbin.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,13 +34,11 @@ export class HttpBinComponent implements OnInit {
     },
   };
 
-  httpbins: Observable<HttpBin[]> = new BehaviorSubject([]);
+  httpbins = new BehaviorSubject<HttpBin[]>([]);
 
   ngOnInit(): void {
-    this.httpbins = this.httpbinService.subscribeBins();
-    this.httpbins.subscribe((bins) => {
-      console.log(bins);
-    });
+    this.httpbins.next([]);
+    this.httpbinService.subscribeBins().subscribe(this.httpbins);
   }
 
   async navigateToHttpBin($event: MouseEvent, item: HttpBin) {
