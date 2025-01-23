@@ -36,5 +36,5 @@ export interface HttpBinSpec {
 
 export interface CreateHttpBin {
   key: string;
-  foo: string | null;
+  enableHTTPS: boolean | null;
 }

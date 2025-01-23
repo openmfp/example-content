@@ -45,7 +45,7 @@ export class CreateHttpBinModalComponent {
       Validators.maxLength(253),
       this.keyValidator(),
     ]),
-    foo: new FormControl(''),
+    enableHTTPS: new FormControl(false),
   });
 
   onSubmit(): void {
@@ -53,7 +53,7 @@ export class CreateHttpBinModalComponent {
       this.httpbinService
         .createBin({
           key: this.createHttpbinForm.controls.key.value as string,
-          foo: this.createHttpbinForm.controls.foo.value,
+          enableHTTPS: this.createHttpbinForm.controls.enableHTTPS.value,
         })
         .pipe(
           tap(async (apolloResponse: MutationResult<CreateHttpBinResponse>) => {

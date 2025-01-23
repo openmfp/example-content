@@ -2,23 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import { ActivatedServicesComponent } from '../activated-services/activated-services.component';
-import { DataChartComponent } from '../charts/data-chart/data-chart.component';
-import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
-import { EnabledCapabilitiesComponent } from '../enabled-capabilities/enabled-capabilities.component';
 import { from, map, Observable } from 'rxjs';
+import '@ui5/webcomponents-icons/dist/download-from-cloud.js';
 
 @Component({
-  selector: 'app-account-overview',
   standalone: true,
-  imports: [
-    ActivatedServicesComponent,
-    CommonModule,
-    DataChartComponent,
-    DoughnutChartComponent,
-    EnabledCapabilitiesComponent,
-    Ui5WebcomponentsModule,
-  ],
+  selector: 'app-container-overview',
+  imports: [CommonModule, Ui5WebcomponentsModule],
   templateUrl: './account-overview.component.html',
   styleUrls: ['./account-overview.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
@@ -61,6 +51,7 @@ users:
 `;
 
   httpbins$: Observable<any> = new Observable<any>();
+  account$: Observable<any> = new Observable<any>();
 
   ngOnInit() {
     this.gatewayUrl = this.context.portalContext.crdGatewayApiUrl;
@@ -72,23 +63,51 @@ users:
     }
 
     this.httpbins$ = from(
-      this.makeGraphQLRequest(`{
+      this.makeGraphQLRequest(
+        this.gatewayUrl,
+        `{
       orchestrate_cloud_sap {
         HttpBins {
           metadata {
             name
           }
-          spec {
-            foo
-          }
         }
       }
-    }`)
+    }`
+      )
     ).pipe(map((res) => res.data.orchestrate_cloud_sap.HttpBins));
+
+    this.account$ = from(
+      this.makeGraphQLRequest(
+        this.context.portalContext.crdGatewayApiUrl,
+        `{
+      core_openmfp_io {
+        Account(name: "${this.context.accountId}", namespace: "default") {
+          metadata {
+            name
+          }
+          spec {
+            displayName
+            description
+          }
+        }
+    }
+      }`
+      )
+    )
+      .pipe(map((res) => res.data.core_openmfp_io.Account))
   }
 
-  makeGraphQLRequest(query: string) {
-    return fetch(this.gatewayUrl, {
+  get kcpPath() {
+    return (
+      new URL(this.gatewayUrl).pathname
+        .split('/')
+        .filter((s) => s.includes(':'))?.[0] ?? ''
+    );
+  }
+
+  makeGraphQLRequest(gatewayUrl: string, query: string) {
+    return fetch(gatewayUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -99,18 +118,21 @@ users:
   }
 
   async downloadKubeconfig() {
-    const { data } = await this.makeGraphQLRequest(`query {
+    const { data } = await this.makeGraphQLRequest(
+      this.gatewayUrl,
+      `query {
           core {
             ConfigMap(name: "kube-root-ca.crt", namespace: "default") {
               data
             }
           }
-        }`);
+        }`
+    );
 
-    const u = new URL(this.gatewayUrl)
+    const u = new URL(this.gatewayUrl);
     const kubeconfig = this.renderKubeconfig(
       this.context.accountId,
-      u.pathname.split('/').filter(s => s.includes(':'))?.[0] ?? "",
+      this.kcpPath,
       data.core.ConfigMap.data['ca.crt'],
       this.context.token
     );

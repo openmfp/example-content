@@ -19,7 +19,7 @@ const httpbinsSubscription = gql`
         name
       }
       spec {
-        foo
+        enableHttps
       }
     }
   }
@@ -31,18 +31,18 @@ const httpbinSubscription = gql`
         name
       }
       spec {
-        foo
+        enableHttps
       }
     }
   }
 `;
 
 const createHttpBinMutation = gql`
-  mutation ($name: String!, $foo: String!) {
+  mutation ($name: String!, $enableHttps: Boolean!) {
     orchestrate_cloud_sap {
       createHttpBin(
         namespace: "default"
-        object: { metadata: { name: $name }, spec: { foo: $foo } }
+        object: { metadata: { name: $name }, spec: { enableHttps: $enableHttps } }
       ) {
         metadata {
           name
@@ -128,7 +128,7 @@ export class HttpBinService {
           fetchPolicy: 'no-cache',
           variables: {
             name: formData.key,
-            foo: formData.foo,
+            enableHttps: formData.enableHTTPS,
           },
         });
       })
