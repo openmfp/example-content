@@ -1,45 +1,44 @@
-<ui5-dynamic-page>
-  <ui5-dynamic-page-title slot="titleArea" *ngIf="account$ | async as account">
-    <ui5-breadcrumbs slot="breadcrumbs">
-        <ui5-breadcrumbs-item>Accounts</ui5-breadcrumbs-item>
-        <ui5-breadcrumbs-item>{{account.metadata.name}}</ui5-breadcrumbs-item>
-    </ui5-breadcrumbs>
-    <ui5-title slot="heading">{{account.spec.displayName ?? account.metadata.name}}</ui5-title>
-    <ui5-label slot="heading">{{account.spec.description}}</ui5-label>
+<ui5-dynamic-page-title slot="titleArea" *ngIf="account$ | async as account">
+  <ui5-breadcrumbs slot="breadcrumbs">
+      <ui5-breadcrumbs-item>Accounts</ui5-breadcrumbs-item>
+      <ui5-breadcrumbs-item>{{account.metadata.name}}</ui5-breadcrumbs-item>
+  </ui5-breadcrumbs>
+  <ui5-title slot="heading">{{account.spec.displayName ?? account.metadata.name}}</ui5-title>
+  <ui5-label slot="heading">{{account.spec.description}}</ui5-label>
 
-    <ui5-toolbar class="actionsBar" slot="actionsBar" design="Transparent">
-      <ui5-toolbar-button text="Download Kubeconfig" icon="download-from-cloud" design="Emphasized"></ui5-toolbar-button>
-  </ui5-toolbar>
-  </ui5-dynamic-page-title>
-  
-  <div class="card-container">
-    <ui5-card>
-      <ui5-card-header slot="header" title-text="These are the HttpBins in your current account">
-      </ui5-card-header>
-      <ui5-list separators="Inner" style="margin-block-end: 0.75rem;">
-          <ui5-li *ngFor="let httpbin of httpbins$ | async">
-            <div style="display: flex;">
-              <span>{{httpbin.metadata.name}}</span>
-              <span style="flex: 1"></span>
-              <ui5-link *ngIf="httpbin.status?.ready" [href]="httpbin.status?.url" target="_blank" endIcon="navigation-right-arrow">Open HttpBin</ui5-link>
-              <ui5-icon *ngIf="!httpbin.status?.ready" name="high-priority" design="Negative"></ui5-icon>
-            </div>
-          </ui5-li>
-      </ui5-list>
-    </ui5-card>
-  
-    <ui5-card>
-      <ui5-card-header slot="header" title-text="Your Account is all set up and ready to go!"></ui5-card-header>
-      <ui5-list separator="Inner">
-        <ui5-li>
-          <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
-          Workspace Setup
+  <ui5-toolbar class="actionsBar" slot="actionsBar" design="Transparent">
+    <ui5-toolbar-button text="Download Kubeconfig" icon="download-from-cloud" design="Emphasized"></ui5-toolbar-button>
+</ui5-toolbar>
+</ui5-dynamic-page-title>  
+
+<div class="card-container" style="height: 100px;">
+  <ui5-card>
+    <ui5-card-header slot="header" title-text="These are the HttpBins in your current account">
+    </ui5-card-header>
+    <ui5-list separators="Inner" style="margin-block-end: 0.75rem;">
+        <ui5-li *ngFor="let httpbin of httpbins$ | async">
+          <div style="display: flex;">
+            <span>{{httpbin.metadata.name}}</span>
+            <span style="flex: 1"></span>
+            <ui5-link *ngIf="httpbin.status?.ready" [href]="httpbin.status?.url" target="_blank" endIcon="navigation-right-arrow">Open HttpBin</ui5-link>
+            <ui5-icon *ngIf="!httpbin.status?.ready" name="high-priority" design="Negative"></ui5-icon>
+          </div>
         </ui5-li>
-        <ui5-li>
-          <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
-          Namespace Setup
-        </ui5-li>
-      </ui5-list>
-    </ui5-card>
-  </div>
-</ui5-dynamic-page>
+    </ui5-list>
+  </ui5-card>
+
+  <ui5-card>
+    <ui5-card-header slot="header" title-text="Your Account is all set up and ready to go!"></ui5-card-header>
+    <ui5-list separator="Inner">
+      <ui5-li>
+        <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
+        Workspace Setup
+      </ui5-li>
+      <ui5-li>
+        <ui5-icon name="accept" design="Positive" style="margin-right: 1rem;"></ui5-icon>
+        Namespace Setup
+      </ui5-li>
+    </ui5-list>
+  </ui5-card>
+</div>
+
