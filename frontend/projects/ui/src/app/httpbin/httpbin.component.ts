@@ -53,4 +53,8 @@ export class HttpBinComponent implements OnInit {
       height: '310px',
     });
   }
+
+  openBinInPopup(url: any): void {
+    window.open(url, '_blank');
+  }
 }

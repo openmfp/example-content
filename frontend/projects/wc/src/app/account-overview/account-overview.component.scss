@@ -4,3 +4,34 @@
     gap: 2rem;
     margin-top: 2rem;
   }
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-container .header-image,
+.header-container .header-container-cell {
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+.header-container-cell {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.actionsBar {
+    padding: 0.8rem 0 0 1rem;
+}
+
+.header{
+  margin-bottom: 1rem;
+}
+
+.header-image {
+  height: 78px;
+}
+
+.cell-text {
+  display: flex;
+}

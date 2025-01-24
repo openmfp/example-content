@@ -1,6 +1,6 @@
 <div class="overlay">
     <fd-dynamic-page size="large" ariaLabel="HttpBin List Page" [autoResponsive]="false">
-      <fd-dynamic-page-header title="HttpBin List"
+      <fd-dynamic-page-header title="HttpBin List!"
         subtitle="This page displays the created HttpBins on in your Environment">
         <!-- breadcrumb content -->
         <fd-dynamic-page-breadcrumb>
@@ -41,7 +41,7 @@
                         </td>
                         <td fd-table-cell>
                           <fd-busy-indicator [loading]="!row.status?.ready" ariaLabel="loading" title="Please Wait"></fd-busy-indicator>
-                          <a fd-link *ngIf="row.status?.ready" [href]="row.status?.url">Open HTTPBin</a>
+                          <a fd-link target="_blank" *ngIf="row.status?.ready" [href]="row.status?.url">Open <fd-icon glyph="inspect"></fd-icon></a>
                       </td>
                     </tr>
             </tbody>
@@ -61,4 +61,3 @@
       </fd-dynamic-page-content>
     </fd-dynamic-page>
   </div>
-  

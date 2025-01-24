@@ -1,0 +1,38 @@
+{
+  "name": "httpbin",
+  "creationTimestamp": "2022-05-17T11:37:17Z",
+  "luigiConfigFragment": {
+    "data": {
+      "nodes": [
+        {
+          "pathSegment": "httpbin",
+          "label": "Http Bin",
+          "entityType": "main.account",
+          "keepSelectedForChildren": true,
+          "urlSuffix": "/#/httpbins",
+          "category": "Shared Services",
+          "children": [
+            {
+              "pathSegment": ":httpBinName",
+              "hideFromNav": true,
+              "urlSuffix": "/#/httpbins/:httpBinName",
+              "context": {
+                "httpBinName": ":httpBinName"
+              }
+            }
+          ]
+        },
+        {
+          "pathSegment": "httpbin-create",
+          "entityType": "main.account",
+          "hideFromNav": true,
+          "loadingIndicator": {
+            "enabled": false
+          },
+          "keepSelectedForChildren": true,
+          "urlSuffix": "/#/httpbins/create"
+        }
+      ]
+    }
+  }
+}
