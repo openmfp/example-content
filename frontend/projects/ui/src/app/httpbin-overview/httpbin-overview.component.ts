@@ -16,7 +16,7 @@ import { ApolloError } from '@apollo/client';
 })
 export class HttpBinOverviewComponent {
   constructor(
-    private accountService: HttpBinService,
+    private httpbinService: HttpBinService,
     private luigiContextService: PortalLuigiContextService
   ){}
 
@@ -26,7 +26,7 @@ export class HttpBinOverviewComponent {
     this.account = this.luigiContextService.contextObservable().pipe(
       tap(()=> uxManager().showLoadingIndicator()),
       first(),
-      mergeMap((context) => this.accountService.subscribeBin(context.context.httpBinName!)),
+      mergeMap((context) => this.httpbinService.subscribeBin(context.context.httpBinName!)),
       tap(() => uxManager().hideLoadingIndicator()),
     )
   }
@@ -42,11 +42,11 @@ export class HttpBinOverviewComponent {
   }
 
   deleteAccount(accountName: string): void {
-    this.accountService.deleteBin(accountName)
+    this.httpbinService.deleteBin(accountName)
     .pipe(
       tap(( apolloResponse: MutationResult<DeleteHttpBinResponse> )=> {
-        if(apolloResponse.data?.core_openmfp_io.deleteHttpBin === true){
-          linkManager().navigate(`/home/accounts`);
+        if(apolloResponse.data?.orchestrate_cloud_sap.deleteHttpBin === true){
+          linkManager().navigate(`/home/accounts/${accountName}/httpbin`);
         }
       }),
     ).subscribe({
@@ -57,9 +57,10 @@ export class HttpBinOverviewComponent {
           uxManager().showAlert({type: 'error', text: "An unexpected error occurred", closeAfter: 5000 })
         }
     }});
+
   }
 
-  async navigateToAccounts($event: MouseEvent) {
+  async navigateToBins($event: MouseEvent) {
     $event.stopPropagation();
     linkManager().navigate(`/home/accounts/${(await this.luigiContextService.getContextAsync()).entityContext.account?.id}/httpbin`);
   }

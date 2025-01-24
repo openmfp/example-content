@@ -1,5 +1,5 @@
 export interface DeleteHttpBinResponse {
-  core_openmfp_io: coreOpenmfpIoDeleteHttpBin;
+  orchestrate_cloud_sap: orchestrateCloudSapHttpbin;
 }
 
 export interface CreateHttpBinResponse {
@@ -13,7 +13,7 @@ export interface HttpBinsSubscriptionResponse {
 export interface HttpBinSubscriptionResponse {
   orchestrate_cloud_sap_httpbin: HttpBin;
 }
-export interface coreOpenmfpIoDeleteHttpBin {
+export interface orchestrateCloudSapHttpbin {
   deleteHttpBin: Boolean;
 }
 

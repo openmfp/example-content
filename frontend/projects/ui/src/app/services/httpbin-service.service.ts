@@ -59,6 +59,16 @@ const createHttpBinMutation = gql`
     }
   }
 `;
+const deleteHttpBinMutation = gql`
+  mutation ($name: String!) {
+    orchestrate_cloud_sap {
+      deleteHttpBin(
+        namespace: "default"
+        name: $name
+      )
+    }
+  }
+`;
 const deleteAccountMutation = gql`
   mutation ($name: String!) {
     core_openmfp_io {
@@ -120,7 +130,7 @@ export class HttpBinService {
             mutation: gql`
               mutation {
                 core {
-                  createNamespace(object: { metadata: { name: "default" } }) {
+                  createNamespace( namespace: "", object: { metadata: { name: "default" } }) {
                     metadata {
                       name
                     }
@@ -150,7 +160,7 @@ export class HttpBinService {
       first(),
       mergeMap(() =>
         this.apollo.mutate<DeleteHttpBinResponse>({
-          mutation: deleteAccountMutation,
+          mutation: deleteHttpBinMutation,
           fetchPolicy: 'no-cache',
           variables: {
             name,
