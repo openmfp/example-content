@@ -19,6 +19,7 @@ export class AccountOverviewComponent implements OnInit {
 
   gatewayUrl: string = '';
 
+  kcpCA = 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCakNDQWU2Z0F3SUJBZ0lRUnRVR1lycTIyR3NYYjFJbWJ0MFNKakFOQmdrcWhraUc5dzBCQVFzRkFEQWQKTVJzd0dRWURWUVFERXhKdmNHVnViV1p3TFd0amNDMXdhMmt0WTJFd0hoY05NalV3TVRFd01UYzFORE13V2hjTgpNelV3TVRBNE1UYzFORE13V2pBZE1Sc3dHUVlEVlFRREV4SnZjR1Z1Yldad0xXdGpjQzF3YTJrdFkyRXdnZ0VpCk1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRGU3TEwxUW9nWThzL1RlbU1UbGprVmhXV0MKWXFBZU1jZkVMeC8zc2c4d0pJUjd3QmJIeThlNmpacE5hSUlLNGpGeERYQUppWG1rRitCeXdJU3lGbTZqTFVyZwpVbjdCR2ZXc05Ga2hudk9URUtUMS83RFhhVDdxNTVmSHZFNGQ5aWZBQ0thTTBvQ3R0S0trU1N6TS9QK2ZCU01LCkF1YW5BSVF4SUxDUFV4d0tTQW4wZ2JrOEhVVzU0U25MSENBQnlMQ1l0MW5BQlF3bWg1ZENmTjQrMWlSemJ2a0IKQWozUGdRRno1ZkJsNzd2cFRLakl5M1FvMk93a2ZqU0htWU91angxdEphNVRHcHBqK2tlSzNtRGJ6eTc4VytQcQpvNnBKVlJxQTNhUUxyb0MyK0ZxdlpMSmlpYklaY3pLWVc3THZvejEvUnJrVm5sTXJYejdGWDF6T21nOUJBZ01CCkFBR2pRakJBTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQjBHQTFVZERnUVcKQkJTY1gzeURlekpNVDZUTk9SelQwU2k2bmRLRk1UQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFxeTV4Yndlagppa3I3QldKdnNnTkJid1NGd3k4TTVXRVVCNGZWcGtZMW9yRDlDN2VhTDBhWk1Od0NMVFBMRjdCb3RVTlRzYlc0CmtnSFZaZytLRVo0dVBTSGJzeDI4MUFDb2lmbXR3S0EwaUVrUmNaQktlYzhhYm1qQ05WVUwzdEJIN0pXWEtxUXEKWjFWcmw4blliYTNwZkR3YWtaOFlzS016VUhiV3ZsbGl6dVRCRGg4czFXYjc4TnhZQzNqdnB3ZGtXNGswS0dFQgo4Z2l6VU9SRXMrOFBzUnAwNVpVK1VLV2dlTUxxdDc5aWh4M0taWHdDMXRmZzhwVDhzb1Z4Y0g0Y216cXkrakhXCmsyeU9OZEJJN2tZODJaY3NUeFgrdkZxY2ZlSFFlNkNUYlB0T2xyUjF1T0VlcStjSHZ5bVFFQjNCNEltK0FZaUcKMldXeDVTM2o3MzZyYXc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==';
   kubeconfigTemplate = `apiVersion: v1
 kind: Config
 clusters:
@@ -122,22 +123,10 @@ users:
   }
 
   async downloadKubeconfig() {
-    const { data } = await this.makeGraphQLRequest(
-      this.gatewayUrl,
-      `query {
-          core {
-            ConfigMap(name: "kube-root-ca.crt", namespace: "default") {
-              data
-            }
-          }
-        }`
-    );
-
-    const u = new URL(this.gatewayUrl);
     const kubeconfig = this.renderKubeconfig(
       this.context.accountId,
       this.kcpPath,
-      data.core.ConfigMap.data['ca.crt'],
+      this.kcpCA,
       this.context.token
     );
 
