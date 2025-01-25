@@ -148,7 +148,7 @@ users:
     return this.kubeconfigTemplate
       .replaceAll('<cluster-name>', clusterName)
       .replaceAll('<server-url>', serverUrl)
-      .replaceAll('<ca-data>', btoa(caData))
+      .replaceAll('<ca-data>', caData)
       .replaceAll('<token>', token);
   }
 }
