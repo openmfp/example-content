@@ -1,5 +1,10 @@
 <div class="showcase-cards">
   @for (item of showcaseItems; track $index) {
-    <app-showcase-panel [item]="item"></app-showcase-panel>
+    <ui5-card class="showcase-card">
+      <ui5-panel attr.header-text="{{item.header}}" fixed>
+        <ui5-label >{{item.label}}</ui5-label>
+        <ui5-text class="content">{{item.example}}</ui5-text>
+      </ui5-panel>
+    </ui5-card>
   }
 </div>

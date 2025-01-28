@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
-import { ShowcasePanelComponent } from './showcase-panel/showcase-panel.component';
-import { ShowcasePanel } from './showcase-panel/showcase-panel';
+
+interface ShowcasePanel {
+  header: string;
+  label: string;
+  example: string;
+}
 
 @Component({
   selector: 'app-showcase',
   standalone: true,
-  imports: [Ui5WebcomponentsModule, ShowcasePanelComponent],
+  imports: [Ui5WebcomponentsModule],
   templateUrl: './showcase.component.html',
   styleUrl: './showcase.component.scss'
 })

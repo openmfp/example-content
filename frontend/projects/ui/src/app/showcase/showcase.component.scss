@@ -6,5 +6,11 @@
 
 .showcase-card {
   display: block;
-  width: 40%;
+  width: 700px;
+
+  .content {
+    white-space: pre-wrap;
+    word-spacing: 4px;
+  }
 }
+
