@@ -22,9 +22,9 @@ export class ShowcaseComponent implements OnChanges {
   @Input() title = 'Showcase Overview';
 
   ngOnChanges(changes: SimpleChanges) {
-      if (changes['context']) {
-        this.title = changes['context'].currentValue.title;
-      }
+    if (changes['context']) {
+      this.title = changes['context'].currentValue.title;
+    }
   }
 
   showcaseItems: ShowcasePanel[] = [
@@ -186,11 +186,58 @@ export class ShowcaseComponent implements OnChanges {
     },
     {
       header: 'Integrate Web Component into page',
-      label: 'explanation',
+      label: 'Entity can have definition for Web Component, "url" points to the component, "content" pass configuration data over to component.',
       example: `
-        Aute ullamco officia fugiat culpa do tempor tempor aute excepteur magna.
-        Quis velit adipisicing excepteur do eu duis elit. Sunt ea pariatur nulla est laborum proident sunt labore
-        commodo Lorem laboris nisi Lorem.
+        {
+          "name": "overview",
+          "creationTimestamp": "",
+          "luigiConfigFragment": {
+            "data": {
+              "nodes": [
+                {
+                  "entityType": "global",
+                  "pathSegment": "showcase",
+                  "hideFromNav": true,
+                  "defineEntity": {
+                    "id": "main"
+                  },
+                  "children": [
+                    {
+                      "pathSegment": "overview",
+                      "label": "Overview",
+                      "icon": "home",
+                      "defineEntity": {
+                        "id": "overview"
+                      },
+                      "compound": {
+                        "renderer": {
+                          "use": "grid",
+                          "config": {
+                            "columns": "1fr 1fr 1fr 1fr"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "entityType": "main.overview::compound",
+                  "url": "https://example.com/frontend/projects/wc/src/main.js#showcase",
+                  "context": {
+                    "title": "Showcase"
+                  },
+                  "layoutConfig": {
+                    "row": "1",
+                    "column": "1 / -1"
+                  },
+                  "webcomponent": {
+                    "selfRegistered": true
+                  }
+                }
+              ]
+            }
+          }
+        }
       `
     },
   ]
