@@ -175,11 +175,12 @@ export class ShowcaseComponent {
     },
     {
       header: 'Integrate Web Component into page',
-      label: 'explanation 4',
+      label: 'explanation',
       example: `
-      Aute ullamco officia fugiat culpa do tempor tempor aute excepteur magna.
-      Quis velit adipisicing excepteur do eu duis elit. Sunt ea pariatur nulla est laborum proident sunt labore
-      commodo Lorem laboris nisi Lorem.`
+        Aute ullamco officia fugiat culpa do tempor tempor aute excepteur magna.
+        Quis velit adipisicing excepteur do eu duis elit. Sunt ea pariatur nulla est laborum proident sunt labore
+        commodo Lorem laboris nisi Lorem.
+      `
     },
   ]
 }
