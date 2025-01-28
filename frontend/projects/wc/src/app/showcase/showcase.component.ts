@@ -186,7 +186,7 @@ export class ShowcaseComponent implements OnChanges {
     },
     {
       header: 'Integrate Web Component into page',
-      label: 'Entity can have definition for Web Component, "url" points to the component, "content" pass configuration data over to component.',
+      label: 'Entity can have definition for Web Component, "url" points to the component, "content" pass configuration data over to component. In this example component is registered under name "showcase"',
       example: `
         {
           "name": "overview",
@@ -222,7 +222,7 @@ export class ShowcaseComponent implements OnChanges {
                 },
                 {
                   "entityType": "main.overview::compound",
-                  "url": "https://example.com/frontend/projects/wc/src/main.js#showcase",
+                  "url": "https://example.com/main.js#showcase",
                   "context": {
                     "title": "Showcase"
                   },
