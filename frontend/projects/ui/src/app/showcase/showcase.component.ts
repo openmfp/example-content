@@ -19,7 +19,7 @@ export class ShowcaseComponent {
   showcaseItems: ShowcasePanel[] = [
     {
       header: 'Definition of an Entity',
-      label: `Typical luigiConfigFragment contains viewGroup object and array of nodes as well as array of texts.`,
+      label: `Entity is basic building block of configuration, here is example how definition of entity should look like. Configuration consist of nodes and texts.`,
       example: `
         {
           "name": "overview",
@@ -71,16 +71,49 @@ export class ShowcaseComponent {
     },
     {
       header: 'Iframe based Micro Frontend integration',
-      label: 'explanation 2',
+      label: 'Example showcasing entity configuration letting add Micro Frontend via iframe. Integration entity requires "requiredIFramePermissions".',
       example: `
-      Aute ullamco officia fugiat culpa do tempor tempor aute excepteur magna.
-      Quis velit adipisicing excepteur do eu duis elit. Sunt ea pariatur nulla est laborum proident sunt labore
-      commodo Lorem laboris nisi Lorem.`
+        {
+          "name": "micro-frontend-sample",
+          "creationTimestamp": "",
+          "luigiConfigFragment": {
+            "data": {
+              "nodes": [
+                {
+                  "entityType": "global",
+                  "pathSegment": "showcase",
+                  "label": "Overview",
+                  "virtualTree": true,
+                  "url": "https://example.com/",
+                  "icon": "home",
+                  "loadingIndicator": {
+                    "enabled": false
+                  },
+                  "requiredIFramePermissions": {
+                    "sandbox": [
+                      "allow-forms",
+                      "allow-modals",
+                      "allow-popups",
+                      "allow-popups-to-escape-sandbox",
+                      "allow-same-origin",
+                      "allow-scripts",
+                      "allow-download"
+                    ],
+                    "allow": [
+                      "clipboard-read",
+                      "clipboard-write"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      `
     },
     {
       header: 'Navigating in the virtualtree',
-      label: `In this example you can see example configuration letting you navigate through the pages of the virtual tree.
-        You will find two tabs available "First Tab" and "Second Tab".`,
+      label: `Configuration for two entities lets you find two tabs available "First Tab" and "Second Tab".`,
       example: `
         {
           "name": "overview",
@@ -90,7 +123,7 @@ export class ShowcaseComponent {
               "nodes": [
                 {
                   "entityType": "global",
-                  "pathSegment": "home",
+                  "pathSegment": "showcase",
                   "hideFromNav": true,
                   "defineEntity": {
                     "id": "main"
