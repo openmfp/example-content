@@ -2,11 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .showcase-card {
   display: block;
   width: 700px;
+
+  .description {
+    margin: 10px;
+  }
 
   .content {
     white-space: pre-wrap;
