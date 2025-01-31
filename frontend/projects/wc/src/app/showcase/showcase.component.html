@@ -4,7 +4,9 @@
       <ui5-panel fixed>
         <div class="header">
           <ui5-title level="H4">{{item.header}}</ui5-title>
-          <ui5-button class="button" design="Emphasized" (ui5Click)="show($index)">Show Example</ui5-button>
+          @if(item.linkToExample) {
+            <ui5-button class="button" design="Emphasized" (ui5Click)="show(item.linkToExample)">Show Example</ui5-button>
+          }
         </div>
         <ui5-label class="description">{{item.label}}</ui5-label>
         <ui5-text class="content">{{item.example}}</ui5-text>

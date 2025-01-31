@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 
@@ -6,6 +6,7 @@ interface ShowcasePanel {
   header: string;
   label: string;
   example: string;
+  linkToExample?: string;
 }
 
 @Component({
@@ -27,14 +28,17 @@ export class ShowcaseComponent implements OnChanges {
     }
   }
 
-  show(index: number) {
-    console.log(index);
+  show(pathSegment: string) {
+    if(this.LuigiClient) {
+      this.LuigiClient.linkManager().navigate(`/home/${pathSegment}`);
+    }
   }
 
   showcaseItems: ShowcasePanel[] = [
     {
       header: 'Definition of an Entity',
       label: `Entity is basic building block of configuration, here is example how definition of entity should look like. Configuration consist of nodes and texts.`,
+      linkToExample: "firstExample",
       example: `
         {
           "name": "overview",
@@ -87,6 +91,7 @@ export class ShowcaseComponent implements OnChanges {
     {
       header: 'Iframe based Micro Frontend integration',
       label: 'Example showcasing entity configuration letting add Micro Frontend via iframe. Integration entity requires "requiredIFramePermissions".',
+      linkToExample: "secondExample",
       example: `
         {
           "name": "micro-frontend-sample",
@@ -129,6 +134,7 @@ export class ShowcaseComponent implements OnChanges {
     {
       header: 'Navigating in the virtualtree',
       label: `Configuration for two entities lets you find two tabs available "First Tab" and "Second Tab".`,
+      linkToExample: "thirdExample",
       example: `
         {
           "name": "overview",
@@ -191,6 +197,7 @@ export class ShowcaseComponent implements OnChanges {
     {
       header: 'Integrate Web Component into page',
       label: 'Entity can have definition for Web Component, "url" points to the component, "content" pass configuration data over to component. In this example component is registered under name "showcase"',
+      linkToExample: "fourthExample",
       example: `
         {
           "name": "overview",
