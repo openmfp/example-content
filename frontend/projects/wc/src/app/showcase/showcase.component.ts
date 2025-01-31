@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, inject, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 
@@ -25,6 +25,10 @@ export class ShowcaseComponent implements OnChanges {
     if (changes['context']) {
       this.title = changes['context'].currentValue.title;
     }
+  }
+
+  show(index: number) {
+    console.log(index);
   }
 
   showcaseItems: ShowcasePanel[] = [

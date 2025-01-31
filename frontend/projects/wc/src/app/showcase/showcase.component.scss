@@ -19,3 +19,14 @@
   }
 }
 
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  .button {
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+
