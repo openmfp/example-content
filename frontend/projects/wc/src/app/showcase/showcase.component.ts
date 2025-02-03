@@ -30,11 +30,11 @@ export class ShowcaseComponent {
   showcaseItems: ShowcasePanel[] = [
     {
       header: 'Definition of an Entity',
-      label: `Entity is basic building block of configuration, here is example how definition of entity should look like. Configuration consist of nodes and texts.`,
+      label: `Entity is basic building block of configuration, here is example how definition of entity should look like. Configuration consist nodes and texts.`,
       linkToExample: "firstExample",
       example: `
         {
-          "name": "overview",
+          "name": "entity-definition",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
@@ -109,11 +109,27 @@ export class ShowcaseComponent {
               "nodes": [
                 {
                   "entityType": "global",
-                  "pathSegment": "showcase",
-                  "label": "Overview",
-                  "virtualTree": true,
+                  "pathSegment": "home",
+                  "hideFromNav": true,
+                  "defineEntity": {
+                    "id": "main"
+                  },
+                  "children": [
+                    {
+                      "pathSegment": "secondExample",
+                      "label": "Overview",
+                      "icon": "home",
+                      "defineEntity": {
+                        "id": "second"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "entityType": "main.second",
+                  "pathSegment": "secondExample",
+                  "hideFromNav": true,
                   "url": "https://example.com/",
-                  "icon": "home",
                   "loadingIndicator": {
                     "enabled": false
                   },
@@ -140,19 +156,18 @@ export class ShowcaseComponent {
       `
     },
     {
-      header: 'Navigating in the virtualtree',
-      label: `Configuration for two entities lets you find two tabs available "First Tab" and "Second Tab".`,
-      linkToExample: "thirdExample",
+      header: 'Left side menu navigating',
+      label: `Configuration for two entities lets you find two tabs on the left side menu "First Tab" and "Second Tab".`,
       example: `
         {
-          "name": "overview",
+          "name": "left-side-navigation",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
               "nodes": [
                 {
                   "entityType": "global",
-                  "pathSegment": "showcase",
+                  "pathSegment": "overview",
                   "hideFromNav": true,
                   "defineEntity": {
                     "id": "main"
@@ -184,7 +199,7 @@ export class ShowcaseComponent {
                   "context": {
                     "border": "shadow",
                     "title": "First page",
-                    "description": ""
+                    "description": "This is first page"
                   }
                 },
                 {
@@ -193,7 +208,7 @@ export class ShowcaseComponent {
                   "context": {
                     "border": "shadow",
                     "title": "Second page",
-                    "description": ""
+                    "description": "This is second page"
                   }
                 }
               ]
@@ -204,18 +219,18 @@ export class ShowcaseComponent {
     },
     {
       header: 'Integrate Web Component into page',
-      label: 'Entity can have definition for Web Component, "url" points to the component, "content" pass configuration data over to component. In this example component is registered under name "showcase"',
+      label: 'Entity can have definition for Web Component, "url" points to the component, "content" pass configuration data over to component. In this example component is registered under name "account-overview"',
       linkToExample: "fourthExample",
       example: `
         {
-          "name": "overview",
+          "name": "web-component-integration",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
               "nodes": [
                 {
                   "entityType": "global",
-                  "pathSegment": "showcase",
+                  "pathSegment": "home",
                   "hideFromNav": true,
                   "defineEntity": {
                     "id": "main"
@@ -241,7 +256,7 @@ export class ShowcaseComponent {
                 },
                 {
                   "entityType": "main.overview::compound",
-                  "url": "https://example.com/main.js#showcase",
+                  "url": "http://localhost:4200/main.js#account-overview",
                   "context": {
                     "title": "Showcase"
                   },
