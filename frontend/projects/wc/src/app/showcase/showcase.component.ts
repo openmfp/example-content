@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 
@@ -17,16 +17,9 @@ interface ShowcasePanel {
   styleUrl: './showcase.component.scss',
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class ShowcaseComponent implements OnChanges {
+export class ShowcaseComponent {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
-  @Input() title = 'Showcase Overview';
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['context']) {
-      this.title = changes['context'].currentValue.title;
-    }
-  }
 
   show(pathSegment: string) {
     if(this.LuigiClient) {
@@ -48,24 +41,37 @@ export class ShowcaseComponent implements OnChanges {
               "nodes": [
                 {
                   "entityType": "global",
-                  "pathSegment": "showcase",
-                  "label": "Overview",
-                  "icon": "business-one",
-                  "tabNav": true,
-                  "hideFromNav": false,
+                  "pathSegment": "home",
+                  "hideFromNav": true,
                   "defineEntity": {
                     "id": "main"
                   },
-                  "compound": {
-                  }
+                  "children": [
+                    {
+                      "pathSegment": "firstExample",
+                      "label": "Overview",
+                      "icon": "home",
+                      "defineEntity": {
+                        "id": "first"
+                      },
+                      "compound": {
+                        "renderer": {
+                          "use": "grid",
+                          "config": {
+                            "columns": "1fr 1fr 1fr 1fr"
+                          }
+                        }
+                      }
+                    }
+                  ]
                 },
                 {
-                  "entityType": "main::compound",
+                  "entityType": "main.first::compound",
                   "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                   "context": {
                     "border": "shadow",
-                    "title": "{{showcase}}",
-                    "description": ""
+                    "title": "{{firstExampleTitle}}",
+                    "description": "{{firstExampleDescription}}"
                   }
                 }
               ],
@@ -73,13 +79,15 @@ export class ShowcaseComponent implements OnChanges {
                 {
                   "locale": "",
                   "textDictionary": {
-                    "showcase": "Showcase page"
+                    "firstExampleTitle": "Definition of an Entity",
+                    "firstExampleDescription": "Entity is basic building block of configuration."
                   }
                 },
                 {
                   "locale": "en",
                   "textDictionary": {
-                    "showcase": "Showcase page"
+                    "firstExampleTitle": "Definition of an Entity",
+                    "firstExampleDescription": "Entity is basic building block of configuration."
                   }
                 }
               ]
