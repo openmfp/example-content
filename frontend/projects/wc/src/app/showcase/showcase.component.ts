@@ -48,11 +48,11 @@ export class ShowcaseComponent {
                   },
                   "children": [
                     {
-                      "pathSegment": "firstExample",
+                      "pathSegment": "overview",
                       "label": "Overview",
                       "icon": "home",
                       "defineEntity": {
-                        "id": "first"
+                        "id": "overview"
                       },
                       "compound": {
                         "renderer": {
@@ -66,7 +66,7 @@ export class ShowcaseComponent {
                   ]
                 },
                 {
-                  "entityType": "main.first::compound",
+                  "entityType": "main.overview::compound",
                   "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                   "context": {
                     "border": "shadow",
@@ -116,17 +116,17 @@ export class ShowcaseComponent {
                   },
                   "children": [
                     {
-                      "pathSegment": "secondExample",
+                      "pathSegment": "overview",
                       "label": "Overview",
                       "icon": "home",
                       "defineEntity": {
-                        "id": "second"
+                        "id": "overview"
                       }
                     }
                   ]
                 },
                 {
-                  "entityType": "main.second",
+                  "entityType": "main.overview",
                   "pathSegment": "secondExample",
                   "hideFromNav": true,
                   "url": "https://example.com/",
@@ -167,7 +167,7 @@ export class ShowcaseComponent {
               "nodes": [
                 {
                   "entityType": "global",
-                  "pathSegment": "overview",
+                  "pathSegment": "home",
                   "hideFromNav": true,
                   "defineEntity": {
                     "id": "main"
