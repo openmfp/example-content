@@ -3,8 +3,12 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogItemDetailsComponent } from './catalog-item-details/catalog-item-details.component';
 import { OpenmcpComponent } from './openmcp/openmcp.component';
 import { IronCoreComponent } from './iron-core/iron-core.component';
+import { ShowcaseComponent } from './showcase/showcase.component';
+import { ShowcaseDetailsComponent } from './showcase/showcase-details/showcase-details.component';
 
 export const routes: Routes = [
+  { path: 'showcase', component: ShowcaseComponent },
+  { path: 'showcase/showcase-details', component: ShowcaseDetailsComponent },
   { path: 'global-catalog', component: CatalogComponent },
   {
     path: 'catalog-item/:catalogItemId',

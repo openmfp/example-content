@@ -120,7 +120,8 @@ export class ShowcaseComponent {
                       "label": "Overview",
                       "icon": "home",
                       "virtualTree": true,
-                      "url": "https://example.com/",
+                      "navigationContext": "showcase",
+                      "url": "http://localhost:4400/#/showcase",
                       "loadingIndicator": {
                         "enabled": false
                       },
