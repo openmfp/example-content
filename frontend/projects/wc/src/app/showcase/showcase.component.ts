@@ -119,35 +119,28 @@ export class ShowcaseComponent {
                       "pathSegment": "overview",
                       "label": "Overview",
                       "icon": "home",
-                      "defineEntity": {
-                        "id": "overview"
+                      "virtualTree": true,
+                      "url": "https://example.com/",
+                      "loadingIndicator": {
+                        "enabled": false
+                      },
+                      "requiredIFramePermissions": {
+                        "sandbox": [
+                          "allow-forms",
+                          "allow-modals",
+                          "allow-popups",
+                          "allow-popups-to-escape-sandbox",
+                          "allow-same-origin",
+                          "allow-scripts",
+                          "allow-download"
+                        ],
+                        "allow": [
+                          "clipboard-read",
+                          "clipboard-write"
+                        ]
                       }
                     }
                   ]
-                },
-                {
-                  "entityType": "main.overview",
-                  "pathSegment": "secondExample",
-                  "hideFromNav": true,
-                  "url": "https://example.com/",
-                  "loadingIndicator": {
-                    "enabled": false
-                  },
-                  "requiredIFramePermissions": {
-                    "sandbox": [
-                      "allow-forms",
-                      "allow-modals",
-                      "allow-popups",
-                      "allow-popups-to-escape-sandbox",
-                      "allow-same-origin",
-                      "allow-scripts",
-                      "allow-download"
-                    ],
-                    "allow": [
-                      "clipboard-read",
-                      "clipboard-write"
-                    ]
-                  }
                 }
               ]
             }
