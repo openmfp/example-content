@@ -1,0 +1,9 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: example-content
+Upstream-Contact: 
+Source: https://github.com/openmfp/example-content
+
+Files: *
+Copyright: 2025 SAP SE or an SAP affiliate company and openMFP contributors and example-content contributors.
+License: Apache-2.0
+
