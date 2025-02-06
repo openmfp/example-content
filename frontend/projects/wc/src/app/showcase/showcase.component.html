@@ -3,7 +3,7 @@
     <ui5-card class="showcase-card">
       <ui5-panel fixed>
         <div class="header">
-          <ui5-title level="H4">{{item.header}}</ui5-title>
+          <ui5-title class="title" level="H4">{{item.header}}</ui5-title>
           @if(item.linkToExample) {
             <ui5-button class="button" design="Emphasized" (ui5Click)="show(item.linkToExample)">Show Example</ui5-button>
           }

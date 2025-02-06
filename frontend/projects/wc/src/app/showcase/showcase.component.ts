@@ -102,7 +102,7 @@ export class ShowcaseComponent {
                   "pathSegment": "secondExample",
                   "virtualTree": true,
                   "navigationContext": "showcase",
-                  "url": "http://localhost:4400/index.html#/showcase",
+                  "url": "https://example-content.some-domain.com/ui/example-content/index.html#/showcase",
                   "loadingIndicator": {
                     "enabled": false
                   },
@@ -213,7 +213,7 @@ export class ShowcaseComponent {
                 },
                 {
                   "entityType": "main.fourth-example::compound",
-                  "url": "http://localhost:4200/main.js#account-overview",
+                  "url": "https://example-content.some-domain.com/ui/wc/main.js#account-overview",
                   "context": {
                     "title": "Showcase"
                   },
