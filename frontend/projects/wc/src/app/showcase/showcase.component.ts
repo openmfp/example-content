@@ -34,39 +34,29 @@ export class ShowcaseComponent {
       linkToExample: "firstExample",
       example: `
         {
-          "name": "entity-definition",
+          "name": "entity-definition-example",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
               "nodes": [
                 {
-                  "entityType": "global",
-                  "pathSegment": "home",
+                  "entityType": "main",
+                  "pathSegment": "firstExample",
                   "hideFromNav": true,
                   "defineEntity": {
-                    "id": "main"
+                    "id": "first-example"
                   },
-                  "children": [
-                    {
-                      "pathSegment": "overview",
-                      "label": "Overview",
-                      "icon": "home",
-                      "defineEntity": {
-                        "id": "overview"
-                      },
-                      "compound": {
-                        "renderer": {
-                          "use": "grid",
-                          "config": {
-                            "columns": "1fr 1fr 1fr 1fr"
-                          }
-                        }
+                  "compound": {
+                    "renderer": {
+                      "use": "grid",
+                      "config": {
+                        "columns": "1fr 1fr 1fr 1fr"
                       }
                     }
-                  ]
+                  }
                 },
                 {
-                  "entityType": "main.overview::compound",
+                  "entityType": "main.first-example::compound",
                   "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                   "context": {
                     "border": "shadow",
@@ -102,46 +92,35 @@ export class ShowcaseComponent {
       linkToExample: "secondExample",
       example: `
         {
-          "name": "micro-frontend-sample",
+          "name": "micro-frontend-iframe-example",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
               "nodes": [
                 {
-                  "entityType": "global",
-                  "pathSegment": "home",
-                  "hideFromNav": true,
-                  "defineEntity": {
-                    "id": "main"
+                  "entityType": "main",
+                  "pathSegment": "secondExample",
+                  "virtualTree": true,
+                  "navigationContext": "showcase",
+                  "url": "http://localhost:4400/index.html#/showcase",
+                  "loadingIndicator": {
+                    "enabled": false
                   },
-                  "children": [
-                    {
-                      "pathSegment": "overview",
-                      "label": "Overview",
-                      "icon": "home",
-                      "virtualTree": true,
-                      "navigationContext": "showcase",
-                      "url": "https://example-content.some-domain.com/ui/example-content/index.html#/showcase",
-                      "loadingIndicator": {
-                        "enabled": false
-                      },
-                      "requiredIFramePermissions": {
-                        "sandbox": [
-                          "allow-forms",
-                          "allow-modals",
-                          "allow-popups",
-                          "allow-popups-to-escape-sandbox",
-                          "allow-same-origin",
-                          "allow-scripts",
-                          "allow-download"
-                        ],
-                        "allow": [
-                          "clipboard-read",
-                          "clipboard-write"
-                        ]
-                      }
-                    }
-                  ]
+                  "requiredIFramePermissions": {
+                    "sandbox": [
+                      "allow-forms",
+                      "allow-modals",
+                      "allow-popups",
+                      "allow-popups-to-escape-sandbox",
+                      "allow-same-origin",
+                      "allow-scripts",
+                      "allow-download"
+                    ],
+                    "allow": [
+                      "clipboard-read",
+                      "clipboard-write"
+                    ]
+                  }
                 }
               ]
             }
@@ -154,7 +133,7 @@ export class ShowcaseComponent {
       label: `Configuration for two entities lets you find two tabs on the left side menu "First Tab" and "Second Tab".`,
       example: `
         {
-          "name": "left-side-navigation",
+          "name": "left-side-navigation-example",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
@@ -217,40 +196,24 @@ export class ShowcaseComponent {
       linkToExample: "fourthExample",
       example: `
         {
-          "name": "web-component-integration",
+          "name": "web-component-integration-example",
           "creationTimestamp": "",
           "luigiConfigFragment": {
             "data": {
               "nodes": [
                 {
-                  "entityType": "global",
-                  "pathSegment": "home",
+                  "entityType": "main",
+                  "pathSegment": "fourthExample",
                   "hideFromNav": true,
                   "defineEntity": {
-                    "id": "main"
+                    "id": "fourth-example"
                   },
-                  "children": [
-                    {
-                      "pathSegment": "overview",
-                      "label": "Overview",
-                      "icon": "home",
-                      "defineEntity": {
-                        "id": "overview"
-                      },
-                      "compound": {
-                        "renderer": {
-                          "use": "grid",
-                          "config": {
-                            "columns": "1fr 1fr 1fr 1fr"
-                          }
-                        }
-                      }
-                    }
-                  ]
+                  "compound": {
+                  }
                 },
                 {
-                  "entityType": "main.overview::compound",
-                  "url": "https://example-content.some-domain.com/ui/wc/main.js#account-overview",
+                  "entityType": "main.fourth-example::compound",
+                  "url": "http://localhost:4200/main.js#account-overview",
                   "context": {
                     "title": "Showcase"
                   },

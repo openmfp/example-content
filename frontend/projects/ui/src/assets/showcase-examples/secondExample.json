@@ -1,0 +1,35 @@
+{
+  "name": "micro-frontend-iframe-example",
+  "creationTimestamp": "",
+  "luigiConfigFragment": {
+    "data": {
+      "nodes": [
+        {
+          "entityType": "main",
+          "pathSegment": "secondExample",
+          "virtualTree": true,
+          "navigationContext": "showcase",
+          "url": "http://localhost:4400/index.html#/showcase",
+          "loadingIndicator": {
+            "enabled": false
+          },
+          "requiredIFramePermissions": {
+            "sandbox": [
+              "allow-forms",
+              "allow-modals",
+              "allow-popups",
+              "allow-popups-to-escape-sandbox",
+              "allow-same-origin",
+              "allow-scripts",
+              "allow-download"
+            ],
+            "allow": [
+              "clipboard-read",
+              "clipboard-write"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
