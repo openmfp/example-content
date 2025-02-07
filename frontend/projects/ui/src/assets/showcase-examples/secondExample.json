@@ -9,7 +9,7 @@
           "pathSegment": "secondExample",
           "virtualTree": true,
           "navigationContext": "showcase",
-          "url": "http://localhost:4400/index.html#/showcase",
+          "urlSuffix": "/index.html#/showcase",
           "loadingIndicator": {
             "enabled": false
           },

@@ -16,7 +16,7 @@
         },
         {
           "entityType": "main.fourth-example::compound",
-          "url": "http://localhost:4200/main.js#account-overview",
+          "urlSuffix": "/main.js#account-overview",
           "context": {
             "title": "Showcase"
           },
