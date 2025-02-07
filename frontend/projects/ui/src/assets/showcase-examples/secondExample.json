@@ -9,7 +9,7 @@
           "pathSegment": "secondExample",
           "virtualTree": true,
           "navigationContext": "showcase",
-          "urlSuffix": "/index.html#/showcase",
+          "urlSuffix": "/ui/example-content/index.html#/showcase",
           "loadingIndicator": {
             "enabled": false
           },
