@@ -1,0 +1,16 @@
+<div class="showcase-cards">
+  @for (item of showcaseItems; track $index) {
+    <ui5-card class="showcase-card">
+      <ui5-panel fixed>
+        <div class="header">
+          <ui5-title class="title" level="H4">{{item.header}}</ui5-title>
+          @if(item.linkToExample) {
+            <ui5-button class="button" design="Emphasized" (ui5Click)="show(item.linkToExample)">Show Example</ui5-button>
+          }
+        </div>
+        <ui5-label class="description">{{item.label}}</ui5-label>
+        <ui5-text class="content">{{item.example}}</ui5-text>
+      </ui5-panel>
+    </ui5-card>
+  }
+</div>

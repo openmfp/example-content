@@ -1,0 +1,35 @@
+.showcase-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.showcase-card {
+  display: block;
+
+  .description {
+    margin: 10px;
+  }
+
+  .content {
+    white-space: pre-wrap;
+    word-spacing: 4px;
+  }
+}
+
+.header {
+  padding: 10px;
+  display: flex;
+
+  .title {
+    padding-top: 5px;
+  }
+
+  .button {
+    margin-left: 30px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+
