@@ -5,7 +5,7 @@
 !frontend/package-lock.json
 !frontend/tsconfig.app.json
 !frontend/tsconfig.json
-!frontend/src/**
+!frontend/projects/**
 
 !static/**
 !nginx.conf
