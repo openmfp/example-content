@@ -29,19 +29,6 @@
               }
             }
           ]
-        },
-        {
-          "entityType": "main.overview::compound",
-          "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
-          "context": {
-            "border": "shadow",
-            "title": "Welcome to OpenMFP Portal",
-            "description": "Click on Show Example button to preview particular feature."
-          },
-          "layoutConfig": {
-            "row": "1",
-            "column": "1 / -1"
-          }
         }
       ]
     }
