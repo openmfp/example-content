@@ -1,5 +1,5 @@
 {
-  "name": "configuration-examples-overview",
+  "name": "examples-overview",
   "creationTimestamp": "",
   "luigiConfigFragment": {
     "data": {
@@ -7,14 +7,14 @@
         {
           "entityType": "global",
           "pathSegment": "home",
-          "hideFromNav": true,
+          "order": 1,
           "defineEntity": {
             "id": "main"
           },
           "children": [
             {
               "pathSegment": "overview",
-              "label": "Configuration examples overview",
+              "label": "Examples overview",
               "icon": "home",
               "defineEntity": {
                 "id": "overview"
