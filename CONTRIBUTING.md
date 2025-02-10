@@ -31,6 +31,30 @@ The build artifacts will be stored in the `dist/` directory.
 
 Run `npm test` to execute the unit tests via [Jest](https://jestjs.io/) in the root directory of the repository.
 
+### Test your change in a locally running OpenMFP instance
+
+- Build your docker container using
+- Load the docker image into your kind
+- Modify the deployment to always pull the latest image
+- Modify the deployment to use the `example-content:latest`
+- restart the deployment and wait for its completion
+- Patch Content Configurations to trigger a reconciliation
+
+This can be achieved in a single command:
+```bash
+docker build -t example-content:latest . && \
+kind load docker-image example-content:latest --name=openmfp && \
+kubectl patch deployment openmfp-example-content -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]' && \
+kubectl patch deployment openmfp-example-content -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "example-content:latest"}]' && \
+kubectl rollout restart deployment openmfp-example-content -n openmfp-system && \
+kubectl rollout status deployment openmfp-example-content -n openmfp-system && \
+kubectl patch contentconfiguration openmfp-example-content-ui -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/remoteConfiguration/internalUrl", "value": "http://openmfp-example-content.openmfp-system.svc.cluster.local:8080/ui/assets/config.json?r='$(date +%s%3N)'"}]' && \
+kubectl patch contentconfiguration openmfp-example-content-wc -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/remoteConfiguration/internalUrl", "value": "http://openmfp-example-content.openmfp-system.svc.cluster.local:8080/wc/assets/config.json?r='$(date +%s%3N)'"}]'
+```
+
+**Troubleshooting**
+- If you encounter issues when starting the pod with the loaded image you [this issue](https://github.com/kubernetes-sigs/kind/issues?q=is%3Aissue%20state%3Aopen%20load%20image). A way to circumnvent this is to disable `Use containerd for pulling and storing images` in the docker settings.
+
 ## Issues
 We use GitHub issues to track bugs. Please ensure your description is
 clear and includes sufficient instructions to reproduce the issue.
