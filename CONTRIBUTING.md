@@ -53,6 +53,16 @@ kubectl patch contentconfiguration openmfp-example-content-wc -n openmfp-system 
 ```
 
 **Troubleshooting**
+- If you encounter error like this: 
+```
+    ERROR: command "docker save -o /tmp/images-tar1234567890/images.tar example-content:latest" failed with error: exit status 1
+```
+   Use this two commands and try again
+```sh
+    mkdir $HOME/tmp/
+    export TMPDIR=$HOME/tmp/ 
+```
+
 - If you encounter issues when starting the pod with the loaded image you [this issue](https://github.com/kubernetes-sigs/kind/issues?q=is%3Aissue%20state%3Aopen%20load%20image). A way to circumnvent this is to disable `Use containerd for pulling and storing images` in the docker settings.
 
 ## Issues
