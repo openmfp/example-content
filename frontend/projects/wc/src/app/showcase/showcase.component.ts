@@ -102,7 +102,7 @@ export class ShowcaseComponent {
                   "pathSegment": "secondExample",
                   "virtualTree": true,
                   "navigationContext": "showcase",
-                  "url": "https://example-content.some-domain.com/ui/example-content/index.html#/showcase",
+                  "url": "https://example-content.some-domain.com/ui/example-content/ui/index.html#/showcase",
                   "loadingIndicator": {
                     "enabled": false
                   },

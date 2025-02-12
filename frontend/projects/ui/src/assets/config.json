@@ -1,5 +1,5 @@
 {
-  "name": "examples-overview",
+  "name": "examples-overview-ui",
   "creationTimestamp": "",
   "luigiConfigFragment": {
     "data": {
@@ -26,6 +26,57 @@
                     "columns": "1fr 1fr 1fr 1fr"
                   }
                 }
+              }
+            },
+            {
+              "entityType": "main",
+              "pathSegment": "firstExample",
+              "hideFromNav": true,
+              "defineEntity": {
+                "id": "first-example"
+              },
+              "compound": {
+                "renderer": {
+                  "use": "grid",
+                  "config": {
+                    "columns": "1fr 1fr 1fr 1fr"
+                  }
+                }
+              }
+            },
+            {
+              "entityType": "main",
+              "pathSegment": "secondExample",
+              "virtualTree": true,
+              "navigationContext": "showcase",
+              "url": "http://localhost:8000/ui/example-content/ui/index.html#/showcase",
+              "loadingIndicator": {
+                "enabled": false
+              },
+              "requiredIFramePermissions": {
+                "sandbox": [
+                  "allow-forms",
+                  "allow-modals",
+                  "allow-popups",
+                  "allow-popups-to-escape-sandbox",
+                  "allow-same-origin",
+                  "allow-scripts",
+                  "allow-download"
+                ],
+                "allow": [
+                  "clipboard-read",
+                  "clipboard-write"
+                ]
+              }
+            },
+            {
+              "entityType": "main",
+              "pathSegment": "fourthExample",
+              "hideFromNav": true,
+              "defineEntity": {
+                "id": "fourth-example"
+              },
+              "compound": {
               }
             }
           ]

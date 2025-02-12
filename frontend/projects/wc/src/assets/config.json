@@ -1,5 +1,5 @@
 {
-  "name": "configuration-examples-overview",
+  "name": "examples-overview-wc",
   "creationTimestamp": "",
   "luigiConfigFragment": {
     "data": {
@@ -15,6 +15,58 @@
           "layoutConfig": {
             "row": "1",
             "column": "1 / -1"
+          }
+        },
+        {
+          "entityType": "main.overview::compound",
+          "url": "http://localhost:8000/ui/example-content/wc/main.js#showcase",
+          "context": {
+          },
+          "layoutConfig": {
+            "row": "2",
+            "column": "1 / -1"
+          },
+          "webcomponent": {
+            "selfRegistered": true
+          }
+        },
+        {
+          "entityType": "main.first-example::compound",
+          "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
+          "context": {
+            "border": "shadow",
+            "title": "{{firstExampleTitle}}",
+            "description": "{{firstExampleDescription}}"
+          }
+        },
+        {
+          "entityType": "main.fourth-example::compound",
+          "url": "http://localhost:8000/ui/example-content/wc/main.js#account-overview",
+          "context": {
+            "title": "Showcase"
+          },
+          "layoutConfig": {
+            "row": "1",
+            "column": "1 / -1"
+          },
+          "webcomponent": {
+            "selfRegistered": true
+          }
+        }
+      ],
+      "texts": [
+        {
+          "locale": "",
+          "textDictionary": {
+            "firstExampleTitle": "Definition of an Entity",
+            "firstExampleDescription": "Entity is basic building block of configuration."
+          }
+        },
+        {
+          "locale": "en",
+          "textDictionary": {
+            "firstExampleTitle": "Definition of an Entity",
+            "firstExampleDescription": "Entity is basic building block of configuration."
           }
         }
       ]
