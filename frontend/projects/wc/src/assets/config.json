@@ -19,7 +19,7 @@
         },
         {
           "entityType": "main.overview::compound",
-          "url": "http://localhost:8000/ui/example-content/wc/main.js#showcase",
+          "urlSuffix": "/ui/example-content/wc/main.js#showcase",
           "context": {
           },
           "layoutConfig": {
@@ -40,8 +40,8 @@
           }
         },
         {
-          "entityType": "main.fourth-example::compound",
-          "url": "http://localhost:8000/ui/example-content/wc/main.js#account-overview",
+          "entityType": "main.third-example::compound",
+          "urlSuffix": "/ui/example-content/wc/main.js#account-overview",
           "context": {
             "title": "Showcase"
           },
@@ -55,13 +55,6 @@
         }
       ],
       "texts": [
-        {
-          "locale": "",
-          "textDictionary": {
-            "firstExampleTitle": "Definition of an Entity",
-            "firstExampleDescription": "Entity is basic building block of configuration."
-          }
-        },
         {
           "locale": "en",
           "textDictionary": {

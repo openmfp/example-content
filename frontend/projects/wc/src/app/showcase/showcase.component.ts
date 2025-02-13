@@ -105,21 +105,6 @@ export class ShowcaseComponent {
                   "url": "https://example-content.some-domain.com/ui/example-content/ui/index.html#/showcase",
                   "loadingIndicator": {
                     "enabled": false
-                  },
-                  "requiredIFramePermissions": {
-                    "sandbox": [
-                      "allow-forms",
-                      "allow-modals",
-                      "allow-popups",
-                      "allow-popups-to-escape-sandbox",
-                      "allow-same-origin",
-                      "allow-scripts",
-                      "allow-download"
-                    ],
-                    "allow": [
-                      "clipboard-read",
-                      "clipboard-write"
-                    ]
                   }
                 }
               ]

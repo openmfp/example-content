@@ -10,76 +10,61 @@
           "order": 1,
           "defineEntity": {
             "id": "main"
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "overview",
+          "label": "Examples overview",
+          "icon": "home",
+          "order": 1,
+          "defineEntity": {
+            "id": "overview"
           },
-          "children": [
-            {
-              "pathSegment": "overview",
-              "label": "Examples overview",
-              "icon": "home",
-              "defineEntity": {
-                "id": "overview"
-              },
-              "compound": {
-                "renderer": {
-                  "use": "grid",
-                  "config": {
-                    "columns": "1fr 1fr 1fr 1fr"
-                  }
-                }
-              }
-            },
-            {
-              "entityType": "main",
-              "pathSegment": "firstExample",
-              "hideFromNav": true,
-              "defineEntity": {
-                "id": "first-example"
-              },
-              "compound": {
-                "renderer": {
-                  "use": "grid",
-                  "config": {
-                    "columns": "1fr 1fr 1fr 1fr"
-                  }
-                }
-              }
-            },
-            {
-              "entityType": "main",
-              "pathSegment": "secondExample",
-              "virtualTree": true,
-              "navigationContext": "showcase",
-              "url": "http://localhost:8000/ui/example-content/ui/index.html#/showcase",
-              "loadingIndicator": {
-                "enabled": false
-              },
-              "requiredIFramePermissions": {
-                "sandbox": [
-                  "allow-forms",
-                  "allow-modals",
-                  "allow-popups",
-                  "allow-popups-to-escape-sandbox",
-                  "allow-same-origin",
-                  "allow-scripts",
-                  "allow-download"
-                ],
-                "allow": [
-                  "clipboard-read",
-                  "clipboard-write"
-                ]
-              }
-            },
-            {
-              "entityType": "main",
-              "pathSegment": "fourthExample",
-              "hideFromNav": true,
-              "defineEntity": {
-                "id": "fourth-example"
-              },
-              "compound": {
+          "compound": {
+            "renderer": {
+              "use": "grid",
+              "config": {
+                "columns": "1fr 1fr 1fr 1fr"
               }
             }
-          ]
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "firstExample",
+          "label": "First Example",
+          "hideFromNav": false,
+          "order": 2,
+          "defineEntity": {
+            "id": "first-example"
+          },
+          "compound": {
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "secondExample",
+          "label": "Second Example",
+          "order": 3,
+          "hideFromNav": false,
+          "virtualTree": true,
+          "urlSuffix": "/ui/example-content/ui/#/showcase",
+          "loadingIndicator": {
+            "enabled": false
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "thirdExample",
+          "label": "Third Example",
+          "order": 4,
+          "hideFromNav": false,
+          "defineEntity": {
+            "id": "third-example"
+          },
+          "compound": {
+          }
         }
       ]
     }
