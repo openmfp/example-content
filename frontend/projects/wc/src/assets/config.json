@@ -31,7 +31,7 @@
           }
         },
         {
-          "entityType": "main.first-example::compound",
+          "entityType": "main.entity-definition::compound",
           "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
           "context": {
             "border": "shadow",
@@ -40,7 +40,7 @@
           }
         },
         {
-          "entityType": "main.third-example::compound",
+          "entityType": "main.web-component-integration::compound",
           "urlSuffix": "/ui/example-content/wc/main.js#account-overview",
           "context": {
             "title": "Showcase"

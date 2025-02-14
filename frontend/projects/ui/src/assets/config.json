@@ -15,7 +15,7 @@
         {
           "entityType": "main",
           "pathSegment": "overview",
-          "label": "Examples overview",
+          "label": "Overview of Examples",
           "icon": "home",
           "order": 1,
           "defineEntity": {
@@ -32,36 +32,49 @@
         },
         {
           "entityType": "main",
-          "pathSegment": "firstExample",
-          "label": "First Example",
-          "hideFromNav": false,
+          "pathSegment": "entity-definition",
+          "label": "Entity Definition",
           "order": 2,
           "defineEntity": {
-            "id": "first-example"
+            "id": "entity-definition"
+          },
+          "category": {
+            "label": "Showcase of Examples",
+            "icon": "attachment-html",
+            "collapsible": true
           },
           "compound": {
           }
         },
         {
           "entityType": "main",
-          "pathSegment": "secondExample",
-          "label": "Second Example",
+          "pathSegment": "micro-frontend-iframe",
+          "label": "Micro Frontend Iframe",
           "order": 3,
-          "hideFromNav": false,
           "virtualTree": true,
+          "navigationContext": "showcase",
           "urlSuffix": "/ui/example-content/ui/#/showcase",
           "loadingIndicator": {
             "enabled": false
+          },
+          "category": {
+            "label": "Showcase of Examples",
+            "icon": "attachment-html",
+            "collapsible": true
           }
         },
         {
           "entityType": "main",
-          "pathSegment": "thirdExample",
-          "label": "Third Example",
+          "pathSegment": "web-component-integration",
+          "label": "Web Component Integration",
           "order": 4,
-          "hideFromNav": false,
           "defineEntity": {
-            "id": "third-example"
+            "id": "web-component-integration"
+          },
+          "category": {
+            "label": "Showcase of Examples",
+            "icon": "attachment-html",
+            "collapsible": true
           },
           "compound": {
           }
