@@ -7,6 +7,7 @@ interface ShowcasePanel {
   label: string;
   example: string;
   linkToExample?: string;
+  isCodeVisible?: boolean;
 }
 
 @Component({
@@ -25,6 +26,10 @@ export class ShowcaseComponent {
     if(this.LuigiClient) {
       this.LuigiClient.linkManager().navigate(`/home/${pathSegment}`);
     }
+  }
+
+  toggle(showcaseItems: ShowcasePanel) {
+    showcaseItems.isCodeVisible = !showcaseItems.isCodeVisible;
   }
 
   showcaseItems: ShowcasePanel[] = [

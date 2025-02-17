@@ -34,6 +34,7 @@
           "entityType": "main",
           "pathSegment": "entity-definition",
           "label": "Entity Definition",
+          "hideFromNav": true,
           "order": 2,
           "defineEntity": {
             "id": "entity-definition"
@@ -50,6 +51,7 @@
           "entityType": "main",
           "pathSegment": "micro-frontend-iframe",
           "label": "Micro Frontend Iframe",
+          "hideFromNav": true,
           "order": 3,
           "virtualTree": true,
           "navigationContext": "showcase",
@@ -67,6 +69,7 @@
           "entityType": "main",
           "pathSegment": "web-component-integration",
           "label": "Web Component Integration",
+          "hideFromNav": true,
           "order": 4,
           "defineEntity": {
             "id": "web-component-integration"
