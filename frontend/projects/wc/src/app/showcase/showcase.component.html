@@ -4,12 +4,21 @@
       <ui5-panel fixed>
         <div class="header">
           <ui5-title class="title" level="H4">{{item.header}}</ui5-title>
-          @if(item.linkToExample) {
+          @if(item.linkToExample){
             <ui5-button class="button" design="Emphasized" (ui5Click)="show(item.linkToExample)">Show Example</ui5-button>
           }
+          <ui5-button class="button" design="Attention" (ui5Click)="toggle(item)">
+            @if(!!item.isCodeVisible){
+              Hide Code
+            } @else {
+              Show Code
+            }
+          </ui5-button>
         </div>
         <ui5-label class="description">{{item.label}}</ui5-label>
-        <ui5-text class="content">{{item.example}}</ui5-text>
+        @if(!!item.isCodeVisible){
+          <ui5-text class="content">{{item.example}}</ui5-text>
+        }
       </ui5-panel>
     </ui5-card>
   }

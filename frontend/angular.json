@@ -20,6 +20,7 @@
             "outputPath": "dist",
             "index": "projects/ui/src/index.html",
             "main": "projects/ui/src/main.ts",
+            "baseHref": "/ui/example-content/ui/",
             "polyfills": [
               "zone.js"
             ],
@@ -139,6 +140,7 @@
           "options": {
             "outputPath": "dist-wc",
             "index": "",
+            "baseHref": "/ui/example-content/wc/",
             "main": "projects/wc/src/main.ts",
             "polyfills": "projects/wc/src/polyfills.ts",
             "tsConfig": "projects/wc/tsconfig.app.json",
