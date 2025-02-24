@@ -1,6 +1,12 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { LuigiClient } from '@luigi-project/client/luigi-element';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
+import { SafeHtmlPipe } from '../../shared/safe-html.pipe';
+import '@ui5/webcomponents-icons/dist/detail-less.js';
+import '@ui5/webcomponents-icons/dist/detail-more.js';
+import '@ui5/webcomponents-icons/dist/hide.js';
+import '@ui5/webcomponents-icons/dist/show.js';
+import '@ui5/webcomponents-icons/dist/example.js';
 
 interface ShowcasePanel {
   header: string;
@@ -13,7 +19,7 @@ interface ShowcasePanel {
 @Component({
   selector: 'app-showcase',
   standalone: true,
-  imports: [Ui5WebcomponentsModule],
+  imports: [Ui5WebcomponentsModule, SafeHtmlPipe],
   templateUrl: './showcase.component.html',
   styleUrl: './showcase.component.scss',
   encapsulation: ViewEncapsulation.ShadowDom
@@ -21,14 +27,29 @@ interface ShowcasePanel {
 export class ShowcaseComponent {
   @Input() LuigiClient?: LuigiClient;
   @Input() context?: any;
+  showAllCode = false;
+  title = "Overview of Examples";
 
-  show(pathSegment: string) {
-    if(this.LuigiClient) {
-      this.LuigiClient.linkManager().navigate(`/home/${pathSegment}`);
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['context']) {
+      this.title = changes['context'].currentValue.title;
     }
   }
 
-  toggle(showcaseItems: ShowcasePanel) {
+  toggleShowAllCodes() {
+    this.showAllCode = !this.showAllCode;
+    this.showcaseItems.forEach(item => {
+      item.isCodeVisible = this.showAllCode;
+    });
+  }
+
+  showExample(showcaseItems: ShowcasePanel) {
+    if(this.LuigiClient) {
+      window.open(`/home/${showcaseItems.linkToExample}`, '_blank');
+    }
+  }
+
+  toggleCode(showcaseItems: ShowcasePanel) {
     showcaseItems.isCodeVisible = !showcaseItems.isCodeVisible;
   }
 
@@ -36,13 +57,16 @@ export class ShowcaseComponent {
     {
       header: 'Definition of an Entity',
       label: `
-        An entity is the basic building block of configuration. Here is an example of how the definition of an entity should look.
-        The configuration consists of nodes and texts. In this example, {{firstExampleTitle}} will be replaced with the value of
-        "firstExampleTitle" according to the language(locale). The overall structure consists of two nodes. The top node, starting with
-        "entityType": "main", is a definition for "entity-definition" page, it is a sub-page for an entity that is not available here but contains
-        "defineEntity" key with "id": "main". "compound" informs us about the page content. The content itself is defined in another entity
-        starting with "entityType": "main.first-example::compound". The entity type refers to the parent node. "url" points to the component,
-        and "context" lets you pass additional information to the component.
+        An entity is the basic building block of configuration. The configuration consists of <b>nodes</b> and <b>texts</b>.
+
+        In this example, <b>{{firstExampleTitle}}</b> will be replaced with the value of <b>"firstExampleTitle"</b> according to the language(locale).
+
+        The overall structure consists of two nodes. The top node, starting with <b>"entityType": "main"</b>, is a definition for <b>"entity-definition"</b> page,
+        it is a sub-page for an entity that is not available here but contains <b>"defineEntity"</b> key with <b>"id": "main"</b>. <b>"compound"</b> informs
+        us about the page content.
+
+        The content itself is defined in another entity starting with <b>"entityType": "main.first-example::compound"</b>. The entity type refers to the parent node.
+        <b>"url"</b> points to the component and <b>"context"</b> lets you pass additional information to the component.
       `,
       linkToExample: "entity-definition",
       example: `
@@ -102,12 +126,15 @@ export class ShowcaseComponent {
     {
       header: 'Iframe based Micro Frontend integration',
       label: `
-        This example showcases the configuration of an entity that allows adding a Micro Frontend via an iframe. The integration entity
-        requires "requiredIFramePermissions", consider removing unnecessary permissions. Another important element in this example
-        is the "virtualTree" parameter, which activates navigation around the microservice. "navigationContext" allows you to set
-        the navigation base url. In this way, you will notice that the browser URL gets updated according to the microservice's internal
-        routing as well as the window content. Loading external services may take a while, so you can use a "loadingIndicator" to let
-        the user know about the processing.
+        This example showcases the configuration of an entity that allows adding a Micro Frontend via an iframe.
+
+        The integration entity requires <b>"requiredIFramePermissions"</b>, <u>consider removing unnecessary permissions</u>.
+
+        Another important element in this example is the <b>"virtualTree"</b> parameter, which activates navigation around the microservice.
+        <b>"navigationContext"</b> allows you to set the navigation base url. In this way, you will notice that the browser URL gets updated according
+        to the microservice's internal routing as well as the window content.
+
+        Loading external services may take a while, so you can use a <b>"loadingIndicator"</b> to let the user know about the processing.
       `,
       linkToExample: "micro-frontend-iframe",
       example: `
@@ -151,10 +178,11 @@ export class ShowcaseComponent {
     {
       header: 'Left side menu navigating',
       label: `
-        The configuration for two entities allows you to find two tabs in the left-side menu: "First Tab" and "Second Tab". Both definitions
-        were placed as part of the children array, meaning both are sub-sites of the main entity. This dependency defines the path
-        as follows: "/home/first". To hide a tab in the navigation panel, you can use "hideFromNav": true, or remove the "label".
-        This effect may be useful if you want to keep the navigation functional without making it accessible from the navigation panel.
+        The configuration for two entities allows you to find two tabs in the left-side menu: <i>"First Tab"</i> and <i>"Second Tab"</i>. Both definitions
+        were placed as part of the children array, meaning both are sub-sites of the main entity. This dependency defines the path as follows: <b>"/home/first"</b>.
+
+        To hide a tab in the navigation panel, you can use </b>"hideFromNav": true</b>, or remove the </b>"label"</b>. This effect may be useful if you want to keep
+        the navigation functional without making it accessible from the navigation panel.
       `,
       example: `
         {
@@ -235,9 +263,9 @@ export class ShowcaseComponent {
     {
       header: 'Integrate Web Component into page',
       label: `
-        An entity can have a definition for a Web Component. The "urlSuffix" points to the component, and "content" passes configuration data
-        over to the component. In this example, the component is registered under the name "account-overview". To use the component,
-        you should add the "webcomponent" key with "selfRegistered": true; otherwise, the interpreter won't recognize your definition
+        An entity can have a definition for a Web Component. The <b>"urlSuffix"</b> points to the component, and <b>"content"</b> passes configuration data
+        over to the component. In this example, the component is registered under the name <i>"account-overview"</i>. To use the component,
+        you should add the <b>"webcomponent"</b> key with <b>"selfRegistered": true;</b> otherwise, the interpreter won't recognize your definition
         as a webcomponent setup.
       `,
       linkToExample: "web-component-integration",

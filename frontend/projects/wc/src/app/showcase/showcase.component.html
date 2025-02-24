@@ -1,23 +1,40 @@
+<div class="title">
+  <ui5-title  level="H3">{{title}}</ui5-title>
+</div>
 <div class="showcase-cards">
+  <ui5-bar design="Header">
+    <ui5-button class="button" design="Attention" (ui5Click)="toggleShowAllCodes()" slot="endContent">
+      @if(showAllCode){
+        <ui5-icon name="detail-less"></ui5-icon> Hide All Code Examples
+      } @else {
+        <ui5-icon name="detail-more"></ui5-icon> Show All Code Examples
+      }
+    </ui5-button>
+  </ui5-bar>
+
   @for (item of showcaseItems; track $index) {
     <ui5-card class="showcase-card">
       <ui5-panel fixed>
         <div class="header">
-          <ui5-title class="title" level="H4">{{item.header}}</ui5-title>
-          @if(item.linkToExample){
-            <ui5-button class="button" design="Emphasized" (ui5Click)="show(item.linkToExample)">Show Example</ui5-button>
-          }
-          <ui5-button class="button" design="Attention" (ui5Click)="toggle(item)">
-            @if(!!item.isCodeVisible){
-              Hide Code
-            } @else {
-              Show Code
+          <ui5-title class="headline" level="H4">{{item.header}}</ui5-title>
+          <div class="buttons">
+            @if(item.linkToExample){
+              <ui5-button class="button" design="Emphasized" (ui5Click)="showExample(item)">
+                <ui5-icon name="example"></ui5-icon> Show Example
+              </ui5-button>
             }
-          </ui5-button>
+            <ui5-button class="button" design="Attention" (ui5Click)="toggleCode(item)">
+              @if(!!item.isCodeVisible){
+                <ui5-icon name="hide"></ui5-icon> Hide Code
+              } @else {
+                <ui5-icon name="show"></ui5-icon> Show Code
+              }
+            </ui5-button>
+          </div>
         </div>
-        <ui5-label class="description">{{item.label}}</ui5-label>
+        <div class="panel description" [innerHTML]="item.label | safeHtml"></div>
         @if(!!item.isCodeVisible){
-          <ui5-text class="content">{{item.example}}</ui5-text>
+          <ui5-text class="panel content">{{item.example}}</ui5-text>
         }
       </ui5-panel>
     </ui5-card>

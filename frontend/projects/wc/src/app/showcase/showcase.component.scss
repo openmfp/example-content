@@ -2,20 +2,28 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .showcase-card {
   display: block;
 
-  .description {
+  .panel {
+    padding: 5px 10px 5px 10px;
+    border-radius: 15px;
     white-space: pre-wrap;
-    font-size: 18px;
-    margin: 10px;
+  }
+
+  .description {
+    box-shadow: 0px 0px 20px lightblue;
+    background-color: aliceblue;
+    font-size: 16px;
   }
 
   .content {
-    white-space: pre-wrap;
+    box-shadow: 0px 0px 20px gainsboro;
+    background-color: ivory;
+    margin-top: 10px;
     word-spacing: 4px;
   }
 }
@@ -23,15 +31,27 @@
 .header {
   padding: 10px;
   display: flex;
+  justify-content: space-between;
 
-  .title {
+  .headline {
     padding-top: 5px;
   }
 
   .button {
-    margin-left: 30px;
+    margin-left: 20px;
     padding: 5px;
     border-radius: 5px;
   }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.title {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
 }
 
