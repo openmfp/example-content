@@ -1,5 +1,9 @@
 # ExampleContent
 
+![Build Status](https://github.com/openmfp/example-content/actions/workflows/pipeline.yaml/badge.svg)
+[![REUSE status](
+https://api.reuse.software/badge/github.com/openmfp/example-content)](https://api.reuse.software/info/github.com/openmfp/example-content)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
 ## Getting started
@@ -46,5 +50,5 @@ Please refer to the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file in this reposi
 
 ## Licensing
 
-Copyright 2024 SAP SE or an SAP affiliate company and openMFP contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/openmfp/example-content).
+Copyright 2025 SAP SE or an SAP affiliate company and openMFP contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/openmfp/example-content).
 
