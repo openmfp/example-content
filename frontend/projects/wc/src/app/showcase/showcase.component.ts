@@ -176,7 +176,7 @@ export class ShowcaseComponent {
       `
     },
     {
-      header: 'Left side menu navigating',
+      header: 'Left Side Menu Navigating',
       label: `
         The configuration for two entities allows you to find two tabs in the left-side menu: <i>"First Tab"</i> and <i>"Second Tab"</i>. Both definitions
         were placed as part of the children array, meaning both are sub-sites of the main entity. This dependency defines the path as follows: <b>"/home/first"</b>.
