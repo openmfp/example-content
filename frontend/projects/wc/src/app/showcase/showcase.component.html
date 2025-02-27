@@ -3,12 +3,14 @@
 </div>
 <div class="showcase-cards">
   <ui5-bar design="Header">
-    <ui5-button class="button" design="Attention" (ui5Click)="toggleShowAllCodes()" slot="endContent">
-      @if(showAllCode){
-        <ui5-icon name="detail-less"></ui5-icon> Hide All Code Examples
-      } @else {
-        <ui5-icon name="detail-more"></ui5-icon> Show All Code Examples
-      }
+    <ui5-button class="button" design="Positive" (ui5Click)="toggleShowAllCodes()" slot="endContent">
+      <div class="button-content">
+        @if(showAllCode){
+          <ui5-icon design="Positive" name="detail-less"></ui5-icon> <div class="text">Hide All Code Examples</div>
+        } @else {
+          <ui5-icon design="Positive" name="detail-more"></ui5-icon> <div class="text">Show All Code Examples</div>
+        }
+      </div>
     </ui5-button>
   </ui5-bar>
 
@@ -20,15 +22,19 @@
           <div class="buttons">
             @if(item.linkToExample){
               <ui5-button class="button" design="Emphasized" (ui5Click)="showExample(item)">
-                <ui5-icon name="example"></ui5-icon> Show Example
+                <div class="button-content">
+                  <ui5-icon design="Contrast" name="example"></ui5-icon> <div class="text">Show Example</div>
+                </div>
               </ui5-button>
             }
-            <ui5-button class="button" design="Attention" (ui5Click)="toggleCode(item)">
-              @if(!!item.isCodeVisible){
-                <ui5-icon name="hide"></ui5-icon> Hide Code
-              } @else {
-                <ui5-icon name="show"></ui5-icon> Show Code
-              }
+            <ui5-button class="button" design="Positive" (ui5Click)="toggleCode(item)">
+              <div class="button-content">
+                @if(!!item.isCodeVisible){
+                  <ui5-icon design="Positive" name="hide"></ui5-icon> <div class="text">Hide Code</div>
+                } @else {
+                  <ui5-icon design="Positive" name="show"></ui5-icon> <div class="text">Show Code</div>
+                }
+              </div>
             </ui5-button>
           </div>
         </div>

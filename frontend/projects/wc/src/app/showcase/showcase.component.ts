@@ -57,16 +57,16 @@ export class ShowcaseComponent {
     {
       header: 'Definition of an Entity',
       label: `
-        An entity is the basic building block of configuration. The configuration consists of <b>nodes</b> and <b>texts</b>.
+        An entity is the basic building block of configuration. The configuration consists of nodes and texts.
 
-        In this example, <b>{{firstExampleTitle}}</b> will be replaced with the value of <b>"firstExampleTitle"</b> according to the language(locale).
+        In this example, <code>{{firstExampleTitle}}</code> will be replaced with the value of <code>"firstExampleTitle"</code> according to the language(locale).
 
-        The overall structure consists of two nodes. The top node, starting with <b>"entityType": "main"</b>, is a definition for <b>"entity-definition"</b> page,
-        it is a sub-page for an entity that is not available here but contains <b>"defineEntity"</b> key with <b>"id": "main"</b>. <b>"compound"</b> informs
+        The overall structure consists of two nodes. The top node, starting with <code>"entityType": "main"</code>, is a definition for "entity-definition" page,
+        it is a sub-page for an entity that is not available here but contains <code>"defineEntity"</code> key with <code>"id": "main"</code>. <code>"compound"</code> informs
         us about the page content.
 
-        The content itself is defined in another entity starting with <b>"entityType": "main.first-example::compound"</b>. The entity type refers to the parent node.
-        <b>"url"</b> points to the component and <b>"context"</b> lets you pass additional information to the component.
+        The content itself is defined in another entity starting with <code>"entityType": "main.first-example::compound"</code>. The entity type refers to the parent node.
+        <code>"url"</code> points to the component and <code>"context"</code> lets you pass additional information to the component.
       `,
       linkToExample: "entity-definition",
       example: `
@@ -128,13 +128,13 @@ export class ShowcaseComponent {
       label: `
         This example showcases the configuration of an entity that allows adding a Micro Frontend via an iframe.
 
-        The integration entity requires <b>"requiredIFramePermissions"</b>, <u>consider removing unnecessary permissions</u>.
+        The integration entity requires <code>"requiredIFramePermissions"</code>, consider removing unnecessary permissions.
 
-        Another important element in this example is the <b>"virtualTree"</b> parameter, which activates navigation around the microservice.
-        <b>"navigationContext"</b> allows you to set the navigation base url. In this way, you will notice that the browser URL gets updated according
+        Another important element in this example is the <code>"virtualTree"</code> parameter, which activates navigation around the microservice.
+        <code>"navigationContext"</code> allows you to set the navigation base url. In this way, you will notice that the browser URL gets updated according
         to the microservice's internal routing, as well as the window content.
 
-        Loading external services may take a while, so you can use a <b>"loadingIndicator"</b> to let the user know about the processing.
+        Loading external services may take a while, so you can use a <code>"loadingIndicator"</code> to let the user know about the processing.
       `,
       linkToExample: "micro-frontend-iframe",
       example: `
@@ -178,10 +178,10 @@ export class ShowcaseComponent {
     {
       header: 'Left Side Menu Navigating',
       label: `
-        The configuration for two entities allows you to find two tabs in the left-side menu: <i>"First Tab"</i> and <i>"Second Tab"</i>. Both definitions
-        were placed as part of the children array, meaning both are sub-sites of the main entity. This dependency defines the path as follows: <b>"/home/first"</b>.
+        The configuration for two entities allows you to find two tabs in the left-side menu: "First Tab" and "Second Tab". Both definitions
+        were placed as part of the children array, meaning both are sub-sites of the main entity. This dependency defines the path as follows: <code>"/home/first"</code>.
 
-        To hide a tab in the navigation panel, you can use </b>"hideFromNav": true</b>, or remove the </b>"label"</b>. This effect may be useful if you want to keep
+        To hide a tab in the navigation panel, you can use </code>"hideFromNav": true</code>, or remove the </code>"label"</code>. This effect may be useful if you want to keep
         the navigation functional without making it accessible from the navigation panel.
       `,
       example: `
@@ -263,9 +263,9 @@ export class ShowcaseComponent {
     {
       header: 'Integrate Web Component Into a Page',
       label: `
-        An entity can have a definition for a Web Component. The <b>"urlSuffix"</b> points to the component, and <b>"content"</b> passes configuration data
-        over to the component. In this example, the component is registered under the name <i>"account-overview"</i>. To use the component,
-        you should add the <b>"webcomponent"</b> key with <b>"selfRegistered": true;</b> otherwise, the interpreter won't recognize your definition
+        An entity can have a definition for a Web Component. The <code>"urlSuffix"</code> points to the component, and <code>"content"</code> passes configuration data
+        over to the component. In this example, the component is registered under the name "account-overview". To use the component,
+        you should add the <code>"webcomponent"</code> key with <code>"selfRegistered": true;</code> otherwise, the interpreter won't recognize your definition
         as a webcomponent setup.
       `,
       linkToExample: "web-component-integration",

@@ -37,15 +37,24 @@
     padding-top: 5px;
   }
 
-  .button {
-    margin-left: 20px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
   .buttons {
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+.button {
+  margin-left: 20px;
+  padding: 5px;
+  border-radius: 5px;
+
+  .button-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .text {
+    margin-left: 5px;
   }
 }
 
