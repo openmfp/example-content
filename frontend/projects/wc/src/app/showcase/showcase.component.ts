@@ -261,7 +261,7 @@ export class ShowcaseComponent {
       `
     },
     {
-      header: 'Integrate Web Component into page',
+      header: 'Integrate Web Component Into a Page',
       label: `
         An entity can have a definition for a Web Component. The <b>"urlSuffix"</b> points to the component, and <b>"content"</b> passes configuration data
         over to the component. In this example, the component is registered under the name <i>"account-overview"</i>. To use the component,
