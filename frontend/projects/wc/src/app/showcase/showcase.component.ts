@@ -132,7 +132,7 @@ export class ShowcaseComponent {
 
         Another important element in this example is the <b>"virtualTree"</b> parameter, which activates navigation around the microservice.
         <b>"navigationContext"</b> allows you to set the navigation base url. In this way, you will notice that the browser URL gets updated according
-        to the microservice's internal routing as well as the window content.
+        to the microservice's internal routing, as well as the window content.
 
         Loading external services may take a while, so you can use a <b>"loadingIndicator"</b> to let the user know about the processing.
       `,
