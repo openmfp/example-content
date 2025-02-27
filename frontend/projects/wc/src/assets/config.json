@@ -47,7 +47,7 @@
           "locale": "en",
           "textDictionary": {
             "firstExampleTitle": "Definition of an Entity",
-            "firstExampleDescription": "Entity is basic building block of configuration."
+            "firstExampleDescription": "Entity is a basic building block configuration."
           }
         }
       ]
