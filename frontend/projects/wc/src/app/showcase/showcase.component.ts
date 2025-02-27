@@ -124,7 +124,7 @@ export class ShowcaseComponent {
       `
     },
     {
-      header: 'Iframe based Micro Frontend integration',
+      header: 'Iframe based Micro Frontend Integration',
       label: `
         This example showcases the configuration of an entity that allows adding a Micro Frontend via an iframe.
 
