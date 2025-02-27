@@ -250,7 +250,7 @@ export class ShowcaseComponent {
                   "url": "https://luigiwebcomponents.gitlab.io/layouts/panelHeader.js",
                   "context": {
                     "border": "shadow",
-                    "title": "Third page",
+                    "title": "Third Page",
                     "description": "This is third page"
                   }
                 }
