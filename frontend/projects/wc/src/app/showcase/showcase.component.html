@@ -1,15 +1,47 @@
+<div class="title">
+  <ui5-title level="H3">{{title}}</ui5-title>
+</div>
 <div class="showcase-cards">
+  <ui5-bar design="Header">
+    <ui5-button class="button" design="Positive" (ui5Click)="toggleShowAllCodes()" slot="endContent">
+      <div class="button-content">
+        @if(showAllCode){
+          <ui5-icon design="Positive" name="detail-less"></ui5-icon> <div class="text">Hide All Code Examples</div>
+        } @else {
+          <ui5-icon design="Positive" name="detail-more"></ui5-icon> <div class="text">Show All Code Examples</div>
+        }
+      </div>
+    </ui5-button>
+  </ui5-bar>
+
   @for (item of showcaseItems; track $index) {
     <ui5-card class="showcase-card">
       <ui5-panel fixed>
         <div class="header">
-          <ui5-title class="title" level="H4">{{item.header}}</ui5-title>
-          @if(item.linkToExample) {
-            <ui5-button class="button" design="Emphasized" (ui5Click)="show(item.linkToExample)">Show Example</ui5-button>
-          }
+          <ui5-title class="headline" level="H4">{{item.header}}</ui5-title>
+          <div class="buttons">
+            @if(item.linkToExample){
+              <ui5-button class="button" design="Emphasized" (ui5Click)="showExample(item)">
+                <div class="button-content">
+                  <ui5-icon design="Contrast" name="example"></ui5-icon> <div class="text">Show Example</div>
+                </div>
+              </ui5-button>
+            }
+            <ui5-button class="button" design="Positive" (ui5Click)="toggleCode(item)">
+              <div class="button-content">
+                @if(!!item.isCodeVisible){
+                  <ui5-icon design="Positive" name="hide"></ui5-icon> <div class="text">Hide Code</div>
+                } @else {
+                  <ui5-icon design="Positive" name="show"></ui5-icon> <div class="text">Show Code</div>
+                }
+              </div>
+            </ui5-button>
+          </div>
         </div>
-        <ui5-label class="description">{{item.label}}</ui5-label>
-        <ui5-text class="content">{{item.example}}</ui5-text>
+        <div class="panel description" [innerHTML]="item.label | safeHtml"></div>
+        @if(!!item.isCodeVisible){
+          <ui5-text class="panel content">{{item.example}}</ui5-text>
+        }
       </ui5-panel>
     </ui5-card>
   }

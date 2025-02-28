@@ -1,5 +1,5 @@
 {
-  "name": "examples-overview",
+  "name": "examples-overview-ui",
   "creationTimestamp": "",
   "luigiConfigFragment": {
     "data": {
@@ -10,25 +10,77 @@
           "order": 1,
           "defineEntity": {
             "id": "main"
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "overview",
+          "label": "Overview of Examples",
+          "icon": "home",
+          "order": 1,
+          "defineEntity": {
+            "id": "overview"
           },
-          "children": [
-            {
-              "pathSegment": "overview",
-              "label": "Examples overview",
-              "icon": "home",
-              "defineEntity": {
-                "id": "overview"
-              },
-              "compound": {
-                "renderer": {
-                  "use": "grid",
-                  "config": {
-                    "columns": "1fr 1fr 1fr 1fr"
-                  }
-                }
+          "compound": {
+            "renderer": {
+              "use": "grid",
+              "config": {
+                "columns": "1fr 1fr 1fr 1fr"
               }
             }
-          ]
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "entity-definition",
+          "label": "Entity Definition",
+          "hideFromNav": true,
+          "order": 2,
+          "defineEntity": {
+            "id": "entity-definition"
+          },
+          "category": {
+            "label": "Showcase of Examples",
+            "icon": "attachment-html",
+            "collapsible": true
+          },
+          "compound": {
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "micro-frontend-iframe",
+          "label": "Micro Frontend Iframe",
+          "hideFromNav": true,
+          "order": 3,
+          "virtualTree": true,
+          "navigationContext": "showcase",
+          "urlSuffix": "/ui/example-content/ui/#/showcase",
+          "loadingIndicator": {
+            "enabled": false
+          },
+          "category": {
+            "label": "Showcase of Examples",
+            "icon": "attachment-html",
+            "collapsible": true
+          }
+        },
+        {
+          "entityType": "main",
+          "pathSegment": "web-component-integration",
+          "label": "Web Component Integration",
+          "hideFromNav": true,
+          "order": 4,
+          "defineEntity": {
+            "id": "web-component-integration"
+          },
+          "category": {
+            "label": "Showcase of Examples",
+            "icon": "attachment-html",
+            "collapsible": true
+          },
+          "compound": {
+          }
         }
       ]
     }

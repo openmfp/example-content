@@ -48,12 +48,22 @@ kubectl patch deployment openmfp-example-content -n openmfp-system --type='json'
 kubectl patch deployment openmfp-example-content -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "example-content:latest"}]' && \
 kubectl rollout restart deployment openmfp-example-content -n openmfp-system && \
 kubectl rollout status deployment openmfp-example-content -n openmfp-system && \
-kubectl patch contentconfiguration openmfp-example-content-ui -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/remoteConfiguration/internalUrl", "value": "http://openmfp-example-content.openmfp-system.svc.cluster.local:8080/ui/assets/config.json?r='$(date +%s%3N)'"}]' && \
-kubectl patch contentconfiguration openmfp-example-content-wc -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/remoteConfiguration/internalUrl", "value": "http://openmfp-example-content.openmfp-system.svc.cluster.local:8080/wc/assets/config.json?r='$(date +%s%3N)'"}]'
+kubectl patch contentconfiguration openmfp-example-content-ui -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/remoteConfiguration/internalUrl", "value": "http://openmfp-example-content.openmfp-system.svc.cluster.local:8080/ui/example-content/ui/assets/config.json?r='$(date +%s%3N)'"}]' && \
+kubectl patch contentconfiguration openmfp-example-content-wc -n openmfp-system --type='json' -p='[{"op": "replace", "path": "/spec/remoteConfiguration/internalUrl", "value": "http://openmfp-example-content.openmfp-system.svc.cluster.local:8080/ui/example-content/wc/assets/config.json?r='$(date +%s%3N)'"}]'
 ```
 
 **Troubleshooting**
-- If you encounter issues when starting the pod with the loaded image you [this issue](https://github.com/kubernetes-sigs/kind/issues?q=is%3Aissue%20state%3Aopen%20load%20image). A way to circumnvent this is to disable `Use containerd for pulling and storing images` in the docker settings.
+- If you encounter error like this: 
+```
+    ERROR: command "docker save -o /tmp/images-tar1234567890/images.tar example-content:latest" failed with error: exit status 1
+```
+   Use this two commands and try again
+```sh
+    mkdir $HOME/tmp/
+    export TMPDIR=$HOME/tmp/ 
+```
+
+- When initiating a pod with a pre-loaded Docker image, you might encounter [this issue](https://github.com/kubernetes-sigs/kind/issues?q=is%3Aissue%20state%3Aopen%20load%20image). To bypass this, disable the `Use containerd for pulling and storing images` option in the Docker settings.
 
 ## Issues
 We use GitHub issues to track bugs. Please ensure your description is
