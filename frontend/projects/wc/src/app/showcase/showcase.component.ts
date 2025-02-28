@@ -251,7 +251,7 @@ export class ShowcaseComponent {
                   "context": {
                     "border": "shadow",
                     "title": "Third Page",
-                    "description": "This is third page"
+                    "description": "This is the third page"
                   }
                 }
               ]
