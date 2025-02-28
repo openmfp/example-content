@@ -63,7 +63,7 @@ kubectl patch contentconfiguration openmfp-example-content-wc -n openmfp-system 
     export TMPDIR=$HOME/tmp/ 
 ```
 
-- If you encounter issues when starting the pod with the loaded image you [this issue](https://github.com/kubernetes-sigs/kind/issues?q=is%3Aissue%20state%3Aopen%20load%20image). A way to circumnvent this is to disable `Use containerd for pulling and storing images` in the docker settings.
+- When initiating a pod with a pre-loaded Docker image, you might encounter [this issue](https://github.com/kubernetes-sigs/kind/issues?q=is%3Aissue%20state%3Aopen%20load%20image). To bypass this, disable the `Use containerd for pulling and storing images` option in the Docker settings.
 
 ## Issues
 We use GitHub issues to track bugs. Please ensure your description is
