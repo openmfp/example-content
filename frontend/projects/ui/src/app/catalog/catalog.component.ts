@@ -1,8 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  QueryList,
+  signal,
+  ViewChildren,
+  WritableSignal
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LuigiContextService } from '@luigi-project/client-support-angular';
-import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
+import { CheckBoxComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { IconComponent } from '@ui5/webcomponents-ngx/main/icon';
 import { finalize } from 'rxjs/operators';
 import { LOCAL_STORAGE_CATALOG_KEY } from '../app.constants';
@@ -20,14 +30,17 @@ import { CatalogCardListComponent } from './catalog-card-list/catalog-card-list.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogComponent implements OnInit {
+  @ViewChildren(CheckBoxComponent) checkBoxes!: QueryList<CheckBoxComponent>;
   context?: CatalogContext;
   fetchFinalized = false;
+  filtersVisible = false;
   items: WritableSignal<ExtensionClass[]> = signal([]);
   categories: Set<string> = new Set();
   providers: Set<string> = new Set();
   selectedCategories: string[] = [];
   selectedProviders: string[] = [];
   filteredItems: WritableSignal<ExtensionClass[]> = signal([]);
+  categoryTree!: any[];
   private destroyRef = inject(DestroyRef);
 
   constructor(private dataService: CatalogDataService, private luigiContextService: LuigiContextService) { }
@@ -38,13 +51,39 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  public onCategoriesChange(e: any) {
-    this.selectedCategories = this.updateSelection(e);
+  public toggleFilterVisibility(event: Event) {
+    event.preventDefault();
+
+    this.filtersVisible = !this.filtersVisible;
+  }
+
+  public clearAllFilters(event: Event) {
+    event.preventDefault();
+    this.checkBoxes?.toArray().forEach(item => item.checked = false);
+
+    this.selectedCategories.length = 0;
+    this.selectedProviders.length = 0;
+
     this.filterItems();
   }
 
-  public onProvidersChange(e: any) {
-    this.selectedProviders = this.updateSelection(e);
+  public onCategoryChange(event: any, category: string) {
+    if (event.target._state.checked && !this.selectedCategories.includes(category)) {
+      this.selectedCategories.push(category);
+    } else {
+      this.selectedCategories = this.selectedCategories.filter(item => item !== category);
+    }
+
+    this.filterItems();
+  }
+
+  public onProviderChange(event: any, provider: string) {
+    if (event.target._state.checked && !this.selectedProviders.includes(provider)) {
+      this.selectedProviders.push(provider);
+    } else {
+      this.selectedProviders = this.selectedProviders.filter(item => item !== provider);
+    }
+
     this.filterItems();
   }
 
@@ -94,8 +133,22 @@ export class CatalogComponent implements OnInit {
   private updateCatalogItems(account: string, data: ExtensionClass[]) {
     const storageKey = account ? `${LOCAL_STORAGE_CATALOG_KEY}-${account}` : LOCAL_STORAGE_CATALOG_KEY;
     const globalStorage: string[] = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const treeData: Record<string, any> = {};
 
     data?.forEach(item => {
+      const cat = item.category?.toLowerCase().replaceAll(' &', '').replaceAll(' ', '-');
+
+      if (cat) {
+        if (!treeData[cat]) {
+          treeData[cat] = {
+            name: item.category,
+            providers: new Set()
+          }
+        }
+
+        treeData[cat].providers.add(item.provider);
+      }
+
       item.category && this.categories.add(item.category);
       item.provider && this.providers.add(item.provider);
 
@@ -109,11 +162,9 @@ export class CatalogComponent implements OnInit {
       }
     });
 
+    this.categoryTree = treeData ? Object.values(treeData) : [];
+
     this.items.set(data);
     this.filterItems();
-  }
-
-  private updateSelection(e: any): string[] {
-    return e.detail.items.map((item: any) => item._state.text);
   }
 }
