@@ -9,8 +9,12 @@ COPY /frontend ./
 RUN npm run build-prod
 RUN npm run build:wc
 
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
+USER 101
+
+
 COPY --from=build /app/frontend/dist/ /usr/share/nginx/html/ui/example-content/ui/
 COPY --from=build /app/frontend/dist-wc/ /usr/share/nginx/html/ui/example-content/wc/
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 8080

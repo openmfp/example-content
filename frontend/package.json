@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve ui",
-    "start:wc": "ng serve wc --single-bundle --no-live-reload  --port=4201",
+    "start:wc": "ng serve wc --single-bundle --no-live-reload  --port=4201 --serve-path=/ui/example-ui/wc/ ",
     "build": "ng build ui",
     "build:wc": "ng build wc --single-bundle --output-hashing none",
     "build-prod": "ng build ui -c production",
