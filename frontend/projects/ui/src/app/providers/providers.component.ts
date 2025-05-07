@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {DynamicPageModule, FormModule, FundamentalNgxCoreModule, IllustratedMessageModule} from "@fundamental-ngx/core";
-import {CommonModule} from "@angular/common";
+import { FundamentalNgxCoreModule } from "@fundamental-ngx/core";
 
 @Component({
   selector: 'app-providers',

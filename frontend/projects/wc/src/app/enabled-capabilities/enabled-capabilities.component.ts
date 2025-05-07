@@ -12,7 +12,7 @@ import { SmallCardComponent } from '../small-card/small-card.component';
 export class EnabledCapabilitiesComponent {
   readonly capabilities: SmallCardDataModel[] = [
     {
-      image: 'https://d.ing.gardener-op.mfp-dev.shoot.canary.k8s-hana.ondemand.com/static/assets/logo.svg',
+      image: 'https://dashboard.garden.live.k8s.ondemand.com/static/assets/logo.svg',
       name: 'Gardener',
     },
     {
@@ -20,7 +20,7 @@ export class EnabledCapabilitiesComponent {
       name: 'Iron Core',
     },
     {
-      image: 'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/assets/openmcp.png',
+      image: 'https://ocm.software/images/logo-image.png',
       name: 'OpenMCP',
     },
   ];
