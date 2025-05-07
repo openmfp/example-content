@@ -20,7 +20,7 @@ export class EnabledCapabilitiesComponent {
       name: 'Iron Core',
     },
     {
-      image: 'https://content.d1.openmfp.dxp.k8s.ondemand.com/ui/wc/assets/openmcp.png',
+      image: 'https://ocm.software/images/logo-image.png',
       name: 'OpenMCP',
     },
   ];
