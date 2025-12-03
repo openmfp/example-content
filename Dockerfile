@@ -1,4 +1,4 @@
-FROM node:22.19 AS build
+FROM node:22.21 AS build
 
 COPY frontend/package.json frontend/package-lock.json /app/frontend/
 
