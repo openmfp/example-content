@@ -33,7 +33,7 @@
     "@ui5/webcomponents-icons": "2.0.1",
     "@ui5/webcomponents-icons-business-suite": "2.0.1",
     "@ui5/webcomponents-icons-tnt": "2.0.1",
-    "@ui5/webcomponents-ngx": "0.3.0",
+    "@ui5/webcomponents-ngx": "0.5.10",
     "apollo-angular": "7.0.2",
     "chart.js": "4.5.1",
     "deepmerge": "4.3.1",
