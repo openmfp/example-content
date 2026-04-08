@@ -1,4 +1,4 @@
-FROM node:24.14 AS build
+FROM node:24.14@sha256:80fc934952c8f1b2b4d39907af7211f8a9fff1a4c2cf673fb49099292c251cec AS build
 
 COPY frontend/package.json frontend/package-lock.json /app/frontend/
 
@@ -9,7 +9,7 @@ COPY /frontend ./
 RUN npm run build-prod
 RUN npm run build:wc
 
-FROM nginxinc/nginx-unprivileged:alpine
+FROM nginxinc/nginx-unprivileged:alpine@sha256:601c823234c474696ded03d619e67f1e59538802731543099c691aea67e4a553
 USER 101
 
 
