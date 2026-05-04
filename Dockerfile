@@ -9,7 +9,7 @@ COPY /frontend ./
 RUN npm run build-prod
 RUN npm run build:wc
 
-FROM nginxinc/nginx-unprivileged:alpine@sha256:601c823234c474696ded03d619e67f1e59538802731543099c691aea67e4a553
+FROM nginxinc/nginx-unprivileged:alpine@sha256:53ffe9cc959fc72aeed04a85d517099a42bfcc5f5f0b07a2b1048e08abf2f1eb
 USER 101
 
 
