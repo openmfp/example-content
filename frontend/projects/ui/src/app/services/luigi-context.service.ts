@@ -1,6 +1,7 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable, Injector, Signal } from '@angular/core';
 import {
   ILuigiContextTypes,
+  IContextMessage as LuigiContextMessage,
   LuigiContextService,
   LuigiContextServiceImpl,
 } from '@luigi-project/client-support-angular';
@@ -26,6 +27,10 @@ export class PortalLuigiContextService extends LuigiContextService {
     super();
     this.luigiContextService = injector.get(LuigiContextServiceImpl);
     this.env = injector.get(ENV, {});
+  }
+
+  get contextSignal(): Signal<LuigiContextMessage | undefined> {
+    return this.luigiContextService.contextSignal;
   }
 
   /**

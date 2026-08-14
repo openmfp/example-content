@@ -20,3 +20,4 @@ jobs:
       imageTagName: ghcr.io/openmfp/example-content
       componentVersionKey: example-content
       repoVersionUpdate: openmfp/helm-charts
+      node_version: "24"

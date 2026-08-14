@@ -42,18 +42,7 @@
             ],
             "styles": [
               "projects/ui/src/styles.scss",
-              "./node_modules/@fundamental-ngx/core/styles/fundamental-ngx-core.css",
-              "./node_modules/fundamental-styles/dist/fonts/sap_fonts.css",
-              {
-                "input": "./node_modules/fundamental-styles/dist/fonts/sap_fiori_3_fonts.css",
-                "inject": false,
-                "bundleName": "sap_fiori_3_fonts"
-              },
-              {
-                "input": "./node_modules/fundamental-styles/dist/fonts/sap_horizon_fonts.css",
-                "inject": false,
-                "bundleName": "sap_horizon_fonts"
-              }
+              "./node_modules/@fundamental-ngx/core/styles/fundamental-ngx-core.css"
             ],
             "scripts": [],
             "outputHashing": "all"
