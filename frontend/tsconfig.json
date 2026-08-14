@@ -13,11 +13,14 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "preserve",
     "useDefineForClassFields": false,
+    "paths": {
+      "minifaker": ["./node_modules/minifaker/dist/types/index.d.ts"]
+    },
     "lib": [
       "ES2022",
       "dom"

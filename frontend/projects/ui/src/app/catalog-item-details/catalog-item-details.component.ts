@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import LuigiClient from '@luigi-project/client';
+import * as LuigiClient from '@luigi-project/client';
 import { IconComponent, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { filter, tap } from 'rxjs/operators';
 import { LOCAL_STORAGE_CATALOG_KEY } from '../app.constants';

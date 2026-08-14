@@ -1,5 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
-import LuigiClient from '@luigi-project/client';
+import * as LuigiClient from '@luigi-project/client';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
