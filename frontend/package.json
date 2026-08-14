@@ -27,7 +27,7 @@
     "@fundamental-ngx/cdk": "0.64.1",
     "@fundamental-ngx/core": "^0.64.1",
     "@fundamental-ngx/i18n": "0.64.1",
-    "@luigi-project/client": "^2.14.2",
+    "@luigi-project/client": "^2.31.0",
     "@luigi-project/client-support-angular": "22.1.0",
     "@sap-theming/theming-base-content": "^11.36.0",
     "@ui5/webcomponents": "2.18.1",
