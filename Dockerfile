@@ -1,4 +1,4 @@
-FROM node:24.14@sha256:80fc934952c8f1b2b4d39907af7211f8a9fff1a4c2cf673fb49099292c251cec AS build
+FROM node:24.20@sha256:be23f54a88d34e8824c741b19b91064094f92c1c97b194144bfc8b50d67258e2 AS build
 
 COPY frontend/package.json frontend/package-lock.json /app/frontend/
 
